@@ -1,9 +1,10 @@
 import React from 'react'
+import { Signin } from '../components'
 
 const login = () => {
     return (
-        <div>
-            yup here it is
+        <div className="login">
+            <Signin />
         </div>
     )
 }

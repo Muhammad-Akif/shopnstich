@@ -9,14 +9,13 @@ body {
   font-family: 'Montserrat', sans-serif;
 } 
 
-.banner::before{
+.login::before, .banner::before{
     content:'';
     content: "";
     width: 100%;
     height: 100vh;
     /* //background: linear-gradient(to right bottom, #6d327c, #485DA6, #00a1ba, #01b18e, #32b37b);
     // background: #D3D3D3; */
-    background-image: url("../images/02/cover.png");
     position: fixed;
     /* left: 0;
     top: 0; */
@@ -24,6 +23,12 @@ body {
     background-position: 50% 50%;
     background-repeat: no-repeat;
     background-size: cover;
+}
+.login::before{
+    background-image: url("../images/01/cover.png");
+}
+.banner::before{
+    background-image: url("../images/02/cover.png");
 }
 
 
