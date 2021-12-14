@@ -1,0 +1,11 @@
+
+Hope you enjoy your new logo, here are the people that
+made your beautiful logo happen :)
+font name: Oregano-Regular
+font link: https://fonts.google.com/specimen/Oregano
+font author: Astigmatic
+font author site: http://www.astigmatic.com/
+
+
+{"bg":"#00242C","icon":"#81E291","font":"#FFFFFF","slogan":"#ffffff"}
+      
