@@ -30,6 +30,9 @@ body {
 .banner::before{
     background-image: url("../images/02/cover.png");
 }
+/* .mainColor {
+    color: #81E291;
+} */
 
 
 /* fixed social*/
