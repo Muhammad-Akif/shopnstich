@@ -129,17 +129,25 @@ const Signin = () => {
                 <div class="md:flex md:items-center">
                     <div class="md:w-1/3"></div>
                     <div class="md:w-2/3">
-                        <button class="shadow bg-green-900 hover:bg-green-800 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rounded" type="button" onClick={signIn}>
+                        <button class="shadow bg-green-900 hover:bg-green-800 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 w-full rounded" type="button" onClick={signIn}>
                             Login
                         </button>
                     </div>
                 </div>
-                {/* <button style={{ border: "none", fontSize: "14px", backgroundColor: "white" }} onClick={(e) => {
-                    e.preventDefault();
-                    forgotPassword(email);
-                }}>
-                    Forgot password?
-                </button> */}
+                <div class="md:flex md:items-center">
+                    <div class="md:w-1/3"></div>
+                    <div class="md:w-2/3">
+                        <button class="border-none text-white align-right " onClick={(e) => {
+                            e.preventDefault();
+                            forgotPassword(email);
+                        }}>
+                            Forgot password?
+                        </button>
+                        {/* <button class="shadow bg-green-900 hover:bg-green-800 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 w-full rounded" type="button" onClick={signIn}>
+                            Login
+                        </button> */}
+                    </div>
+                </div>
                 {/* <NavLink to="/signup" variant="body2">
                                     No account? Sign Up
                                 </NavLink> */}
