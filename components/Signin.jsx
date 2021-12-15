@@ -87,7 +87,7 @@ const Signin = () => {
 
     }
     return (
-        <div>
+        <div class="border-2 rounded-xl pr-10 pt-5 ">
             <form class="w-full max-w-sm">
                 <div class="md:flex md:items-center mb-6">
                     <div class="md:w-1/3">
@@ -96,12 +96,12 @@ const Signin = () => {
                         </label>
                     </div>
                     <div class="md:w-2/3">
-                        <input class="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500" id="email" type="text" value={email}
+                        <input class="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-green-950" id="email" placeholder='example@gmail.com' type="text" value={email}
                             onChange={onChangeInput.bind(null, "email")} />
                     </div>
                 </div>
                 {showError && (!isEmailValidate && (
-                    <div>This is a wrong email</div>
+                    <div class="text-red-500 font-bold text-right pb-4 -mt-5">Wrong email entered!</div>
                 ))}
                 <div class="md:flex md:items-center mb-6">
                     <div class="md:w-1/3">
@@ -110,19 +110,19 @@ const Signin = () => {
                         </label>
                     </div>
                     <div class="md:w-2/3">
-                        <input class="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500" id="inline-password" type="password" value={password}
-                            onChange={onChangeInput.bind(null, "password")} placeholder="******************" />
+                        <input class="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-green-950" id="inline-password" type="password" value={password}
+                            onChange={onChangeInput.bind(null, "password")} placeholder="*****" />
                     </div>
                 </div>
                 {showError && (!isPasswordValidate && (
-                    <div>Password length must be at least 6 characters</div>
+                    <div class="text-red-500 font-bold text-right pb-4 -mt-5">At least 6 characters!</div>
                 ))}
                 <div class="md:flex md:items-center mb-6">
                     <div class="md:w-1/3"></div>
                     <label class="md:w-2/3 block text-gray-500 font-bold">
                         <input class="mr-2 leading-tight" type="checkbox" />
                         <span class="text-sm">
-                            Send me your newsletter!
+                            Send me latest updates!
                         </span>
                     </label>
                 </div>
@@ -137,7 +137,7 @@ const Signin = () => {
                 <div class="md:flex md:items-center">
                     <div class="md:w-1/3"></div>
                     <div class="md:w-2/3">
-                        <button class="border-none text-white align-right " onClick={(e) => {
+                        <button class="border-none py-4 text-white align-right " onClick={(e) => {
                             e.preventDefault();
                             forgotPassword(email);
                         }}>
