@@ -62,11 +62,12 @@ function Navbar() {
                             </span>
                         </button>
                     </div>
-                    <div>
-                        <Link href="/login">
-                            <a class="inline-block text-lg px-4 py-3 leading-none border rounded text-white border-white hover:border-transparent hover:text-teal-500 hover:bg-green-900 mt-4 transition duration-150 ease-in-out lg:mt-0">Login</a>
-                        </Link>
-                    </div>
+                    <Link href="/login" class="text-white">
+                        <div className='nav-btn'>
+                            Login
+                        </div>
+                    </Link>
+                        {/* <a class="inline-block text-lg px-4 py-3 leading-none border rounded text-white border-white hover:border-transparent hover:text-teal-500 hover:bg-green-900 mt-4 transition duration-150 ease-in-out lg:mt-0">Login</a> */}
                 </div>
             </nav>
         </>
