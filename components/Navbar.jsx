@@ -15,20 +15,35 @@ function Navbar() {
                 </div>
                 <div class="w-full block flex-grow lg:flex lg:items-center lg:justify-end lg:w-auto">
                     <div class="text-lg mr-4">
-                        <a href="#responsive-header" class="block mt-4 lg:inline-block lg:mt-0 text-white hover:text-white mr-4">
+                        <a href="#responsive-header" class="block mt-4 lg:inline-block lg:mt-0 text-white hover:text-white mr-4 ">
                             Men
+                            <span>
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 pl-1 inline w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                                </svg>
+                            </span>
                         </a>
                         <a href="#responsive-header" class="block mt-4 lg:inline-block lg:mt-0 text-white hover:text-white mr-4">
                             Women
+                            <span>
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 pl-1 inline w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                                </svg>
+                            </span>
                         </a>
                         <a href="#responsive-header" class="block mt-4 lg:inline-block lg:mt-0 text-white hover:text-whitem mr-4">
                             Kids
+                            <span>
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 pl-1 inline w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                                </svg>
+                            </span>
+                        </a>
+                        <a href="#responsive-header" class="block mt-4 maincolor lg:inline-block lg:mt-0 text-white hover:text-white mr-4">
+                            How it Works?
                         </a>
                         <a href="#responsive-header" class="block mt-4 lg:inline-block lg:mt-0 text-white hover:text-white mr-4">
                             About
-                        </a>
-                        <a href="#responsive-header" class="block mt-4 lg:inline-block lg:mt-0 text-white hover:text-white">
-                            Contact
                         </a>
                     </div>
                     <form class="group relative mr-4">
@@ -67,7 +82,7 @@ function Navbar() {
                             Login
                         </div>
                     </Link>
-                        {/* <a class="inline-block text-lg px-4 py-3 leading-none border rounded text-white border-white hover:border-transparent hover:text-teal-500 hover:bg-green-900 mt-4 transition duration-150 ease-in-out lg:mt-0">Login</a> */}
+                    {/* <a class="inline-block text-lg px-4 py-3 leading-none border rounded text-white border-white hover:border-transparent hover:text-teal-500 hover:bg-green-900 mt-4 transition duration-150 ease-in-out lg:mt-0">Login</a> */}
                 </div>
             </nav>
         </>
