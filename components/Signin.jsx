@@ -88,6 +88,7 @@ const Signin = () => {
     }
     return (
         <div class="border-2 rounded-xl pr-10 pt-5 ">
+            <h1 class="text-center w-full  text-white font-serif pb-6 text-2xl pl-12"><strong>Login</strong></h1>
             <form class="w-full max-w-sm">
                 <div class="md:flex md:items-center mb-6">
                     <div class="md:w-1/3">
@@ -130,14 +131,14 @@ const Signin = () => {
                     <div class="md:w-1/3"></div>
                     <div class="md:w-2/3">
                         <button class="shadow bg-green-900 hover:bg-green-800 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 w-full rounded" type="button" onClick={signIn}>
-                            Login
+                            Sign in
                         </button>
                     </div>
                 </div>
-                <div class="md:flex md:items-center">
-                    <div class="md:w-1/3"></div>
-                    <div class="md:w-2/3">
-                        <button class="border-none py-4 text-white align-right " onClick={(e) => {
+                <div class="md:flex md:items-center  ml-6 pb-4">
+                    {/* <div class="md:w-1/3"></div> */}
+                    <div class="md:w-full">
+                        <button class="border-none py-4 text-white " onClick={(e) => {
                             e.preventDefault();
                             forgotPassword(email);
                         }}>
@@ -147,10 +148,10 @@ const Signin = () => {
                             Login
                         </button> */}
                     </div>
+                    <span class="text-white pt-6">  No account? <span class="hover:text-green-950 font-bold cursor-pointer hover:bg-green"> Sign Up </span></span>
                 </div>
-                {/* <NavLink to="/signup" variant="body2">
-                                    No account? Sign Up
-                                </NavLink> */}
+
+
             </form>
         </div>
     )
