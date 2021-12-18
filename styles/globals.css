@@ -23,12 +23,7 @@ body {
     background-position: 50% 50%;
     background-repeat: no-repeat;
     background-size: cover;
-}
-.login::before{
     background-image: url("../images/01/cover.png");
-}
-.banner::before{
-    background-image: url("../images/02/cover.png");
 }
 /* .mainColor {
     color: #81E291;
