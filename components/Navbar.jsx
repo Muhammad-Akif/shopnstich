@@ -46,8 +46,8 @@ function Navbar() {
                             About
                         </a>
                     </div>
-                    <form class="group relative mr-4">
-                        <svg width="20" height="20" fill="currentColor" class="absolute left-3 top-1/2 -mt-2.5 text-gray-400 pointer-events-none group-focus-within:text-blue-500" aria-hidden="true">
+                    <form class="group relative -mr-3">
+                        <svg width="20" height="20" fill="currentColor" class="absolute left-3 top-1/2 -mt-2.5 text-gray-400 pointer-events-none group-focus-within:text-green-950" aria-hidden="true">
                             <path fill-rule="evenodd" clip-rule="evenodd" d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z" />
                         </svg>
                         <input class="focus:ring-2 focus:ring-green-950 focus:outline-none w-full text-sm leading-6 text-gray-900 placeholder-gray-500 rounded-md py-2 pl-10 ring-1 ring-gray-200 shadow-sm" type="text" aria-label="Filter projects" placeholder="Filter anything ..." />
@@ -73,11 +73,11 @@ function Navbar() {
                         </button>
                     </div>
                     <Link href="/login" class="text-white">
-                        <div className='nav-btn'>
+                        {/* <div className='nav-btn'>
                             Login
-                        </div>
+                        </div> */}
+                        <button class="p-2 pl-5 pr-5 bg-transparent font-bold border-2 border-red-500 text-gray-100 text-lg rounded-lg hover:bg-red-500 hover:text-gray-100 focus:border-4 focus:border-red-300 letter-2">Login</button>
                     </Link>
-                    {/* <a class="inline-block text-lg px-4 py-3 leading-none border rounded text-white border-white hover:border-transparent hover:text-teal-500 hover:bg-green-900 mt-4 transition duration-150 ease-in-out lg:mt-0">Login</a> */}
                 </div>
             </nav>
         </>
