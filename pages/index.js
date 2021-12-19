@@ -1,19 +1,21 @@
 import Head from 'next/head'
-import {Navbar} from '../components'
-import { SideSocialIcons } from '../components'
-import { MainTextnImage } from '../components'
+import { Navbar } from '../components'
+import { SideSocialIcons, MainTextnImage, MainServices, Footer } from '../components'
 
 export default function Home() {
   return (
-    <div className="banner">
+    <div>
       <Head>
         <title>ShopnStich</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <Navbar/>
-      <MainTextnImage/>
-      <SideSocialIcons/>
-      
+      <div className="banner">
+        <Navbar />
+        <MainTextnImage />
+        <SideSocialIcons />
+      </div>
+      <MainServices />
+      <Footer />
     </div>
   )
 }
