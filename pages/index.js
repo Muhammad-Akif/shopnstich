@@ -15,8 +15,8 @@ export default function Home() {
         <SideSocialIcons />
       </div>
       <MainServices />
-      <Reviews />
       <ProductCard />
+      <Reviews />
       <Footer />
     </div>
   )

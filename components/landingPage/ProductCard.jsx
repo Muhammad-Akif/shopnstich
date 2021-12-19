@@ -4,7 +4,7 @@ const ProductCard = () => {
     return (
         <>
             <div class="max-w-full p-4 space-x-4 carousel carousel-center bg-neutral rounded-box">
-                <div class="carousel-item">
+                <div class="carousel-item w-1/4">
                     <div class="card shadow-xl image-full">
                         <figure>
                             <img src="https://picsum.photos/id/1005/400/250" />
@@ -18,7 +18,7 @@ const ProductCard = () => {
                         </div>
                     </div>
                 </div>
-                <div class="carousel-item">
+                <div class="carousel-item w-1/4">
                     <div class="card shadow-xl image-full">
                         <figure>
                             <img src="https://picsum.photos/id/1005/400/250" />
@@ -32,7 +32,7 @@ const ProductCard = () => {
                         </div>
                     </div>
                 </div>
-                <div class="carousel-item">
+                <div class="carousel-item w-1/4">
                     <div class="card shadow-xl image-full">
                         <figure>
                             <img src="https://picsum.photos/id/1005/400/250" />
@@ -46,7 +46,7 @@ const ProductCard = () => {
                         </div>
                     </div>
                 </div>
-                <div class="carousel-item">
+                <div class="carousel-item w-1/4">
                     <div class="card shadow-xl image-full">
                         <figure>
                             <img src="https://picsum.photos/id/1005/400/250" />
@@ -60,7 +60,7 @@ const ProductCard = () => {
                         </div>
                     </div>
                 </div>
-                <div class="carousel-item">
+                <div class="carousel-item w-1/4">
                     <div class="card shadow-xl image-full">
                         <figure>
                             <img src="https://picsum.photos/id/1005/400/250" />
@@ -74,7 +74,7 @@ const ProductCard = () => {
                         </div>
                     </div>
                 </div>
-                <div class="carousel-item">
+                <div class="carousel-item w-1/4">
                     <div class="card shadow-xl image-full">
                         <figure>
                             <img src="https://picsum.photos/id/1005/400/250" />
@@ -88,7 +88,7 @@ const ProductCard = () => {
                         </div>
                     </div>
                 </div>
-                <div class="carousel-item">
+                <div class="carousel-item w-1/4">
                     <div class="card shadow-xl image-full">
                         <figure>
                             <img src="https://picsum.photos/id/1005/400/250" />
