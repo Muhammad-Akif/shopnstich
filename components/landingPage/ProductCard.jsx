@@ -2,8 +2,11 @@ import React from 'react'
 
 const ProductCard = () => {
     return (
-        <>
-            <div class="max-w-full p-4 space-x-4 carousel carousel-center bg-neutral rounded-box">
+        <div class="bg-gray-300">
+            <h1 class="text-green-960 text-4xl font-bold font-serif p-6 text-center">
+                Men Collections
+            </h1>
+            <div class="max-w-full px-6 pb-8 space-x-4 carousel carousel-center rounded-box">
                 <div class="carousel-item w-1/4">
                     <div class="card shadow-xl image-full">
                         <figure>
@@ -103,7 +106,7 @@ const ProductCard = () => {
                     </div>
                 </div>
             </div>
-        </>
+        </div>
     )
 }
 
