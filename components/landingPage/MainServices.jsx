@@ -4,17 +4,6 @@ const MainServices = () => {
     return (
         <div>
             <header>
-                {/* <!-- Navbar --> */}
-                <nav class="py-8 bg-white">
-                    <div class="md:container px-4 md:px-0 mx-auto flex justify-between">
-                        <img class="w-16" src="https://capp.nicepage.com/bf483e57c95e271afd13aa25e2ecbbe017068d1d/images/default-logo.png" alt="" />
-                        <div class="space-y-1.5 cursor-pointer">
-                            <div class="h-1 w-8 bg-gray-600 rounded"></div>
-                            <div class="h-1 w-8 bg-gray-600 rounded"></div>
-                            <div class="h-1 w-8 bg-gray-600 rounded"></div>
-                        </div>
-                    </div>
-                </nav>
 
                 {/* <!-- Section Hero --> */}
                 <div class="bg-green-100 py-14">
@@ -59,18 +48,9 @@ const MainServices = () => {
                             </div>
                         </div>
                     </div>
-                    <h4 class="text-center font-thin text-xl mt-14">Image from <span class="underline text-gray-600 cursor-pointer">Freepik</span></h4>
+                    {/* <h4 class="text-center font-thin text-xl mt-14">Image from <span class="underline text-gray-600 cursor-pointer">Freepik</span></h4> */}
                 </div>
             </header>
-
-            {/* <!-- Footer --> */}
-            <footer class="text-center py-16 bg-gray-700 text-sm">
-                <p class="text-white">
-                    Sample text. Click to select the text box. Click again or double <br />
-                    click to start editing the text.
-                </p>
-                <p class="mt-20 text-white"><span class="underline text-green-200 cursor-pointer">Website Templates </span>created with <span class="underline text-green-200 cursor-pointer">Website Builder Software.</span></p>
-            </footer>
         </div>
     )
 }
