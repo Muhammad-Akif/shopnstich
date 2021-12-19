@@ -10,7 +10,7 @@ const MainServices = () => {
                     {/* <h3 class="text-2xl tracking-widest text-green-600 text-center">FEATURES</h3> */}
                     <h1 class="mt-8 grid place-items-center font-serif text-5xl text-green-960 font-bold">
                         Our Services
-                        <div class="h-1 my-2 bg-green-950 w-1/5" />
+                        <div class="h-1 my-2 bg-green-950 w-1/12" />
                     </h1>
 
 
