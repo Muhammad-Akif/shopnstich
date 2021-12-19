@@ -1,6 +1,6 @@
 import Head from 'next/head'
 import { Navbar } from '../components'
-import { SideSocialIcons, MainTextnImage, MainServices, Footer } from '../components'
+import { SideSocialIcons, MainTextnImage, MainServices, ProductCard, Reviews, Footer } from '../components'
 
 export default function Home() {
   return (
@@ -15,6 +15,8 @@ export default function Home() {
         <SideSocialIcons />
       </div>
       <MainServices />
+      <Reviews />
+      <ProductCard />
       <Footer />
     </div>
   )

@@ -48,7 +48,6 @@ const MainServices = () => {
                             </div>
                         </div>
                     </div>
-                    {/* <h4 class="text-center font-thin text-xl mt-14">Image from <span class="underline text-gray-600 cursor-pointer">Freepik</span></h4> */}
                 </div>
             </header>
         </div>
