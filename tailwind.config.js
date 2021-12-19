@@ -8,6 +8,7 @@ module.exports = {
       colors:{
         green: {
           950: '#81E291',
+          960: '#00242C',
         },
       },
     },

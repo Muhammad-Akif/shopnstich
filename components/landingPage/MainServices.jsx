@@ -6,9 +6,13 @@ const MainServices = () => {
             <header>
 
                 {/* <!-- Section Hero --> */}
-                <div class="bg-green-100 py-14">
-                    <h3 class="text-2xl tracking-widest text-green-600 text-center">FEATURES</h3>
-                    <h1 class="mt-8 text-center text-5xl text-green-600 font-bold">Our Features & Services.</h1>
+                <div class="bg-green-200 py-10 pb-24">
+                    {/* <h3 class="text-2xl tracking-widest text-green-600 text-center">FEATURES</h3> */}
+                    <h1 class="mt-8 grid place-items-center font-serif text-5xl text-green-960 font-bold">
+                        Our Services
+                        <div class="h-1 my-2 bg-green-950 w-1/5" />
+                    </h1>
+
 
                     {/* <!-- Box --> */}
                     <div class="md:flex md:justify-center md:space-x-8 md:px-14">
