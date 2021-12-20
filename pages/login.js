@@ -6,7 +6,7 @@ import { SideSocialIcons } from '../components'
 const login = () => {
     return (
         <div className="login">
-            <Navbar />
+            {/* <Navbar /> */}
             <SideSocialIcons />
             <div className="flex justify-center items-center py-20">
                 <Signin />
