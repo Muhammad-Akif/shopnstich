@@ -217,7 +217,10 @@ font-weight: 500;
 .hide-scroll-bar::-webkit-scrollbar {
     display: none;
 }
-@media (min-width: 768px){
+.card-wd{
+    width: 60vw;
+}
+@media (min-width: 768px) {
     .card-wd{
         width: 20vw;
     }

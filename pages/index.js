@@ -16,9 +16,9 @@ export default function Home() {
       </div>
       {/* <FeatureCard/> */}
       <div className="product-banner">
-        <ProductCard />
-        <ProductCard />
-        <ProductCard />
+        <ProductCard category="Men"/>
+        <ProductCard category="Women"/>
+        <ProductCard category="Kids"/>
       </div>
       <Reviews />
       <Footer />
