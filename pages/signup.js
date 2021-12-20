@@ -1,9 +1,11 @@
 import React from 'react'
+import { Signin } from '../components'
+
 
 const signup = () => {
     return (
         <div>
-            signup
+            <Signin inType='signup'/>
         </div>
     )
 }
