@@ -172,262 +172,59 @@ import Link from 'next/link'
 
 const Signin = () => {
     return (
-        <div>
-            <div
-                class="flex flex-col items-center justify-center "
-            >
-                <div
-                    class="
-                flex flex-col bg-white shadow-md px-4 sm:px-6 md:px-8 lg:px-10 py-8 rounded-3xl w-50 max-w-md "
-                >
-                    <div class="font-medium self-center text-xl sm:text-3xl text-gray-800">
-                        Join us Now
-                    </div>
-                    <div class="mt-4 self-center text-xl sm:text-sm text-gray-800">
-                        Enter your credentials to get access account
-                    </div>
+        <section class="flex flex-col md:flex-row h-screen items-center">
+            <div class="bg-green-960 hidden lg:block w-full md:w-1/2 xl:w-2/3 h-screen">
+                <img src="https://images.unsplash.com/photo-1609709295948-17d77cb2a69b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8Y2xvdGhzfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60" alt="" class="w-full h-full object-cover" />
+            </div>
 
-                    <div class="mt-10">
-                        <form action="#">
-                            <div class="flex flex-col mb-5">
-                                <label
-                                    for="email"
-                                    class="mb-1 text-xs tracking-wide text-gray-600"
-                                >Name:</label
-                                >
-                                <div class="relative">
-                                    <div
-                                        class="
-                                    inline-flex
-                                    items-center
-                                    justify-center
-                                    absolute
-                                    left-0
-                                    top-0
-                                    h-full
-                                    w-10
-                                    text-gray-400
-                                    "
-                                    >
-                                        <i class="fas fa-user text-blue-500"></i>
-                                    </div>
+            <div class="bg-green-960 w-full md:max-w-md lg:max-w-full md:mx-auto md:mx-0 md:w-1/2 xl:w-1/3 h-screen px-6 lg:px-16 xl:px-12
+        flex items-center justify-center">
 
-                                    <input
-                                        id="email"
-                                        type="email"
-                                        name="email"
-                                        class="
-                                    text-sm
-                                    placeholder-gray-500
-                                    pl-10
-                                    pr-4
-                                    rounded-2xl
-                                    border border-gray-400
-                                    w-full
-                                    py-2
-                                    focus:outline-none focus:border-blue-400
-                                    "
-                                        placeholder="Enter your name"
-                                    />
-                                </div>
-                            </div>
-                            <div class="flex flex-col mb-5">
-                                <label
-                                    for="email"
-                                    class="mb-1 text-xs tracking-wide text-gray-600"
-                                >E-Mail Address:</label
-                                >
-                                <div class="relative">
-                                    <div
-                                        class="
-                                    inline-flex
-                                    items-center
-                                    justify-center
-                                    absolute
-                                    left-0
-                                    top-0
-                                    h-full
-                                    w-10
-                                    text-gray-400
-                                    "
-                                    >
-                                        <i class="fas fa-at text-blue-500"></i>
-                                    </div>
+                <div class="w-full h-100 text-gray-100">
 
-                                    <input
-                                        id="email"
-                                        type="email"
-                                        name="email"
-                                        class="
-                                    text-sm
-                                    placeholder-gray-500
-                                    pl-10
-                                    pr-4
-                                    rounded-2xl
-                                    border border-gray-400
-                                    w-full
-                                    py-2
-                                    focus:outline-none focus:border-blue-400
-                                    "
-                                        placeholder="Enter your email"
-                                    />
-                                </div>
-                            </div>
-                            <div class="flex flex-col mb-6">
-                                <label
-                                    for="password"
-                                    class="mb-1 text-xs sm:text-sm tracking-wide text-gray-600"
-                                >Password:</label
-                                >
-                                <div class="relative">
-                                    <div
-                                        class="
-                                    inline-flex
-                                    items-center
-                                    justify-center
-                                    absolute
-                                    left-0
-                                    top-0
-                                    h-full
-                                    w-10
-                                    text-gray-400
-                                    "
-                                    >
-                                        <span>
-                                            <i class="fas fa-lock text-blue-500"></i>
-                                        </span>
-                                    </div>
+                    <Link href="/"><img class="hover:cursor-pointer m-auto" src='https://svgshare.com/i/coH.svg' width="180" height="120" title='logo' /></Link>
+                    <h1 class="text-xl md:text-2xl font-bold leading-tight mt-12">Log in to your account</h1>
 
-                                    <input
-                                        id="password"
-                                        type="password"
-                                        name="password"
-                                        class="
-                                    text-sm
-                                    placeholder-gray-500
-                                    pl-10
-                                    pr-4
-                                    rounded-2xl
-                                    border border-gray-400
-                                    w-full
-                                    py-2
-                                    focus:outline-none focus:border-blue-400
-                                    "
-                                        placeholder="Enter your password"
-                                    />
-                                </div>
-                            </div>
+                    <form class="mt-6" action="#" method="POST">
+                        <div>
+                            <label class="block text-gray-100">Email Address</label>
+                            <input type="email" name="" id="" placeholder="Enter Email Address" class="w-full px-4 py-3 text-black rounded-lg bg-gray-100 mt-2 border focus:border-green-950 focus:bg-white focus:outline-none" autofocus autocomplete required />
+                        </div>
 
-                            <div class="flex flex-col mb-6">
-                                <label
-                                    for="password"
-                                    class="mb-1 text-xs sm:text-sm tracking-wide text-gray-600"
-                                >Password:</label
-                                >
-                                <div class="relative">
-                                    <div
-                                        class="
-                                    inline-flex
-                                    items-center
-                                    justify-center
-                                    absolute
-                                    left-0
-                                    top-0
-                                    h-full
-                                    w-10
-                                    text-gray-400
-                                    "
-                                    >
-                                        <span>
-                                            <i class="fas fa-lock text-blue-500"></i>
-                                        </span>
-                                    </div>
+                        <div class="mt-4">
+                            <label class="block text-gray-100">Password</label>
+                            <input type="password" name="" id="" placeholder="Enter Password" minlength="6" class="w-full px-4 py-3 text-black rounded-lg bg-gray-100 mt-2 border focus:border-green-950
+                focus:bg-white focus:outline-none" required />
+                        </div>
 
-                                    <input
-                                        id="password"
-                                        type="password"
-                                        name="password"
-                                        class="
-                                    text-sm
-                                    placeholder-gray-500
-                                    pl-10
-                                    pr-4
-                                    rounded-2xl
-                                    border border-gray-400
-                                    w-full
-                                    py-2
-                                    focus:outline-none focus:border-blue-400
-                                    "
-                                        placeholder="Confirm password"
-                                    />
-                                </div>
-                            </div>
+                        <div class="text-right mt-2">
+                            <a href="#" class="text-sm font-semibold text-gray-100 hover:text-green-950 focus:text-blue-700">Forgot Password?</a>
+                        </div>
 
-                            <div class="flex w-full">
-                                <button
-                                    type="submit"
-                                    class="
-                                flex
-                                mt-2
-                                items-center
-                                justify-center
-                                focus:outline-none
-                                text-white text-sm
-                                sm:text-base
-                                bg-blue-500
-                                hover:bg-blue-600
-                                rounded-2xl
-                                py-2
-                                w-full
-                                transition
-                                duration-150
-                                ease-in
-                                "
-                                >
-                                    <span class="mr-2 uppercase">Sign Up</span>
-                                    <span>
-                                        <svg
-                                            class="h-6 w-6"
-                                            fill="none"
-                                            stroke-linecap="round"
-                                            stroke-linejoin="round"
-                                            stroke-width="2"
-                                            viewBox="0 0 24 24"
-                                            stroke="currentColor"
-                                        >
-                                            <path
-                                                d="M13 9l3 3m0 0l-3 3m3-3H8m13 0a9 9 0 11-18 0 9 9 0 0118 0z"
-                                            />
-                                        </svg>
-                                    </span>
-                                </button>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-                <div class="flex justify-center items-center mt-6">
-                    <a
-                        href="#"
-                        target="_blank"
-                        class="
-                    inline-flex
-                    items-center
-                    text-gray-700
-                    font-medium
-                    text-xs text-center
-                    "
-                    >
-                        <span class="ml-2 text-md text-gray-200"
-                        >You have an account?
-                            <a
-                                href="#"
-                                class="text-xs ml-2 text-gray-100 font-semibold"
-                            >Login here</a>
-                        </span>
-                    </a>
+                        <button type="submit" class="w-full block bg-green-600 hover:bg-green-700 focus:bg-indigo-400 text-white font-semibold rounded-lg
+              px-4 py-3 mt-6">Log In</button>
+                    </form>
+
+                    <hr class="my-6 border-gray-300 w-full" />
+
+                    <button type="button" class="w-full block bg-white hover:bg-gray-100 focus:bg-gray-100 text-gray-900 font-semibold rounded-lg px-4 py-3 border border-gray-300">
+                        <div class="flex items-center justify-center">
+                            {/* <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" class="w-6 h-6" viewBox="0 0 48 48"><defs><path id="a" d="M44.5 20H24v8.5h11.8C34.7 33.9 30.1 37 24 37c-7.2 0-13-5.8-13-13s5.8-13 13-13c3.1 0 5.9 1.1 8.1 2.9l6.4-6.4C34.6 4.1 29.6 2 24 2 11.8 2 2 11.8 2 24s9.8 22 22 22c11 0 21-8 21-22 0-1.3-.2-2.7-.5-4z" /></defs><clipPath id="b"><use xlink:href="#a" overflow="visible" /></clipPath><path clip-path="url(#b)" fill="#FBBC05" d="M0 37V11l17 13z" /><path clip-path="url(#b)" fill="#EA4335" d="M0 11l17 13 7-6.1L48 14V0H0z" /><path clip-path="url(#b)" fill="#34A853" d="M0 37l30-23 7.9 1L48 0v48H0z" /><path clip-path="url(#b)" fill="#4285F4" d="M48 48L17 24l-4-3 35-10z" /></svg> */}
+                            <span class="ml-4">
+                                Log in
+                                with
+                                Google</span>
+                        </div>
+                    </button>
+
+                    <p class="mt-8">Need an account? <a href="#" class="text-green-500 hover:text-green-600 font-semibold">Create an
+                        account</a></p>
+
+
                 </div>
             </div>
-        </div>
+
+        </section>
     )
 }
 
