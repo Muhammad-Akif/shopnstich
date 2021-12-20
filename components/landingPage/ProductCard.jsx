@@ -1,11 +1,11 @@
 import React from 'react'
 
-const ProductCard = () => {
+const ProductCard = ({ category }) => {
     const cards = [{ img: "https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg" }, { img: "https://fakestoreapi.com/img/71li-ujtlUL._AC_UX679_.jpg" }, { img: "https://fakestoreapi.com/img/71-3HjGNDUL._AC_SY879._SX._UX._SY._UY_.jpg" }, { img: "https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg" }, { img: "https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg" }, { img: "https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg" }, { img: "https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg" }, { img: "https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg" }, { img: "https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg" }, { img: "https://fakestoreapi.com/img/51Y5NI-I5jL._AC_UX679_.jpg" }]
     return (
         <div>
-            <h1 class="text-gray-200 text-4xl font-bold font-serif p-12 text-center">
-                Men Collections
+            <h1 class="text-gray-200 text-5xl font-bold font-serif p-12 text-center">
+                {category} Collections
                 <div class="flex justify-center items-center">
                     <div class="h-0.5 my-2 bg-green-950 w-1/12" />
                 </div>
