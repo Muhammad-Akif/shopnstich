@@ -15,12 +15,11 @@ export default function Home() {
         <SideSocialIcons />
       </div>
       {/* <FeatureCard/> */}
-      <div>
+      <div className="product-banner">
         <ProductCard />
         <ProductCard />
         <ProductCard />
       </div>
-      <MainServices />
       <Reviews />
       <Footer />
     </div>

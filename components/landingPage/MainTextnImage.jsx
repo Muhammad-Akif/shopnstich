@@ -4,7 +4,6 @@ import Link from 'next/link'
 import tailorImg from '../../images/landingPage/08.png'
 
 const mainTextnImage = () => {
-    console.log('runing')
     return (
         <div class="px-24 py-8 grid grid-cols-2">
             <div class="text-white  text-7xl max-w-xl  font-serif"> <strong class="text-green-950"> Best Place</strong>, where World Shop And Stich Their Cloths Tustedly...
