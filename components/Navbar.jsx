@@ -83,7 +83,7 @@ function Navbar() {
                         {/* <div className='nav-btn'>
                             Login
                         </div> */}
-                        <button class="p-2 pl-5 pr-5 bg-transparent font-bold border-2 border-red-500 text-gray-100 text-lg rounded-lg hover:bg-red-500 hover:text-gray-100 focus:border-4 focus:border-red-300 letter-2">Login</button>
+                        <button class="p-2 pl-5 pr-5 bg-transparent font-bold border-2 border-red-500 text-gray-100 text-lg rounded-lg hover:bg-red-500 hover:text-gray-100 focus:border-red-300 letter-2">Login</button>
                     </Link>
                 </div>
             </nav>
