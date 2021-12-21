@@ -1,8 +1,8 @@
 import React from 'react'
 import Image from 'next/image'
 
-const ProductCard = ({ category, setCart, cart }) => {
-    const cards = [{ img: "https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg" }, { img: "https://fakestoreapi.com/img/71li-ujtlUL._AC_UX679_.jpg" }, { img: "https://fakestoreapi.com/img/71-3HjGNDUL._AC_SY879._SX._UX._SY._UY_.jpg" }, { img: "https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg" }, { img: "https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg" }, { img: "https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg" }, { img: "https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg" }, { img: "https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg" }, { img: "https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg" }, { img: "https://fakestoreapi.com/img/51Y5NI-I5jL._AC_UX679_.jpg" }]
+const ProductCard = ({ category, setCart, cart, cloths }) => {
+    // const cards = [{ img: "https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg" }, { img: "https://fakestoreapi.com/img/71li-ujtlUL._AC_UX679_.jpg" }, { img: "https://fakestoreapi.com/img/71-3HjGNDUL._AC_SY879._SX._UX._SY._UY_.jpg" }, { img: "https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg" }, { img: "https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg" }, { img: "https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg" }, { img: "https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg" }, { img: "https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg" }, { img: "https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg" }, { img: "https://fakestoreapi.com/img/51Y5NI-I5jL._AC_UX679_.jpg" }]
     return (
         <div class=''>
             <h1 class="text-gray-200 text-5xl font-bold font-serif p-12 text-center">
@@ -20,7 +20,7 @@ const ProductCard = ({ category, setCart, cart }) => {
                         class="flex flex-nowrap lg:ml-10 md:ml-10 ml-5 "
                     >
                         {
-                            cards.map(card => (
+                            cloths.map(card => (
                                 <div class="px-2">
                                     <div class="w-full h-auto overflow-hidden rounded-lg shadow-md bg-white hover:shadow-xl transition-shadow duration-300 ease-in-out">
                                         <div className="card-wd">

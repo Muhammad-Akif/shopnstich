@@ -1,7 +1,9 @@
 import React from 'react'
+import Image from 'next/image'
 
-const Trending = () => {
-    const trending = [{ title: "I'm supper dog for you." }, { title: "I'm supper dog for you." }, { title: "I'm supper dog for you." }, { title: "I'm supper dog for you." }]
+
+const Trending = ({ trends }) => {
+    // const trending = [{ title: "I'm supper dog for you." }, { title: "I'm supper dog for you." }, { title: "I'm supper dog for you." }, { title: "I'm supper dog for you." }]
     return (
         <div>
             <div class='mx-auto'>
@@ -13,7 +15,7 @@ const Trending = () => {
                         </div>
                     </h1>
                     <div class="grid pb-12 grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-4 px-6">
-                        {trending.map(trend => (
+                        {trends.map(trend => (
                             // <div
                             //     class="relative flex flex-col md:flex-row md:space-x-5 space-y-3 md:space-y-0 rounded-xl shadow-lg p-3 max-w-xs md:max-w-3xl mx-auto border border-white bg-white">
                             //     <div class="w-full md:w-1/3 bg-white grid place-items-center">
@@ -72,32 +74,38 @@ const Trending = () => {
                             // </div>
                             <div class="wrapper antialiased text-gray-900 cursor-pointer">
                                 <div>
+                                    <Image
+                                        // alt={author.name}
+                                        unoptimized
+                                        height="350px"
+                                        width="350px"
+                                        src={trend.img}
+                                        class="w-full object-cover object-center rounded-lg shadow-md"
+                                    />
 
-                                    <img src="https://source.unsplash.com/random/350x350" alt=" random imgee" class="w-full object-cover object-center rounded-lg shadow-md"/>
-
-                                        <div class="relative px-4 -mt-16  ">
-                                            <div class="bg-white p-6 rounded-lg shadow-lg">
-                                                <div class="flex items-baseline">
-                                                    <span class="bg-teal-200 text-teal-800 text-xs px-2 inline-block rounded-full  uppercase font-semibold tracking-wide">
-                                                        New
-                                                    </span>
-                                                    <div class="ml-2 text-gray-600 uppercase text-xs font-semibold tracking-wider">
-                                                        2 baths  &bull; 3 rooms
-                                                    </div>
-                                                </div>
-
-                                                <h4 class="mt-1 text-xl font-semibold uppercase leading-tight truncate">A random Title</h4>
-
-                                                <div class="mt-1">
-                                                    $1800
-                                                    <span class="text-gray-600 text-sm">   /wk</span>
-                                                </div>
-                                                <div class="mt-4">
-                                                    <span class="text-teal-600 text-md font-semibold">4/5 ratings </span>
-                                                    <span class="text-sm text-gray-600">(based on 234 ratings)</span>
+                                    <div class="relative px-4 -mt-16  ">
+                                        <div class="bg-white p-6 rounded-lg shadow-lg">
+                                            <div class="flex items-baseline">
+                                                <span class="bg-teal-200 text-teal-800 text-xs px-2 inline-block rounded-full  uppercase font-semibold tracking-wide">
+                                                    New
+                                                </span>
+                                                <div class="ml-2 text-gray-600 uppercase text-xs font-semibold tracking-wider">
+                                                    2 baths  &bull; 3 rooms
                                                 </div>
                                             </div>
+
+                                            <h4 class="mt-1 text-xl font-semibold uppercase leading-tight truncate">A random Title</h4>
+
+                                            <div class="mt-1">
+                                                $1800
+                                                <span class="text-gray-600 text-sm">   /wk</span>
+                                            </div>
+                                            <div class="mt-4">
+                                                <span class="text-teal-600 text-md font-semibold">4/5 ratings </span>
+                                                <span class="text-sm text-gray-600">(based on 234 ratings)</span>
+                                            </div>
                                         </div>
+                                    </div>
 
                                 </div>
                             </div>
