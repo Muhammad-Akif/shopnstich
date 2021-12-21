@@ -1,7 +1,7 @@
 import React from 'react'
 import Link from 'next/link'
 
-function Navbar() {
+function Navbar({cart}) {
     return (
         <>
             <nav class="flex items-center justify-between flex-wrap bg-transparent px-12 py-8 w-full">
@@ -75,7 +75,7 @@ function Navbar() {
                             </svg>
                             <span class="absolute inset-0 object-right-top -mr-6">
                                 <div class="inline-flex items-center px-1.5 py-0.5 border-2 border-none rounded-full text-xs font-semibold leading-4 bg-red-600 text-white">
-                                    0
+                                    {cart}
                                 </div>
                             </span>
                         </button>
