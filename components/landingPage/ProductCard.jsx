@@ -1,9 +1,10 @@
 import React from 'react'
+import Image from 'next/image'
 
 const ProductCard = ({ category }) => {
     const cards = [{ img: "https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg" }, { img: "https://fakestoreapi.com/img/71li-ujtlUL._AC_UX679_.jpg" }, { img: "https://fakestoreapi.com/img/71-3HjGNDUL._AC_SY879._SX._UX._SY._UY_.jpg" }, { img: "https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg" }, { img: "https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg" }, { img: "https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg" }, { img: "https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg" }, { img: "https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg" }, { img: "https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg" }, { img: "https://fakestoreapi.com/img/51Y5NI-I5jL._AC_UX679_.jpg" }]
     return (
-        <div>
+        <div class=''>
             <h1 class="text-gray-200 text-5xl font-bold font-serif p-12 text-center">
                 {category} Collections
                 <div class="flex justify-center items-center">
@@ -23,8 +24,15 @@ const ProductCard = ({ category }) => {
                                 <div class="px-2">
                                     <div class="w-full h-auto overflow-hidden rounded-lg shadow-md bg-white hover:shadow-xl transition-shadow duration-300 ease-in-out">
                                         <div className="card-wd">
-                                            <a href="#">
-                                                <img class="p-6 rounded-t-lg" src={card.img} />
+                                            <a href="#" class="flex p-6 justify-center items-center">
+                                                {/* <img class="p-6 rounded-t-lg" src="https://source.unsplash.com/random/350x350" /> */}
+                                                <Image
+                                                    // alt={author.name}
+                                                    unoptimized
+                                                    height="250px"
+                                                    width="250px"
+                                                    src={card.img}
+                                                />
                                             </a>
                                             <div class="px-5 pb-5">
                                                 <a href="#">
