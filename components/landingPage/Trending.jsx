@@ -12,7 +12,7 @@ const Trending = () => {
                             <div class="h-0.5 my-2 bg-green-950 w-1/12" />
                         </div>
                     </h1>
-                    <div class="grid pb-12 grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-2 px-6">
+                    <div class="grid pb-12 grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-4 px-6">
                         {trending.map(trend => (
                             // <div
                             //     class="relative flex flex-col md:flex-row md:space-x-5 space-y-3 md:space-y-0 rounded-xl shadow-lg p-3 max-w-xs md:max-w-3xl mx-auto border border-white bg-white">
@@ -70,7 +70,7 @@ const Trending = () => {
                             //         </div>
                             //     </div>
                             // </div>
-                            <div class="wrapper bg-gray-400 antialiased text-gray-900">
+                            <div class="wrapper antialiased text-gray-900 cursor-pointer">
                                 <div>
 
                                     <img src="https://source.unsplash.com/random/350x350" alt=" random imgee" class="w-full object-cover object-center rounded-lg shadow-md"/>
