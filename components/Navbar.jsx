@@ -1,12 +1,14 @@
 import React from 'react'
 import Link from 'next/link'
+import Image from 'next/image'
+import logo from '../images/logo.png'
 
 function Navbar({cart}) {
     return (
         <>
             <nav class="flex items-center justify-between flex-wrap bg-transparent px-12 py-8 w-full">
                 <div class="flex items-center flex-shrink-0 mr-6">
-                    <Link href="/"><img class="hover:cursor-pointer" src='https://svgshare.com/i/coH.svg' width="150" height="100" title='logo' /></Link>
+                    <Link href="/"><Image class="hover:cursor-pointer" src={logo} width="160" height="40" title='logo' /></Link>
                 </div>
                 <div class="block lg:hidden">
                     <button class="flex items-center px-3 py-2 border rounded text-teal-200 border-teal-400 hover:text-white hover:border-white">
