@@ -11,12 +11,14 @@ const mainTextnImage = () => {
                 <div class="h-1 my-6 bg-green-950 w-11/12" />
                 <div class="text-xl font-bold pb-4">Commited Quality, Garenteed!</div>
                 <div class="sm:space-x-4 space-x-2">
-                <Link href='/signup'>
-                    <button class="p-2 pl-5 pr-5 bg-transparent border-2 border-green-500 text-green-500 text-lg rounded-lg hover:bg-green-500 hover:text-white focus:border-4 focus:border-green-300">Lets Get Started</button>
-                </Link>
-                <Link href='/signup'>
-                    <button class="p-2 pl-5 pr-5 bg-transparent border-2 border-green-500 text-green-500 text-lg rounded-lg hover:bg-green-500 hover:text-white focus:border-4 focus:border-green-300">Become Tailor</button>
-                </Link>
+                    <div class="flex flex-col sm:flex-row space-y-3 justify-center sm:justify-start items-center">
+                        <Link href='/signup'>
+                            <button class="p-2 w-full pl-5 pr-5 bg-transparent border-2 border-green-500 text-green-500 text-lg rounded-lg hover:bg-green-500 hover:text-white focus:border-4 focus:border-green-300">Lets Get Started...</button>
+                        </Link>
+                        <Link href='/signup'>
+                            <button class="p-2 pl-5 w-full pr-5 bg-transparent border-2 border-green-500 text-green-500 text-lg rounded-lg hover:bg-green-500 hover:text-white focus:border-4 focus:border-green-300">Become a Tailor...</button>
+                        </Link>
+                    </div>
                 </div>
             </div>
             <div class="text-right pb-6 sm:pb-0"><Image src={tailorImg} width={400} height={410} alt="tailorImg" /></div>
