@@ -7,7 +7,7 @@ const Trending = ({ trends }) => {
     return (
         <div class="bg-gray-100">
             <div class='mx-auto'>
-                <div class="mx-auto px-2 my-1 pt-10">
+                <div class="mx-auto px-2">
                     <h1 class="text-green-960 text-5xl font-bold font-serif p-12 text-center">
                         Trendings
                         <div class="flex justify-center items-center">

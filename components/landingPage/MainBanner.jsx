@@ -3,7 +3,7 @@ import React from 'react'
 const MainBanner = () => {
     return (
         <>
-            <section class="text-white a -top-40 rounded-2xl mx-auto max-w-7xl bg-green-700">
+            <section class="text-white mx-auto max-w-8xl bg-gray-900 mt-1">
                 <div class="max-w-screen-xl px-4 py-16 mx-auto lg:h-42 lg:items-center lg:flex">
                     <div class="max-w-3xl mx-auto text-center">
                         <h1 class="text-3xl font-extrabold text-transparent sm:text-5xl bg-clip-text bg-gradient-to-r from-orange-400 via-orange-300 to-orange-400">

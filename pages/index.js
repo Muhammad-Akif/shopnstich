@@ -15,6 +15,8 @@ export default function Home() {
       <Head>
         <title>ShopnStich</title>
         <link rel="icon" href="/favicon.ico" />
+        <script src="./TW-ELEMENTS-PATH/dist/js/index.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/tw-elements/dist/js/index.min.js"></script>
       </Head>
       <div class="bg-green-960 sm:min-h-screen">
         <Navbar cart={cart}/>

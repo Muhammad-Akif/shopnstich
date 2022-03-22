@@ -5,7 +5,7 @@ const ProductCard = ({ category, setCart, cart, cloths }) => {
     // const cards = [{ img: "https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg" }, { img: "https://fakestoreapi.com/img/71li-ujtlUL._AC_UX679_.jpg" }, { img: "https://fakestoreapi.com/img/71-3HjGNDUL._AC_SY879._SX._UX._SY._UY_.jpg" }, { img: "https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg" }, { img: "https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg" }, { img: "https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg" }, { img: "https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg" }, { img: "https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg" }, { img: "https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg" }, { img: "https://fakestoreapi.com/img/51Y5NI-I5jL._AC_UX679_.jpg" }]
     return (
         <div class=''>
-            <h1 class="text-gray-200 text-5xl font-bold font-serif p-12 text-center">
+            <h1 class="text-green-960 text-5xl font-bold font-serif p-12 text-center">
                 {category} Collections
                 <div class="flex justify-center items-center">
                     <div class="h-0.5 my-2 bg-green-950 w-1/12" />
@@ -22,7 +22,7 @@ const ProductCard = ({ category, setCart, cart, cloths }) => {
                         {
                             cloths.map(card => (
                                 <div class="px-2">
-                                    <div class="w-full h-auto overflow-hidden rounded-lg shadow-md bg-white hover:shadow-xl transition-shadow duration-300 ease-in-out">
+                                    <div class="w-full h-auto overflow-hidden rounded-lg shadow-md bg-white hover:shadow-2xl transition-shadow duration-300 ease-in-out">
                                         <div className="card-wd">
                                             <a href="#" class="flex p-6 justify-center items-center">
                                                 {/* <img class="p-6 rounded-t-lg" src="https://source.unsplash.com/random/350x350" /> */}
