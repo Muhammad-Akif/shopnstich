@@ -2,12 +2,12 @@ import React from 'react'
 
 const Reviews = () => {
     return (
-        <div class="bg-indigo-100">
-            <h1 class="pt-6 grid place-items-center font-serif text-5xl text-green-960 font-bold">
+        <div class="bg-gray-100">
+            <h1 class="p-12 grid place-items-center font-serif text-5xl text-green-960 font-bold">
                 Client Reviews
                 <div class="h-1 my-2 bg-green-400 w-1/12" />
             </h1>
-            <div id="carouselExampleCaptions" class="carousel slide relative carousel-dark" data-bs-ride="carousel">
+            <div id="carouselExampleCaptions" class="carousel pb-16 slide relative carousel-dark"  data-bs-ride="carousel">
                 <div class="carousel-inner relative w-full overflow-hidden">
                     <div class="carousel-item active relative float-left w-full text-center">
                         <p class="text-xl italic mx-auto text-gray-700 max-w-4xl">

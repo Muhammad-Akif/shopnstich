@@ -23,7 +23,7 @@ export default function Home() {
         <MainTextnImage />
         {/* <SideSocialIcons /> */}
       </div>
-      <MainBanner />
+      {/* <MainBanner /> */}
       <Trending trends={trends}/>
       <div className="product-banner">
         <ProductCard setCart={setCart} cart={cart} category="Men" cloths={menz}/>
