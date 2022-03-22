@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import Head from 'next/head'
 import { Navbar } from '../components'
-import { SideSocialIcons, MainTextnImage, MapnConnect, Trending, GetinTouch, ProductCard, Reviews, Footer } from '../components'
+import { SideSocialIcons,MainBanner, MainTextnImage, MapnConnect, Trending, GetinTouch, ProductCard, Reviews, Footer } from '../components'
 
 export default function Home() {
   const [cart, setCart] = useState(0)
@@ -16,17 +16,18 @@ export default function Home() {
         <title>ShopnStich</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <div className="banner">
+      <div class="bg-green-960 sm:min-h-screen">
         <Navbar cart={cart}/>
         <MainTextnImage />
-        <SideSocialIcons />
+        {/* <SideSocialIcons /> */}
       </div>
+      <MainBanner />
+      <Trending trends={trends}/>
       <div className="product-banner">
         <ProductCard setCart={setCart} cart={cart} category="Men" cloths={menz}/>
         <ProductCard setCart={setCart} cart={cart} category="Women" cloths={womenz}/>
         <ProductCard setCart={setCart} cart={cart} category="Kids" cloths={kidz}/>
       </div>
-      <Trending trends={trends}/>
       {/* <GetinTouch /> */}
       <MapnConnect/>
       <Reviews />

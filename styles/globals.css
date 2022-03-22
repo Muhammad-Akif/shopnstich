@@ -2,13 +2,17 @@
 @tailwind components;
 @tailwind utilities;
 
+
  html,
 body {
   padding: 0;
   margin: 0;
 } 
+.dropdown:hover .dropdown-menu {
+    display: block;
+  }
 
-.login::before, .banner::before{
+.login::before{
     content:'';
     content: "";
     width: 100%;
@@ -20,9 +24,6 @@ body {
     background-size: cover;
     background-image: url("../images/01/cover.png");
 }
-/* .mainColor {
-    color: #81E291;
-} */
 
 
 /* fixed social*/
@@ -104,56 +105,6 @@ body {
  /*end fixed social*/
 
 
- /* button  */
-.nav-btn {
-    width: 85px;
-    height: 45px;
-    border-radius: 10px;
-    position: relative;
-    overflow: hidden;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-.nav-btn::before{
-    content: "";
-    background-image: conic-gradient(
-        #81E291 20deg,
-        transparent 120deg
-    );
-    width: 150%;
-    height: 150%;
-    position: absolute;
-    animation: rotate 2s linear infinite;
-}
-.nav-btn::after{
-    content: "Login";
-    width: 80px;
-    height: 40px;
-    background: white;
-    position: absolute;
-    border-radius: 10px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: rgb(253, 61, 61);
-    font-weight: bold;
-    font-size: 18px;
-    cursor: pointer;
-    letter-spacing: 1px;
-    box-shadow: inset 5px 5px 5px #0000008c;
-}
-@keyframes rotate {
-    0%{
-        transform: rotate(0deg);
-    }
-    100%{
-        transform: rotate(-360deg);
-    }
-}
-
-
-
 /* ---------------------reviews------------ */
 
 @import url('https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:wght@500;600&display=swap');
@@ -184,18 +135,7 @@ body {
     color: hsl(210, 46%, 95%);
 }
 
-body{
-    font-size: 13px;
-    font-family: 'Barlow Semi Condensed', sans-serif;
-}
 
-h1{
-font-weight: 600;
-}
-
-h2,p{
-font-weight: 500;
-}
 
 /* _------------------Products Card------------------------------------------------ */
 .product-banner::before{

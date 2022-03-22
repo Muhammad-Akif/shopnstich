@@ -6,12 +6,14 @@
     "start": "next start"
   },
   "dependencies": {
+    "@trendyol-js/react-carousel": "^2.0.1",
     "daisyui": "^1.16.6",
     "firebase": "^9.6.1",
     "next": "latest",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
-    "react-icons": "^4.3.1"
+    "react-icons": "^4.3.1",
+    "tw-elements": "^1.0.0-alpha11"
   },
   "devDependencies": {
     "autoprefixer": "^10.4.0",

@@ -3,44 +3,48 @@ import Link from 'next/link'
 import Image from 'next/image'
 import logo from '../images/logo.png'
 
-function Navbar({cart}) {
+function Navbar({ cart }) {
     return (
         <>
-            <nav class="flex items-center justify-between flex-wrap bg-transparent px-12 py-8 w-full">
+            <nav class="flex items-center justify-between flex-wrap bg-transparent px-6 pt-6 sm:px-12 sm:py-8 w-full">
                 <div class="flex items-center flex-shrink-0 mr-6">
                     <Link href="/"><Image class="hover:cursor-pointer" src={logo} width="160" height="40" title='logo' /></Link>
                 </div>
-                <div class="block lg:hidden">
-                    <button class="flex items-center px-3 py-2 border rounded text-teal-200 border-teal-400 hover:text-white hover:border-white">
-                        <svg class="fill-current h-3 w-3" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><title>Menu</title><path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z" /></svg>
-                    </button>
-                </div>
                 <div class="w-full block hidden flex-grow lg:flex lg:items-center lg:justify-end lg:w-auto">
                     <div class="text-lg mr-4">
-                        <a href="#responsive-header" class="block mt-4 lg:inline-block lg:mt-0 text-white hover:text-white mr-4 ">
-                            Men
-                            <span>
-                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 pl-1 inline w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
-                                </svg>
-                            </span>
+                        <a class="dropdown inline-block relative">
+                            <button class=" text-white py-2 px-4 rounded inline-flex items-center">
+                                <span >Men</span>
+                                <svg class="fill-current h-6 w-6 pt-1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z" /> </svg>
+                            </button>
+                            <ul class="dropdown-menu absolute hidden text-gray-700 pt-1">
+                                <li class=""><a class="rounded-t bg-gray-200 hover:bg-gray-400 py-2 px-4 block whitespace-no-wrap" href="#">One</a></li>
+                                <li class=""><a class="bg-gray-200 hover:bg-gray-400 py-2 px-4 block whitespace-no-wrap" href="#">Two</a></li>
+                                <li class=""><a class="rounded-b bg-gray-200 hover:bg-gray-400 py-2 px-4 block whitespace-no-wrap" href="#">Three is the magic number</a></li>
+                            </ul>
                         </a>
                         
-                        <a href="#responsive-header" class="block mt-4 lg:inline-block lg:mt-0 text-white hover:text-white mr-4">
-                            Women
-                            <span>
-                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 pl-1 inline w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
-                                </svg>
-                            </span>
+                        <a class="dropdown inline-block relative">
+                            <button class=" text-white py-2 px-4 rounded inline-flex items-center">
+                                <span >Women</span>
+                                <svg class="fill-current h-6 w-6 pt-1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z" /> </svg>
+                            </button>
+                            <ul class="dropdown-menu absolute hidden text-gray-700 pt-1">
+                                <li class=""><a class="rounded-t bg-gray-200 hover:bg-gray-400 py-2 px-4 block whitespace-no-wrap" href="#">One</a></li>
+                                <li class=""><a class="bg-gray-200 hover:bg-gray-400 py-2 px-4 block whitespace-no-wrap" href="#">Two</a></li>
+                                <li class=""><a class="rounded-b bg-gray-200 hover:bg-gray-400 py-2 px-4 block whitespace-no-wrap" href="#">Three is the magic number</a></li>
+                            </ul>
                         </a>
-                        <a href="#responsive-header" class="block mt-4 lg:inline-block lg:mt-0 text-white hover:text-whitem mr-4">
-                            Kids
-                            <span>
-                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 pl-1 inline w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
-                                </svg>
-                            </span>
+                        <a class="dropdown inline-block relative">
+                            <button class=" text-white py-2 px-4 rounded inline-flex items-center">
+                                <span >Kids</span>
+                                <svg class="fill-current h-6 w-6 pt-1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z" /> </svg>
+                            </button>
+                            <ul class="dropdown-menu absolute hidden text-gray-700 pt-1">
+                                <li class=""><a class="rounded-t bg-gray-200 hover:bg-gray-400 py-2 px-4 block whitespace-no-wrap" href="#">One</a></li>
+                                <li class=""><a class="bg-gray-200 hover:bg-gray-400 py-2 px-4 block whitespace-no-wrap" href="#">Two</a></li>
+                                <li class=""><a class="rounded-b bg-gray-200 hover:bg-gray-400 py-2 px-4 block whitespace-no-wrap" href="#">Three is the magic number</a></li>
+                            </ul>
                         </a>
                         <a href="#responsive-header" class="block mt-4 maincolor lg:inline-block lg:mt-0 text-white hover:text-white mr-4">
                             How it Works?
@@ -55,21 +59,13 @@ function Navbar({cart}) {
                         </svg>
                         <input class="focus:ring-2 focus:ring-green-950 focus:outline-none w-full text-sm leading-6 text-gray-900 placeholder-gray-500 rounded-md py-2 pl-10 ring-1 ring-gray-200 shadow-sm" type="text" aria-label="Filter projects" placeholder="Filter anything ..." />
                     </form>
-                    {/* <div class="mr-4 text-white">
-                        <span class="relative inline-block ml-8">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9" />
-                            </svg>
-                            <span class="absolute top-0 right-0 inline-block w-2 h-2 transform translate-x-1/2 -translate-y-1/2 bg-red-600 rounded-full"></span>
-                        </span>
-                    </div> */}
-                    <button class="inline-block relative">
+                    {/* <button class="inline-block relative">
                         <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9" />
                         </svg>
                         <span class="animate-ping absolute top-1 right-0.5 block h-1 w-1 rounded-full ring-2 ring-green-400 bg-green-600"></span>
                         
-                    </button>
+                    </button> */}
                     <div>
                         <button class="py-4 px-1 relative border-2 border-transparent rounded-full text-white-900  outline-none text-white mr-4 transition duration-150 ease-in-out" aria-label="Cart">
                             <svg class="h-6 w-6" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" stroke="currentColor">
@@ -83,10 +79,7 @@ function Navbar({cart}) {
                         </button>
                     </div>
                     <Link href="/login" class="text-white">
-                        {/* <div className='nav-btn'>
-                            Login
-                        </div> */}
-                        <button class="p-2 pl-5 pr-5 bg-transparent font-bold border-2 border-red-500 text-gray-100 text-lg rounded-lg hover:bg-red-500 hover:text-gray-100 focus:border-red-300 letter-2">Login</button>
+                        <button class="p-2 px-4 tracking-wide bg-transparent font-bold border-2 border-green-950 hover:border-green-500 text-gray-100 text-lg rounded-lg hover:text-white hover:bg-green-500 hover:scale-110 transition duration-200 ease-in-out">Login</button>
                     </Link>
                 </div>
             </nav>

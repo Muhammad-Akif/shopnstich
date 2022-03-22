@@ -4,7 +4,7 @@ import { FaFacebookF,FaTwitter,FaGooglePlusG,FaLinkedinIn,FaInstagram,FaTumblr }
 const SideSocialIcons = () => {
     return (
         <>
-            <div id="fixed-social">
+            <div id="fixed-social" className="hidden sm:inline-block">
                 <div>
                     <a href="#" class="fixed-facebook" target="_blank"><FaFacebookF class="inline-block"/> <span>Facebook</span></a>
                 </div>
@@ -20,9 +20,9 @@ const SideSocialIcons = () => {
                 <div>
                     <a href="#" class="fixed-instagrem" target="_blank"><FaInstagram class="inline-block"/> <span>Instagram</span></a>
                 </div>
-                <div>
+                {/* <div>
                     <a href="#" class="fixed-tumblr" target="_blank"><FaTumblr class="inline-block"/> <span>Tumblr</span></a>
-                </div>
+                </div> */}
             </div>
         </>
     )
