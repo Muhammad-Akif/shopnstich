@@ -6,11 +6,11 @@ import tailorImg from '../../images/landingPage/08.png'
 const mainTextnImage = () => {
     return (
         <div class="px-5 sm:px-24 sm:-mb-12 py-6 sm:py-8 flex flex-col-reverse sm:grid grid-cols-2">
-            <div class="text-white text-3xl sm:text-5xl max-w-xl font-serif"> <strong class="text-green-950"> Best Place</strong>, Where You Shop And Stich Your Worth Cloths Tustedly...
-                <div class="text-2xl sm:text-3xl pt-4 text-orange-300 italic">Your Stiched Order, delivered with in 2 days, over all across Pakistan.   </div>
+            <div class="text-white text-xl sm:text-5xl max-w-xl font-serif"> <strong class="text-green-950"> Best Place</strong>, Where You Shop And Stich Your Worth Cloths Tustedly...
+                <div class="text-xl sm:text-3xl pt-4 text-orange-300 italic">Your Stiched Order, delivered with in 2 days, over all across Pakistan.   </div>
                 <div class="h-1 my-6 bg-green-950
                  w-11/12" />
-                <div class="text-lg sm:text-xl font-bold pb-4">Commited Quality, Garenteed!</div>
+                <div class="text-base sm:text-xl font-bold pb-4">Commited Quality, Garenteed!</div>
                 <div class="sm:space-x-4 space-x-2">
                     <div class="flex flex-col sm:flex-row space-y-3 justify-center sm:justify-start items-center">
                         <Link href='/signup'>
