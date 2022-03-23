@@ -20,7 +20,7 @@ const MapnConnect = () => {
                             <label for="message" class="leading-7 text-sm text-gray-100">Message</label>
                             <textarea id="message" name="message" placeholder="optional" class="w-full bg-gray-300 rounded border border-gray-300 focus:border-green-950 focus:ring-2 focus:ring-indigo-200 h-32 text-base outline-none text-green-960 py-1 px-3 resize-none leading-6 transition-colors duration-200 ease-in-out"></textarea>
                         </div>
-                        <button class="text-white bg-green-700 border-0 py-2 px-6 focus:outline-none hover:bg-green-800 rounded text-lg" onClick={()=>alert('Thanks for Connecting with us!')}>Subscribe</button>
+                        <button class="text-white bg-green-600 border-0 py-2 px-6 focus:outline-none hover:bg-green-500 rounded text-lg" onClick={()=>alert('Thanks for Connecting with us!')}>Subscribe</button>
                         {/* <p class="text-xs text-gray-100 mt-3">Chicharrones blog helvetica normcore iceland tousled brook viral artisan.</p> */}
                     </div>
                 </div>
