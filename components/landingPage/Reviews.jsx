@@ -3,9 +3,9 @@ import React from 'react'
 const Reviews = () => {
     return (
         <div class="bg-gray-100">
-            <h1 class="p-12 grid place-items-center font-serif text-5xl text-green-960 font-bold">
+            <h1 class="p-12 grid place-items-center font-serif text-3xl sm:text-5xl text-green-960 font-bold">
                 Client Reviews
-                <div class="h-1 my-2 bg-green-400 w-1/12" />
+                <div class="h-1 my-2 bg-green-400 w-2/4 sm:w-1/12" />
             </h1>
             <div id="carouselExampleCaptions" class="carousel pb-16 slide relative carousel-dark"  data-bs-ride="carousel">
                 <div class="carousel-inner relative w-full overflow-hidden">
