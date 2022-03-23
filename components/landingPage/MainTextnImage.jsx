@@ -10,7 +10,7 @@ const mainTextnImage = () => {
                 <div class="text-xl sm:text-3xl pt-4 text-orange-300 italic">Your Stiched Order, delivered with in 2 days, over all across Pakistan.   </div>
                 <div class="h-1 my-6 bg-green-950
                  w-11/12" />
-                <div class="text-base text-center sm:text-xl font-bold pb-4">Commited Quality, Garenteed!</div>
+                <div class="text-base text-center sm:text-left sm:text-xl font-bold pb-4">Commited Quality, Garenteed!</div>
                 <div class="sm:space-x-4 space-x-2">
                     <div class="flex flex-col sm:flex-row space-y-3 sm:space-y-0 sm:space-x-1 justify-center sm:justify-start items-center">
                         <Link href='/signup'>
