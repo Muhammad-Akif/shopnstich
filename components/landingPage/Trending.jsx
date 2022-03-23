@@ -5,7 +5,7 @@ import Image from 'next/image'
 const Trending = ({ trends }) => {
     // const trending = [{ title: "I'm supper dog for you." }, { title: "I'm supper dog for you." }, { title: "I'm supper dog for you." }, { title: "I'm supper dog for you." }]
     return (
-        <div class="bg-gray-100">
+        <div class="bg-orange-100">
             <div class='mx-auto'>
                 <div class="mx-auto px-2">
                     <h1 class="text-green-960 text-5xl font-bold font-serif p-12 text-center">

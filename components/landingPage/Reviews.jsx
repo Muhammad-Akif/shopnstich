@@ -2,7 +2,7 @@ import React from 'react'
 
 const Reviews = () => {
     return (
-        <div class="bg-gray-100">
+        <div class="bg-orange-100">
             <h1 class="p-12 grid place-items-center font-serif text-3xl sm:text-5xl text-green-960 font-bold">
                 Client Reviews
                 <div class="h-1 my-2 bg-green-400 w-2/4 sm:w-1/12" />

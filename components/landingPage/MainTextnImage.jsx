@@ -12,7 +12,7 @@ const mainTextnImage = () => {
                  w-11/12" />
                 <div class="text-base text-center sm:text-xl font-bold pb-4">Commited Quality, Garenteed!</div>
                 <div class="sm:space-x-4 space-x-2">
-                    <div class="flex flex-col sm:flex-row space-y-3 justify-center sm:justify-start items-center">
+                    <div class="flex flex-col sm:flex-row space-y-3 sm:space-y-0 sm:space-x-1 justify-center sm:justify-start items-center">
                         <Link href='/signup'>
                             <button class="p-2 w-full pl-5 pr-5 bg-transparent border-2 border-green-500 text-green-500 text-lg rounded-lg hover:bg-green-500 hover:text-white focus:border-4 focus:border-green-300">Lets Get Started...</button>
                         </Link>
