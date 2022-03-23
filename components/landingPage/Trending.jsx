@@ -14,7 +14,7 @@ const Trending = ({ trends }) => {
                             <div class="h-0.5 my-2 bg-green-950 w-2/4 sm:w-1/12" />
                         </div>
                         <p class="text-green-960 text-xl sm:text-2xl w-full italic text-center">
-                            Top Selling Products Now a Days, <span class="text-orange-400">Order Now!</span> 
+                            Our Top Selling Products Now a Days, <span class="text-orange-400">Order Now!</span> 
                         </p>
                     </h1>
                     <div class="grid pb-12 grid-cols-1 md:grid-cols-3 gap-4 px-6 sm:px-20">

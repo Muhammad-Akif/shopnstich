@@ -7,7 +7,7 @@ const Reviews = () => {
                 Client Reviews
                 <div class="h-1 my-2 bg-green-400 w-2/4 sm:w-1/12" />
                 <p class="text-green-960 text-xl sm:text-2xl w-full italic text-center">
-                    Few Feedback From Our Buyers , <span class="text-orange-400">Must Read!</span>
+                    Few Feedback From Our Buyers, <span class="text-orange-400">Must Read!</span>
                 </p>
             </h1>
 
