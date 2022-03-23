@@ -22,7 +22,7 @@ const mainTextnImage = () => {
                     </div>
                 </div>
             </div>
-            <div class="text-right pb-6 sm:pb-0"><Image src={tailorImg} width={400} height={410} alt="tailorImg" /></div>
+            <div class="text-right pb-6 sm:pb-0"><Image src={tailorImg} width={400} height={400} alt="tailorImg" /></div>
         </div>
     )
 }
