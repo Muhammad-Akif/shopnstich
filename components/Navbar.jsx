@@ -7,13 +7,10 @@ import {MobileNav, MegaMenu} from './index'
 function Navbar({ cart }) {
     return (
         <>
-            <nav class="flex items-center justify-between flex-wrap bg-transparent px-6 pt-6 sm:px-12 sm:py-8 w-full">
-                <div class="flex items-center sm:w-full justify-between flex-shrink-0 mr-6">
+            <nav class="flex items-center justify-between flex-wrap bg-transparent px-6 pt-6 sm:px-12 sm:py-8">
+                <div class="flex items-center justify-between flex-shrink-0 mr-6">
                     <Link href="/"><Image class="hover:cursor-pointer" src={logo} width="160" height="40" title='logo' /></Link>
-                    <div class="ml-auto md:w-48 hidden sm:flex flex-col place-items-end">
-                        <span class="font-bold md:text-xl text-gray-100"> +92 317 0526868</span>
-                        <span class="font-semibold text-sm text-gray-200">Support 24/7</span>
-                    </div>
+                   
                 </div>
                 <MobileNav/>
                 <div class="mt-3 w-full block hidden flex-grow lg:flex lg:items-center lg:justify-end lg:w-auto">
