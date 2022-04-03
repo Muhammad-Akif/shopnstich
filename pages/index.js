@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import Head from 'next/head'
 import { Navbar } from '../components'
-import { SideSocialIcons,MainBanner, MainTextnImage, MapnConnect, Trending, GetinTouch, ProductCard, Reviews, Footer } from '../components'
+import {  MainTextnImage, MapnConnect, Trending, ProductCard, Reviews, Footer } from '../components'
 
 export default function Home() {
   const [cart, setCart] = useState(0)
