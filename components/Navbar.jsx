@@ -2,23 +2,23 @@ import React from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
 import logo from '../images/logo.png'
-import {MobileNav, MegaMenu} from './index'
+import { MobileNav, MegaMenu } from './index'
 
 function Navbar({ cart }) {
     return (
         <>
-            <nav class="flex items-center justify-between flex-wrap bg-transparent px-6 pt-6 sm:px-12 sm:py-8">
+            <nav class="flex items-center justify-between flex-wrap bg-transparent px-6 pt-6 sm:px-12 sm:py-10">
                 <div class="flex items-center justify-between flex-shrink-0 mr-6">
                     <Link href="/"><Image class="hover:cursor-pointer" src={logo} width="160" height="40" title='logo' /></Link>
-                   
+
                 </div>
-                <MobileNav/>
-                <div class="mt-3 w-full block hidden flex-grow lg:flex lg:items-center lg:justify-end lg:w-auto">
+                <MobileNav />
+                <div class="w-full block hidden flex-grow sm:flex sm:items-center sm:justify-end sm:w-auto">
                     <div class="text-lg mr-4">
                         <div class="inline-flex">
-                       <MegaMenu category="Men"/>
-                       <MegaMenu category="Women"/>
-                       <MegaMenu category="Kids"/>
+                            <MegaMenu category="Men" />
+                            <MegaMenu category="Women" />
+                            <MegaMenu category="Kids" />
                         </div>
                         <a href="#responsive-header" class="block mt-4 hover:text-green-950 transition duration-150 ease-in-out maincolor lg:inline-block lg:mt-0 text-white mr-4">
                             How it Works?
