@@ -21,16 +21,14 @@ const Trending = ({ trends }) => {
                         {trends.map(trend => (
                             <div class="wrapper antialiased text-gray-900 cursor-pointer">
                                 <div>
-                                    <div class="max-w-2xl">
                                     <Image
                                         // alt={author.name}
                                         unoptimized
                                         layout='responsive'
-                                        width={250} height={250}
+                                        width={200} height={200}
                                         src={trend.img}
-                                        class="w-full object-cover object-center rounded-lg shadow-md"
+                                        class="w-full object-cover object-center rounded-lg shadow-lg"
                                     />
-                                    </div>
 
                                     <div class="relative -mt-5 mx-2 ">
                                         <div class="bg-white p-6 rounded-lg shadow-lg">

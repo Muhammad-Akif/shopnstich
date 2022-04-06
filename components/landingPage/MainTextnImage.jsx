@@ -5,8 +5,8 @@ import tailorImg from '../../images/landingPage/08.png'
 
 const mainTextnImage = () => {
     return (
-        <div class="px-5  sm:max-w-7xl sm:mx-auto py-6 sm:py-8 flex flex-col-reverse md:flex-row sm:justify-around sm:items-center">
-            <div class="text-white py-4  text-xl sm:w-11/12 md:w-1/2 lg:max-w-2xl sm:text-4xl md:text-5xl font-serif"> <strong class="text-green-950"> Best Place</strong>, Where You Shop And Stitch Your Worth Cloths Tustedly...
+        <div class="px-5 sm:mx-auto py-6 sm:py-8 flex flex-col-reverse md:flex-row sm:justify-around sm:items-center">
+            <div class="text-white py-4  text-xl sm:w-11/12 md:w-1/2 sm:text-4xl xl:mr-20 md:text-5xl font-serif"> <strong class="text-green-950"> Best Place</strong>, Where You Shop And Stitch Your Worth Cloths Tustedly...
                 <div class="text-xl sm:text-3xl  pt-4 text-orange-300 italic">Your Stitched Order, delivered with in 2 days, over all across Pakistan.   </div>
                 <div class="h-1 my-6 bg-green-950
                  sm:w-11/12 w-full" />
