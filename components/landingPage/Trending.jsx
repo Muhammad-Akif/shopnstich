@@ -30,7 +30,7 @@ const Trending = ({ trends }) => {
                                         class="w-full object-cover object-center rounded-lg shadow-md"
                                     />
 
-                                    <div class="relative px-4 -mt-16  ">
+                                    <div class="relative -mt-5  ">
                                         <div class="bg-white p-6 rounded-lg shadow-lg">
                                             <div class="flex items-baseline">
                                                 <span class="bg-teal-200 text-teal-800 text-xs px-2 inline-block rounded-full  uppercase font-semibold tracking-wide">
