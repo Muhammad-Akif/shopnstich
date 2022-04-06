@@ -10,8 +10,8 @@ const MegaMenu = ({category}) => {
               <path fill="currentColor" d="M31.3 192h257.3c17.8 0 26.7 21.5 14.1 34.1L174.1 354.8c-7.8 7.8-20.5 7.8-28.3 0L17.2 226.1C4.6 213.5 13.5 192 31.3 192z"></path>
             </svg>
           </a>
-          <div class="dropdown-menu w-full mt-0 hidden shadow-lg bg-white absolute left-0 top-full" aria-labelledby="dropdownMenuButtonZ">
-            <div class="px-6 lg:px-8 py-5">
+          <div class="dropdown-menu w-full hidden shadow-lg absolute left-0 top-full" aria-labelledby="dropdownMenuButtonZ">
+            <div class="px-6 w-4/5 mx-auto mt-5 lg:px-8 py-5 bg-white">
               <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
                 <div class="bg-white text-gray-600">
                   <p class="block px-6 py-2 border-b border-gray-200 w-full uppercase font-semibold text-gray-700">Lorem ipsum</p>
