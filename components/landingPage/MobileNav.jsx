@@ -4,7 +4,7 @@ import { CgMenuRight } from "react-icons/cg";
 const MobileNav = () => {
     return (
         <>
-            <button class="inline-block -mt-4 sm:hidden text-white text-3xl leading-tight rounded shadow-md border p-1 border-green-950 transition duration-150 ease-in-out mr-1.5" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight"><CgMenuRight/></button>
+            <button class="inline-block -mt-4 lg:hidden text-white text-3xl leading-tight rounded shadow-md border p-1 border-green-950 transition duration-150 ease-in-out mr-1.5" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight"><CgMenuRight/></button>
 
             <div class="offcanvas offcanvas-end fixed bottom-0 flex flex-col max-w-full bg-white invisible bg-clip-padding shadow-sm outline-none transition duration-300 ease-in-out text-gray-700 top-0 right-0 border-none w-96" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
                 <div class="offcanvas-header flex items-center justify-between p-4">

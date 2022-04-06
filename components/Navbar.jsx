@@ -9,11 +9,11 @@ function Navbar({ cart }) {
         <>
             <nav class="flex items-center justify-between flex-wrap bg-transparent px-6 pt-6 sm:px-12 sm:py-10">
                 <div class="flex items-center justify-between flex-shrink-0 mr-6">
-                    <Link href="/"><Image class="hover:cursor-pointer" src={logo} width="160" height="40" title='logo' /></Link>
+                    <Link href="/"><Image class="hover:cursor-pointer" src={logo} width="170" height="42" title='logo' /></Link>
 
                 </div>
                 <MobileNav />
-                <div class="w-full block hidden flex-grow sm:flex sm:items-center sm:justify-end sm:w-auto">
+                <div class="w-full block hidden flex-grow lg:flex sm:items-center sm:justify-end sm:w-auto">
                     <div class="text-lg mr-4">
                         <div class="inline-flex">
                             <MegaMenu category="Men" />
@@ -22,9 +22,6 @@ function Navbar({ cart }) {
                         </div>
                         <a href="#responsive-header" class="block mt-4 hover:text-green-950 transition duration-150 ease-in-out maincolor lg:inline-block lg:mt-0 text-white mr-4">
                             How it Works?
-                        </a>
-                        <a href="#responsive-header" class="block mt-4 lg:inline-block lg:mt-0 text-white hover:text-green-950 transition duration-150 ease-in-out mr-4">
-                            About
                         </a>
                     </div>
                     <form class="group relative mr-4">
