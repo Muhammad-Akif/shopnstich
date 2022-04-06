@@ -11,7 +11,7 @@ export default function Home() {
   const trends = [ { img: "https://media.kohlsimg.com/is/image/kohls/wo-dp-20211219-gifts-for-women-1?scl=1&fmt=pjpeg" }, { img: "https://uniworthdress.com/uploads/product/webp/35bcb8783c85a9f059bdc5734a450fb8.webp"},{ img: "https://cdn.shopify.com/s/files/1/0590/0058/6412/products/llamwubb__17200.1632926147.1280.1280_3b459ecc-a462-4e75-8098-62dc369d0520_360x.jpg?v=1634101556" }]
   // { img: "https://imgv2.staticdj.com/e9308c027704520cb407eeb5575aa82d_540x.jpeg" },
   return (
-    <div>
+    <div class="max-w-full">
       <Head>
         <title>ShopnStich</title>
         <link rel="icon" href="/favicon.ico" />
