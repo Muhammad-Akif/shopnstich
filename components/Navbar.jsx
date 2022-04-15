@@ -14,7 +14,7 @@ function Navbar({ cart }) {
     return (
         <>
             <nav class="flex  items-center justify-between flex-wrap bg-transparent px-6 pt-6 sm:px-12 sm:py-10">
-                <div class="flex items-center justify-between flex-shrink-0 mr-6">
+                <div data-aos="zoom-out" class="flex items-center justify-between flex-shrink-0 mr-6">
                     <Link href="/"><Image class="hover:cursor-pointer" src={logo} width="170" height="42" title='logo' /></Link>
 
                 </div>
