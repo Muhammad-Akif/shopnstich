@@ -9,7 +9,9 @@ const Trending = ({ trends }) => {
             <div class='mx-auto'>
                 <div class="mx-auto px-2">
                     <h1 class="text-green-960 text-3xl sm:text-5xl font-bold font-serif p-12 text-center">
-                        Trendings
+                        <div data-aos="zoom-up">
+                            Trendings
+                        </div>
                         <div class="flex justify-center items-center">
                             <div class="h-0.5 my-2 bg-green-950 w-2/4 sm:w-1/12" />
                         </div>
@@ -25,12 +27,12 @@ const Trending = ({ trends }) => {
                                         // alt={author.name}
                                         unoptimized
                                         layout='responsive'
-                                        width={200} height={200}
+                                        width={180} height={150}
                                         src={trend.img}
-                                        class="w-full object-cover object-center rounded-lg shadow-lg"
+                                        class=" object-center rounded-lg shadow-lg"
                                     />
 
-                                    <div class="relative -mt-5 mx-2 ">
+                                    <div class="relative -mt-2 mx-2 ">
                                         <div class="bg-white p-6 rounded-lg shadow-lg">
                                             <div class="flex items-baseline">
                                                 <span class="bg-teal-200 text-teal-800 text-xs px-2 inline-block rounded-full  uppercase font-semibold tracking-wide">

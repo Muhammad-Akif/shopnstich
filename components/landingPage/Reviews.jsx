@@ -4,8 +4,10 @@ const Reviews = () => {
     return (
         <div class="bg-green-100">
             <h1 class="p-12 grid place-items-center font-serif text-3xl sm:text-5xl text-green-960 font-bold">
-                Client Reviews
-                <div class="h-1 my-2 bg-green-400 w-2/4 sm:w-1/12" />
+                <div data-aos="zoom-up">
+                    Client Reviews
+                </div>
+                    <div class="h-1 my-2 bg-green-400 w-2/4 sm:w-1/12" />
                 <p class="text-green-960 text-lg sm:text-2xl w-full italic text-center">
                     Few Feedback From Our Buyers, <span class="text-orange-400">Must Read!</span>
                 </p>

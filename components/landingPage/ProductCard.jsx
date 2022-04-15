@@ -6,7 +6,9 @@ const ProductCard = ({ category, setCart, cart, cloths }) => {
     return (
         <div class='bg-orange-100'>
             <h1 class="text-green-960 w-full border border-red-50 whitespace-nowrap text-3xl sm:text-5xl font-bold font-serif py-12 text-center">
-                {category} Collections
+                <div data-aos="zoom-up">
+                    {category} Collections
+                </div>
                 <div class="flex justify-center items-center">
                     <div class="h-0.5 my-2 bg-green-950 w-2/4 sm:w-1/12" />
                 </div>
