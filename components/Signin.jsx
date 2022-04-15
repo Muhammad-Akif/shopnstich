@@ -144,7 +144,7 @@ flex items-center justify-center">
 
                 <div class="w-full h-100 text-gray-100">
 
-                    <Link href="/"><img class="hover:cursor-pointer -mb-8 m-auto" src='https://svgshare.com/i/coH.svg' width="180" title='logo' /></Link>
+                    <Link href="/"><img class="hover:cursor-pointer -mb-8 m-auto" src='https://svgshare.com/i/gKc.svg' width="180" title='logo' /></Link>
                     <h1 class="text-xl md:text-2xl font-bold leading-tight mt-12"> {inType ? 'Create a new account' : 'Log in to your account'}</h1>
 
                     <form class="mt-6" action="#" method="POST">

@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
-import logo from '../images/logo.png'
+import logo from '../images/landingPage/logo.svg'
 import { MobileNav, MegaMenu } from './index'
 import { getMenuDetails } from '../services'
 

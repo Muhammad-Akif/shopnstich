@@ -15,7 +15,7 @@ module.exports = {
       },
     },
     minWidth: {
-      '1/2': '50%',
+      '4/5': '45%',
     }
   },
   plugins: [
