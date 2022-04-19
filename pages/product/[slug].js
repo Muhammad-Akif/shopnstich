@@ -1,18 +1,18 @@
 import React from 'react'
 
-const products = () => {
+const product = () => {
   return (
     <div>products</div>
   )
 }
 
-export default products
+export default product
 
 
 export async function getStaticPaths() {
-    const Products = await getProducts();
+    const products = await getProducts();
     return {
-        paths: posts?.map(({ node: { slug }}) => ({ params: { slug}})),
+        paths: products?.map(({ node: { slug }}) => ({ params: { slug}})),
         fallback: false
     }
 }

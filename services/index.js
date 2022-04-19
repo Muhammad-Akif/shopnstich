@@ -23,42 +23,42 @@ export const getMenuDetails = async () => {
   return result.categories;
 }
 
-// export const getPosts = async () => {
-//   const query = gql`
-//     query MyQuery {
-//         postsConnection {
-//           edges {
-//             node {
-//               author {
-//                 bio
-//                 name
-//                 id
-//                 photo {
-//                   url
-//                 }
-//               }
-//               createdAt
-//               excerpt
-//               slug
-//               title
-//               categories {
-//                 name
-//                 slug
-//               }
-//               featuredImage {
-//                 url
-//                 createdAt
-//                 fileName
-//               }
-//             }
-//           }
-//         }
-//       }      
-//     `
-//   const result = await request(graphqlAPI, query);
+export const getProducts = async () => {
+  const query = gql`
+    query MyQuery {
+        productsConnection {
+          edges {
+            node {
+              author {
+                bio
+                name
+                id
+                photo {
+                  url
+                }
+              }
+              createdAt
+              excerpt
+              slug
+              title
+              categories {
+                name
+                slug
+              }
+              featuredImage {
+                url
+                createdAt
+                fileName
+              }
+            }
+          }
+        }
+      }      
+    `
+  const result = await request(graphqlAPI, query);
 
-//   return result.postsConnection.edges;
-// }
+  return result.productsConnection.edges;
+}
 
 // export const getPostDetails = async (slug) => {
 //   const query = gql` 
