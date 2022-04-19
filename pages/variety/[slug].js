@@ -4,9 +4,12 @@ import { getVarieties, getVarietyDetails } from '../../services'
 
 const varietyDetails = ({ variety }) => {
   return (
-    <div class="bg-green-960">
-      <Navbar />
-      <div className="gap-8 bg-green-960 grid sm:grid-cols-2 lg:grid-cols-3">
+    <div>
+      <div class="bg-green-960 inline">
+        <Navbar />
+      </div>
+      <img src="https://cdn.shopify.com/s/files/1/2635/3244/collections/1200x330-Men-Kurta.jpg?v=1648862476" class="max-w-full mx-auto h-auto pb-20" alt="..." />
+      <div className="gap-8 grid sm:grid-cols-2 lg:grid-cols-3">
         {variety?.products.map(RelatedProducts)}
       </div>
       <Footer />
