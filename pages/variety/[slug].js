@@ -4,16 +4,13 @@ import { getVarieties, getVarietyDetails } from '../../services'
 
 const varietyDetails = ({ variety }) => {
   return (
-    <>
+    <div class="bg-green-960">
       <Navbar />
-      <div className="gap-8 grid sm:grid-cols-2 lg:grid-cols-3">
+      <div className="gap-8 bg-green-960 grid sm:grid-cols-2 lg:grid-cols-3">
         {variety?.products.map(RelatedProducts)}
       </div>
-      <RelatedProducts />
-      <div class="absolute bottom-0">
-        <Footer />
-      </div>
-    </>
+      <Footer />
+    </div>
   )
 }
 

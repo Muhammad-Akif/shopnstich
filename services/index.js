@@ -48,11 +48,10 @@ export const getVarietyDetails = async (slug) => {
         products {
           name
           price
-          images {
+          image {
             url
           }
           slug
-          description
           createdAt
         }
         name
