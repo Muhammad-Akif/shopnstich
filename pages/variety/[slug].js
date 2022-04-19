@@ -1,12 +1,12 @@
 import React from 'react'
 
-const varietyDetail= () => {
+const varietyDetails= () => {
   return (
-    <div>varietyDetail</div>
+    <div>varietyDetails</div>
   )
 }
 
-export default varietyDetail;
+export default varietyDetails;
 
 export async function getStaticPaths() { // all Variety slugs to generate paths 
     const varieties = await getVarieties();
@@ -17,7 +17,7 @@ export async function getStaticPaths() { // all Variety slugs to generate paths
 }
 
 export async function getStaticProps({ params }) {
-    const data = await getvarietyDetail(params?.slug);
+    const data = await getVarietyDetails(params?.slug);
     return {
       props: { post: data }
     }

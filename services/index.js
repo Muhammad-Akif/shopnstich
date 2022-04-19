@@ -37,42 +37,37 @@ export const getVarieties = async () => {
     `
   const result = await request(graphqlAPI, query);
 
-  return result.productsConnection.edges;
+  return result.varietiesConnection.edges;
 }
 
-// export const getPostDetails = async (slug) => {
-//   const query = gql` 
-//     query getPostDetails($slug: String!) { 
-//       post(where: { slug: $slug}) { 
-//         author { 
-//           bio 
-//           name 
-//           id 
-//         photo { 
-//           url 
-//         } 
-//         } 
-//         createdAt 
-//         excerpt 
-//         slug 
-//         title 
-//         categories { 
-//           name 
-//           slug 
-//         } 
-//         featuredImage { 
-//           url 
-//         } 
-//         content { 
-//           raw 
-//         } 
-//       } 
-//     }  
-//   `
-//   const result = await request(graphqlAPI, query, { slug });
+export const getVarietyDetails = async (slug) => {
+  const query = gql`  
+    query getVarietyDetails($slug: String!) {
+      variety(where: {slug: $slug}) {
+        products {
+          name
+          price
+          images {
+            url
+          }
+          slug
+          description
+          createdAt
+        }
+        name
+        collection {
+          name
+          category {
+            name
+          }
+        }
+      }
+    }
+  `
+  const result = await request(graphqlAPI, query, { slug });
 
-//   return result.post;
-// }
+  return result.variety;
+}
 
 
 // export const getRecentPosts = async () => {
