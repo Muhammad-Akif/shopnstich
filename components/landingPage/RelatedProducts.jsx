@@ -2,8 +2,11 @@ import Link from 'next/link'
 import React from 'react'
 
 const RelatedProducts = ({ name, price, images, slug, description, createdAt }) => {
+
+    const [primaryImage] = images
+
     return (
-        <article key={id}>
+        <article key={slug}>
             <Link href={`/products/${slug}`}>
                 <a className="group no-underline w-full h-full flex">
                     <div className="bg-gray-50 rounded-lg cursor-pointer w-full overflow-hidden relative px-3 py-6 md:px-6">
@@ -22,10 +25,7 @@ const RelatedProducts = ({ name, price, images, slug, description, createdAt }) 
                                 {name}
                             </p>
                             <p className="text-gray-400 text-sm">
-                                {formatCurrencyValue({
-                                    currency: activeCurrency,
-                                    value: price
-                                })}
+                                {price}
                             </p>
                         </div>
                     </div>
