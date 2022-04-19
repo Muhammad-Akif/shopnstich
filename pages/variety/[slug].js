@@ -1,13 +1,15 @@
 import React from 'react'
-import { Footer, Navbar } from '../../components'
+import { Footer, Navbar, RelatedProducts } from '../../components'
 import { getVarieties, getVarietyDetails } from '../../services'
 
 const varietyDetails = ({ variety }) => {
-  console.log("variety -->", variety)
   return (
     <>
       <Navbar />
-      <RelatedProducts/>
+      <div className="gap-8 grid sm:grid-cols-2 lg:grid-cols-3">
+        {variety?.products.map(RelatedProducts)}
+      </div>
+      <RelatedProducts />
       <div class="absolute bottom-0">
         <Footer />
       </div>
