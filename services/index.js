@@ -18,42 +18,22 @@ export const getMenuDetails = async () => {
   }
   `
   const result = await request(graphqlAPI, query);
-  console.log("result --> ",result);
+  console.log("result --> ", result);
 
   return result.categories;
 }
 
-export const getProducts = async () => {
+export const getVarieties = async () => {
   const query = gql`
-    query MyQuery {
-        productsConnection {
-          edges {
-            node {
-              author {
-                bio
-                name
-                id
-                photo {
-                  url
-                }
-              }
-              createdAt
-              excerpt
-              slug
-              title
-              categories {
-                name
-                slug
-              }
-              featuredImage {
-                url
-                createdAt
-                fileName
-              }
-            }
-          }
+  query MyQuery {
+    varietiesConnection {
+      edges {
+        node {
+          slug
         }
-      }      
+      }
+    }
+  }
     `
   const result = await request(graphqlAPI, query);
 
