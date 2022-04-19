@@ -11,7 +11,8 @@ export const getMenuDetails = async () => {
       collections {
         name
         varieties {
-          name
+          name,
+          slug
         }
       }
     }
