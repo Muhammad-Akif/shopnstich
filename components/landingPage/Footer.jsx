@@ -83,8 +83,7 @@ const Footer = () => {
                                 Tailwind ELEMENTS
                             </h6>
                             <p class="text-left">
-                                Here you can use rows and columns to organize your footer content. Lorem ipsum dolor
-                                sit amet, consectetur adipisicing elit.
+                                One of the Pakistans best clothing website, to deliver Quality Product.
                                 <br />
                                 Here you can use rows and columns to organize your footer content. Lorem ipsum dolor
                                 sit amet, consectetur adipisicing elit.
