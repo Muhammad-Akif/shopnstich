@@ -1,6 +1,7 @@
 import React from 'react'
 
 const Footer = () => {
+    const categories = ["Men", "Women", "Kids"]
     return (
         <>
             <footer class="text-center lg:text-left bg-green-960 text-gray-200">
@@ -80,31 +81,24 @@ const Footer = () => {
                                         d="M488.6 250.2L392 214V105.5c0-15-9.3-28.4-23.4-33.7l-100-37.5c-8.1-3.1-17.1-3.1-25.3 0l-100 37.5c-14.1 5.3-23.4 18.7-23.4 33.7V214l-96.6 36.2C9.3 255.5 0 268.9 0 283.9V394c0 13.6 7.7 26.1 19.9 32.2l100 50c10.1 5.1 22.1 5.1 32.2 0l103.9-52 103.9 52c10.1 5.1 22.1 5.1 32.2 0l100-50c12.2-6.1 19.9-18.6 19.9-32.2V283.9c0-15-9.3-28.4-23.4-33.7zM358 214.8l-85 31.9v-68.2l85-37v73.3zM154 104.1l102-38.2 102 38.2v.6l-102 41.4-102-41.4v-.6zm84 291.1l-85 42.5v-79.1l85-38.8v75.4zm0-112l-102 41.4-102-41.4v-.6l102-38.2 102 38.2v.6zm240 112l-85 42.5v-79.1l85-38.8v75.4zm0-112l-102 41.4-102-41.4v-.6l102-38.2 102 38.2v.6z">
                                     </path>
                                 </svg>
-                                Tailwind ELEMENTS
+                                Remarks & Note's
                             </h6>
                             <p class="text-left">
                                 One of the Pakistans best clothing website, to deliver Quality Product.
                                 <br />
-                                Here you can use rows and columns to organize your footer content. Lorem ipsum dolor
-                                sit amet, consectetur adipisicing elit.
+                                <br />
+                                Your Stitched Order, delivered with in 2 days, over all across Pakistan.
                             </p>
                         </div>
                         <div class="">
                             <h6 class="uppercase font-semibold mb-4 flex justify-center md:justify-start">
                                 Products
                             </h6>
-                            <p class="mb-4 text-left">
-                                <a href="#!" class="text-gray-200">Ipsum amet consectetur adipisicing.</a>
+                            { categories.map((category,key) => (
+                            <p key={key} class="mb-4 text-left">
+                                <a href="#!" class="text-gray-200">{category} Stitched & Unstitched Collections.</a>
                             </p>
-                            <p class="mb-4 text-left">
-                                <a href="#!" class="text-gray-200">Lorem ipsum dolor sit amet consectetur.</a>
-                            </p>
-                            <p class="mb-4 text-left">
-                                <a href="#!" class="text-gray-200">Goremeo ipsum dolor adipisicing.</a>
-                            </p>
-                            <p class="mb-4 text-left">
-                                <a href="#!" class="text-gray-200">Dolioem ipsum dolor sit amet adipisicing.</a>
-                            </p>
+                            ))}
                            
                         </div>
                         <div>
