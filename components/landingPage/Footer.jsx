@@ -84,7 +84,7 @@ const Footer = () => {
                                 Remarks & Note's
                             </h6>
                             <p class="text-left">
-                                One of the Pakistans best clothing website, to deliver Quality Product.
+                                One of the best, Pakistan clothing website, to deliver Quality Product as every Customer Demands.
                                 <br />
                                 <br />
                                 Your Stitched Order, delivered with in 2 days, over all across Pakistan.
@@ -95,8 +95,8 @@ const Footer = () => {
                                 Products
                             </h6>
                             { categories.map((category,key) => (
-                            <p key={key} class="mb-4 text-left">
-                                <a href="#!" class="text-gray-200">{category} Stitched & Unstitched Collections.</a>
+                            <p key={key} class="my-6 text-left">
+                                <a href="#!" class="text-gray-200"> <strong>{category}</strong> Stitched & Unstitched Collections</a>
                             </p>
                             ))}
                            

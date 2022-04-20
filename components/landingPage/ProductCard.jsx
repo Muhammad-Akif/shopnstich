@@ -1,5 +1,6 @@
 import React from 'react'
 import Image from 'next/image'
+import Link from 'next/link'
 
 const ProductCard = ({ category, setCart, cart, cloths }) => {
     // const cards = [{ img: "https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg" }, { img: "https://fakestoreapi.com/img/71li-ujtlUL._AC_UX679_.jpg" }, { img: "https://fakestoreapi.com/img/71-3HjGNDUL._AC_SY879._SX._UX._SY._UY_.jpg" }, { img: "https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg" }, { img: "https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg" }, { img: "https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg" }, { img: "https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg" }, { img: "https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg" }, { img: "https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg" }, { img: "https://fakestoreapi.com/img/51Y5NI-I5jL._AC_UX679_.jpg" }]
@@ -23,17 +24,19 @@ const ProductCard = ({ category, setCart, cart, cloths }) => {
                     >
                         {
                             cloths.map(card => (
-                                <div class="px-2">
+                                <div class="px-2 group">
                                     <div class="w-52 lg:w-full h-auto overflow-hidden rounded-lg shadow-md bg-white hover:shadow-2xl transition-shadow duration-300 ease-in-out">
                                         <div className="card-wd ">
-                                            <a href="#" class="flex w-52 lg:w-full p-6  justify-center items-center">
+                                            <Link href="#">
+                                               <div class="flex w-52 lg:w-full p-6 hover:cursor-pointer justify-center items-center group-hover:scale-110 transition-transform duration-200 ease-in-out">
                                                 <Image
                                                     unoptimized
                                                     height={400}
                                                     width={400}
                                                     src={card.img}
                                                 />
-                                            </a>
+                                               </div>
+                                            </Link>
                                             <div class="px-5 w-52 lg:w-full">
                                                 <h3 class="text-md xl:text-lg font-semibold tracking-tight text-gray-900">Apple Watch Series 7 GPS, Aluminium Case, Starlight Sport</h3>
                                                 <div class="flex items-center mt-2.5 mb-5">
@@ -47,7 +50,7 @@ const ProductCard = ({ category, setCart, cart, cloths }) => {
                                                 <div class="flex flex-col xl:flex-row justify-between items-center">
                                                     <div class="text-xl xl:text-2xl font-bold text-gray-900 dark:text-white">$599</div>
                                                     <button onClick={() => setCart(++cart)} class="text-white bg-orange-400 hover:bg-orange-300 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm w-full p-3 m-4 sm:px-5 sm:py-2.5 text-center">
-                                                        Add to cart
+                                                        View Details
                                                     </button>
                                                 </div>
                                             </div>
