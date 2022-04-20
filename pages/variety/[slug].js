@@ -1,5 +1,5 @@
 import React from 'react'
-import { Footer, Navbar, RelatedProducts } from '../../components'
+import { BreadCrumbs, Footer, Navbar, RelatedProducts } from '../../components'
 import { getVarieties, getVarietyDetails } from '../../services'
 
 const varietyDetails = ({ variety }) => {
