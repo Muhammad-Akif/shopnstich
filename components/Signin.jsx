@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import Link from 'next/link'
+import { GoogleLogin } from "react-google-login"
 import { FaGoogle } from 'react-icons/fa'
 import firebase from '../config/index.js';
 import { useRouter } from 'next/router'
@@ -11,6 +12,19 @@ function validateEmail(email) {
 }
 
 const Signin = ({ inType }) => {
+    const googleSuccess = async (res) => {
+        const result = res?.profileObj;
+        const token = res?.tokenId;
+        try {
+            dispatch({type: "AUTH", data: {result, token}})
+            history.push("/");
+        } catch (error) {
+            console.log(error)
+        }
+    } 
+    const googleFailure = () => {
+        console.log("Google Login Failure...")
+    } 
     const router = useRouter()
     // const dispatch = useDispatch();
     // const classes = useStyles();
