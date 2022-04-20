@@ -47,7 +47,7 @@ const ProductCard = ({ category, cloths }) => {
                                                     <span class="bg-blue-100 text-blue-800 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded dark:bg-blue-200 dark:text-blue-800 ml-3">5.0</span>
                                                 </div>
                                                 <div class="flex flex-col xl:flex-row justify-between items-center">
-                                                    <div class="text-xl xl:text-2xl font-bold text-gray-900 dark:text-white">$599</div>
+                                                    <div class="text-xl xl:text-2xl font-bold text-gray-900 dark:text-white">Rs: 599</div>
                                                     <button onClick={() => setCart(++cart)} class="text-white bg-orange-400 hover:bg-orange-300 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm w-full p-3 m-4 sm:px-5 sm:py-2.5 text-center">
                                                         View Details
                                                     </button>
