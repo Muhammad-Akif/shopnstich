@@ -17,6 +17,7 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
         <script src="./TW-ELEMENTS-PATH/dist/js/index.min.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/tw-elements/dist/js/index.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/chart.js@3.6.2/dist/chart.min.js"></script>
       </Head>
 
       <div class="bg-green-960 sm:min-h-screen">
