@@ -32,14 +32,12 @@ const App = () => {
       >
         <Image
           src={control}
-          width={400} height={400}
           className={`absolute cursor-pointer -right-3 top-9 w-7 border-dark-purple
            border-2 rounded-full  ${!open && "rotate-180"}`}
           onClick={() => setOpen(!open)}
         />
         <div className="flex gap-x-4 items-center">
           <Image
-          width={400} height={400}
             src={logo}
             className={`cursor-pointer duration-500 ${
               open && "rotate-[360deg]"
@@ -63,7 +61,7 @@ const App = () => {
               } `}
             >
 
-              <Image src={Menu.src} width={400} height={400} />
+              <Image src={Menu.src} />
               <span className={`${!open && "hidden"} origin-left duration-200`}>
                 {Menu.title}
               </span>
