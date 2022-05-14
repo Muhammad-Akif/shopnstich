@@ -23,7 +23,7 @@ const Sidebar = () => {
                     <div className="">
                         <div className="flex p-3 text-gray-700  space-x-4 0 hover:bg-gray-50 hover:text-blue-600  cursor-pointer  ">
                             <DonutLargeIcon className=" text-gray-300" />
-                            <p className=" "  >Dashbord</p>
+                            <p className=" "  >Profile</p>
                         </div>
                     </div>
                     <div className="">
