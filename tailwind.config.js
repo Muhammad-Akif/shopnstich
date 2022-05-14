@@ -12,6 +12,8 @@ module.exports = {
           950: '#81E291',
           960: '#00242C',
         },
+        "dark-purple": "#081A51",
+        "light-white": "rgba(255,255,255,0.17)",
       },
     },
     minWidth: {
