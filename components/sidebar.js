@@ -12,9 +12,7 @@ const Sidebar = () => {
     return (
         <div className="md:w-3/12 w-6/12 h-screen shadow-2xl">
             <div className=" border-b py-3 mt-1 flex justify-around ">
-                <p className="text-xl  font-semibold">elrond</p>
-                <p>|</p>
-                <p className="text-gray-400 text-lg">wallet</p>
+                <p className="text-lg  font-sans">Customer Dashboard</p>
 
             </div>
             <div className="p-4 space-y-14">
@@ -23,7 +21,7 @@ const Sidebar = () => {
                     <div className="">
                         <div className="flex p-3 text-gray-700  space-x-4 0 hover:bg-gray-50 hover:text-blue-600  cursor-pointer  ">
                             <DonutLargeIcon className=" text-gray-300" />
-                            <p className=" "  >Profile</p>
+                            <p className=" "  > Profile</p>
                         </div>
                     </div>
                     <div className="">
