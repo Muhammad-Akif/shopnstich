@@ -13,16 +13,16 @@ const MegaMenu = ({ menu }) => {
         </a>
         <div class="dropdown-menu w-full hidden shadow-lg absolute left-0 top-full" aria-labelledby="dropdownMenuButtonZ">
           <div class="px-6 w-4/5 mx-auto mt-5 lg:px-8 py-5 bg-white">
-            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
               <div class="bg-white text-gray-600">
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
                 {
                   menu?.collections.map((collection, key) => (
                     <>
-                      <p key={key} class="block px-6 py-2 border-b border-gray-200 w-full uppercase font-semibold text-gray-700">{collection.name}</p>
+                      <p key={key} class="px-6 py-2 border-b border-gray-200 w-full uppercase font-semibold text-gray-700">{collection.name}</p>
                       {
                         collection.varieties?.map((variety) => (
                           <Link key={variety.slug} href={`/variety/${variety.slug}`} >
-                            <div class="block px-6 py-2 border-b hover:cursor-pointer border-gray-200 w-full hover:bg-gray-50 hover:text-gray-700 transition duration-150 ease-in-out flex items-center">
+                            <div class=" px-6 py-2 border-b hover:cursor-pointer border-gray-200 w-full hover:bg-gray-50 hover:text-gray-700 transition duration-150 ease-in-out flex items-center">
                               <svg aria-hidden="true" focusable="false" data-prefix="fas" class="w-1.5 mr-1.5" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 192 512">
                                 <path fill="currentColor" d="M0 384.662V127.338c0-17.818 21.543-26.741 34.142-14.142l128.662 128.662c7.81 7.81 7.81 20.474 0 28.284L34.142 398.804C21.543 411.404 0 402.48 0 384.662z"></path>
                               </svg>
@@ -34,8 +34,8 @@ const MegaMenu = ({ menu }) => {
                     </>
                   ))
                 }
-              </div>
             </div>
+              </div>
           </div>
         </div>
       </li>
