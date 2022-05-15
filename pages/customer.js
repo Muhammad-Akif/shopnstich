@@ -10,6 +10,7 @@ import Chart from '../images/customer/Chart.png'
 import Folder from '../images/customer/Folder.png'
 import Setting from '../images/customer/Setting.png'
 import logo from '../images/customer/logo.png'
+
 const App = () => {
   const [open, setOpen] = useState(true);
   const Menus = [
