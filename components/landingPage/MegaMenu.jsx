@@ -17,7 +17,7 @@ const MegaMenu = ({ menu }) => {
             <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
                 {
                   menu?.collections.map((collection, key) => (
-                    <>
+                    <div>
                       <p key={key} class="px-6 py-2 border-b border-gray-200 w-full uppercase font-semibold text-gray-700">{collection.name}</p>
                       {
                         collection.varieties?.map((variety) => (
@@ -31,7 +31,7 @@ const MegaMenu = ({ menu }) => {
                           </Link>
                         ))
                       }
-                    </>
+                    </div>
                   ))
                 }
             </div>
