@@ -5,10 +5,7 @@ import Chart_fill from '../images/customer/Chart_fill.png'
 import Chat from '../images/customer/Chat.png'
 import User from '../images/customer/User.png'
 import Calendar from '../images/customer/Calendar.png'
-import Search from '../images/customer/Search.png'
-import Chart from '../images/customer/Chart.png'
 import Folder from '../images/customer/Folder.png'
-import Setting from '../images/customer/Setting.png'
 import logo from '../images/customer/logo.png'
 
 const App = () => {
@@ -19,9 +16,6 @@ const App = () => {
     { title: "Inbox", src: Chat },
     { title: "Orders ", src: Folder, gap: true },
     { title: "Offer & Deals ", src: Calendar },
-    // { title: "Search", src: Search },
-    // { title: "Analytics", src: Chart },
-    // { title: "Setting", src: Setting },
   ];
   
   return (
