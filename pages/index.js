@@ -28,7 +28,7 @@ export default function Home({products}) {
       </div>
 
       {/* <MainBanner /> */}
-      <Trending trends={trends} />
+      <Trending products={products} />
       <div className="product-banner">
         <ProductCard setCart={setCart} cart={cart} category="Men" products={products} />
         <ProductCard setCart={setCart} cart={cart} category="Women" products={products}/>

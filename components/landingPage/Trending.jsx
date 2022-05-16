@@ -2,8 +2,12 @@ import React from 'react'
 import Image from 'next/image'
 
 
-const Trending = ({ trends }) => {
+const Trending = ({ products }) => {
     // const trending = [{ title: "I'm supper dog for you." }, { title: "I'm supper dog for you." }, { title: "I'm supper dog for you." }, { title: "I'm supper dog for you." }]
+    const trend1 = products.filter(product => product.category.name === 'Men')[12]
+    const trend2 = products.filter(product => product.category.name === 'Women')[3]
+    const trend3 = products.filter(product => product.category.name === 'Men')[10]
+    const trends = [trend1, trend2, trend3]
     return (
         <div class="bg-green-100">
             <div class='mx-auto'>
@@ -23,31 +27,35 @@ const Trending = ({ trends }) => {
                         {trends.map((trend, key) => (
                             <div key={key} class="wrapper antialiased text-gray-900 cursor-pointer">
                                 <div data-aos="zoom-in">
-                                    <Image
+                                    {/* <Image
                                         // alt={author.name}
                                         unoptimized
                                         layout='responsive'
                                         width={180} height={150}
                                         src={trend.img}
                                         class=" object-center rounded-lg shadow-lg"
+                                    /> */}
+                                    <img
+                                        // alt={name}
+                                        height="auto"
+                                        width="auto"
+                                        src={trend.image?.url}
                                     />
-
                                     <div class="relative -mt-2 mx-2 ">
                                         <div class="bg-white p-6 rounded-lg shadow-lg">
                                             <div class="flex items-baseline">
                                                 <span class="bg-teal-200 text-teal-800 text-xs px-2 inline-block rounded-full  uppercase font-semibold tracking-wide">
-                                                    New
+                                                    Trendings
                                                 </span>
-                                                <div class="ml-2 text-gray-600 uppercase text-xs font-semibold tracking-wider">
+                                                {/* <div class="ml-2 text-gray-600 uppercase text-xs font-semibold tracking-wider">
                                                     2 baths  &bull; 3 rooms
-                                                </div>
+                                                </div> */}
                                             </div>
 
-                                            <h4 class="mt-1 text-xl font-semibold uppercase leading-tight truncate">A random Title</h4>
+                                        <h4 class="mt-1 text-xl font-semibold uppercase leading-tight truncate">{trend.name}</h4>
 
                                             <div class="mt-1">
-                                                $1800
-                                                <span class="text-gray-600 text-sm">   /wk</span>
+                                            <div class="text-md pb-2 md:pb-0 text-gray-900 dark:text-white">Rs: {trend.price}</div>
                                             </div>
                                             <div class="mt-4">
                                                 <span class="text-teal-600 text-md font-semibold">4/5 ratings </span>

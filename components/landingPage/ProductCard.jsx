@@ -26,15 +26,10 @@ const ProductCard = ({ category, products }) => {
                             cloths.map(card => (
                                 <div class="px-2 group">
                                     <div class="w-52 lg:w-full h-auto overflow-hidden rounded-lg shadow-md bg-white hover:shadow-2xl transition-shadow duration-300 ease-in-out">
-                                        <div className="card-wd ">
+                                        <div className="card-wd">
                                             <Link href="#">
                                                 <div class="flex w-52 lg:w-full p-6 hover:cursor-pointer justify-center items-center group-hover:scale-110 transition-transform duration-200 ease-in-out">
-                                                    {/* <Image
-                                                        // unoptimized
-                                                        // height={400}
-                                                        // width={400}
-                                                        src={card.image.url}
-                                                    /> */}
+                                                  
                                                     <img
                                                         // alt={name}
                                                         height="auto"

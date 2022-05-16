@@ -1,23 +1,32 @@
 import { GraphQLClient, gql } from 'graphql-request';
 const graphqlAPI = process.env.NEXT_PUBLIC_MATBLOGS_ENDPOINT;
-export default async function asynchandler(req, res) {
-  console.log(req)
+const graphcmsToken = process.env.MATBLOGS_TOKEN
+export default async function authentication(req, res) {
   const graphQLClient = new GraphQLClient((graphqlAPI), {
     headers: {
-      authorization: `Bearer ${process.env.MATBLOGS_TOKEN}`,
+      authorization: `Bearer ${graphcmsToken}`,
     },
   });
   const query = gql`
-  mutation CreateAuth($email: String!, $uid: Int!) {
+  mutation CreateAuth($email: String!, $uid: String!) {
     createAuth(data: { email: $email,  uid: $uid}) { id }
   }
   `;
-  
-  console.log("body => ",req.body);
-  const result = await graphQLClient.request(query, {
-    email: req.body?.email,
-    uid: req.body?.uid,
-  });
-
-  return res.status(200).send(result);
+  const query_publish = gql`
+  mutation PublishAuth($id: ID!) {
+    publishAuth(where: { id: $id }, to: PUBLISHED) { id }
+  }
+  `;
+  try {
+    const createResult = await graphQLClient.request(query, req.body);
+    const newVal = await createResult.createAuth
+    console.log('main ---> ', newVal);
+    if(newVal){
+    const result = await graphQLClient.request(query_publish, newVal);
+      return res.status(200).send(result);
+    }
+  } catch (error) {
+    console.log(error);
+    return res.status(500).send(error);
+  }
 }

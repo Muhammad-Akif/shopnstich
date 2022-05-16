@@ -29,7 +29,6 @@ const Signin = ({ inType }) => {
     const router = useRouter()
     // const dispatch = useDispatch();
     const [email, setemail] = useState(null);
-    const [showSuccessMessage, setShowSuccessMessage] = useState(false);
     const [name, setName] = useState(null);
     const [isEmailValidate, setIsEmailValidate] = useState(false);
     const [isPasswordValidate, setIsPasswordValidate] = useState(false);
@@ -96,16 +95,10 @@ const Signin = ({ inType }) => {
                 console.log("singin obj --> ", obj)
                 submitAuth(obj)
                     .then((res) => {
-                        setShowSuccessMessage(true);
-                        setTimeout(() => {
-                            setShowSuccessMessage(false);
-                        }, 3000);
+                        console.log(" res ----> ", res)
+                        router.push('/customer')
                     }
                     );
-                if (showSuccessMessage) {
-                    console.log("GraphCMS Successfully")
-                }
-                router.push('/customer')
                 localStorage.removeItem('admin')
                 console.log('user has set', localStorage.getItem('user'))
                 //-------------------------------------------------------------TODO-
