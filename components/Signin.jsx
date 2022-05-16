@@ -4,6 +4,7 @@ import { GoogleLogin } from "react-google-login"
 import { FaGoogle } from 'react-icons/fa'
 import firebase from '../config/index.js';
 import { useRouter } from 'next/router'
+import { submitAuth } from '../services'
 // // import { authenticate } from '../redux/actions';
 
 function validateEmail(email) {
@@ -28,7 +29,8 @@ const Signin = ({ inType }) => {
     const router = useRouter()
     // const dispatch = useDispatch();
     const [email, setemail] = useState(null);
-    const [ name, setName] = useState(null);
+    const [showSuccessMessage, setShowSuccessMessage] = useState(false);
+    const [name, setName] = useState(null);
     const [isEmailValidate, setIsEmailValidate] = useState(false);
     const [isPasswordValidate, setIsPasswordValidate] = useState(false);
     const [showError, setShowError] = useState(false);
@@ -44,12 +46,12 @@ const Signin = ({ inType }) => {
             firebase.auth().createUserWithEmailAndPassword(
                 email,
                 password
-            ).then(userCredential => {
-                console.log('=====', user)
-                userCredential.user.sendEmailVerification();
+            ).then(data => {
+                console.log('=====', data.user)
+                data.user.sendEmailVerification();
                 firebase.auth().signOut();
                 alert("Verify your email address for login");
-                router.push("/tailor")
+                router.push("/login")
             }).catch(err => {
                 console.log("Error ==> ", err)
                 alert(err.message)
@@ -74,24 +76,39 @@ const Signin = ({ inType }) => {
             firebase.auth().signInWithEmailAndPassword(
                 email,
                 password
-            ).then(data => {
-                // sessionStorage.setItem("email", data.user.email)
+            ).then((data) => {
+                sessionStorage.setItem("email", data.user.email)
                 console.log('in3')
-                const user = firebase.auth().currentUser;
-                const emailVerified = user.emailVerified;
+                const User = firebase.auth().currentUser;
+                console.log("current user --> ", User.email, data.user.email)
+
+                const emailVerified = User.emailVerified;
+                console.log('emailcvarified ---> ', emailVerified)
                 if (!emailVerified) {
                     console.log('in4')
+                    firebase.auth().isSignInWithEmailLink(data.user.email)
                     alert('First confirm your email address!')
                     return;
                 }
                 // dispatch(authenticate(data.user.uid, data.user.email));
                 localStorage.setItem('user', data.user.email.toLowerCase());
+                submitAuth({ email: data.user.email, uid: data.user.uid })
+                    .then((res) => {
+                        setShowSuccessMessage(true);
+                        setTimeout(() => {
+                            setShowSuccessMessage(false);
+                        }, 3000);
+                    }
+                    );
+                if (showSuccessMessage) {
+                    console.log("GraphCMS Successfully")
+                }
                 router.push('/customer')
                 localStorage.removeItem('admin')
                 console.log('user has set', localStorage.getItem('user'))
                 //-------------------------------------------------------------TODO-
                 // data?.user.email === "admin@gmail.com" ? history.push("/Packages") : history.push("/user")
-            }).catch(err => {   
+            }).catch(err => {
                 console.log(err)
                 alert("Incorrect Credentials")
             })
@@ -119,6 +136,10 @@ const Signin = ({ inType }) => {
             setConfirmPassword(e.target.value)
             return
         }
+        else if (type == 'name') {
+            setName(e.target.value)
+            return
+        }
         setpassword(e.target.value)
         if (e.target.value.length >= 6) {
             setIsPasswordValidate(true);
@@ -132,7 +153,7 @@ const Signin = ({ inType }) => {
             <div class="bg-green-960 hidden lg:block w-full md:w-1/2 xl:w-2/3 h-screen">
                 <img src="https://images.unsplash.com/photo-1609709295948-17d77cb2a69b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8Y2xvdGhzfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60" alt="" class="w-full h-full object-cover" />
             </div>
-            {console.log("type --> ", inType, firebase)}
+            {console.log("type --> ", inType)}
             <div class="bg-green-960 w-full md:max-w-md lg:max-w-full md:mx-auto md:mx-0 md:w-1/2 xl:w-1/3 h-screen px-6 lg:px-16 xl:px-12
 flex items-center justify-center">
 
@@ -145,7 +166,7 @@ flex items-center justify-center">
                         {
                             inType && (<div>
                                 <label class="block text-gray-100">Full Name</label>
-                                <input type="text" placeholder="Enter Full Name" class="w-full px-4 py-3 text-black rounded-lg bg-gray-100 mt-2 border focus:border-green-950 focus:bg-white focus:outline-none" value={name} onChange={onChangeInput.bind(null, "name")}  autofocus autocomplete />
+                                <input type="text" placeholder="Enter Full Name" class="w-full px-4 py-3 text-black rounded-lg bg-gray-100 mt-2 border focus:border-green-950 focus:bg-white focus:outline-none" value={name} onChange={onChangeInput.bind(null, "name")} autofocus autocomplete />
                             </div>)
                         }
                         <div>
@@ -208,16 +229,16 @@ flex items-center justify-center">
                                         //         Google Sign In</span>
                                         //     </div>
                                         // </Button>
-                                         <button type="button" onClick={renderProps.onClick} disabled={renderProps.disabled} class="w-full block bg-white hover:bg-green-200 focus:bg-gray-100 text-gray-900 font-semibold rounded-lg px-4 py-3 border border-gray-300">
-                                         <div class="flex items-center justify-center">
-                                             {/* <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" class="w-6 h-6" viewBox="0 0 48 48"><defs><path id="a" d="M44.5 20H24v8.5h11.8C34.7 33.9 30.1 37 24 37c-7.2 0-13-5.8-13-13s5.8-13 13-13c3.1 0 5.9 1.1 8.1 2.9l6.4-6.4C34.6 4.1 29.6 2 24 2 11.8 2 2 11.8 2 24s9.8 22 22 22c11 0 21-8 21-22 0-1.3-.2-2.7-.5-4z" /></defs><clipPath id="b"><use xlink:href="#a" overflow="visible" /></clipPath><path clip-path="url(#b)" fill="#FBBC05" d="M0 37V11l17 13z" /><path clip-path="url(#b)" fill="#EA4335" d="M0 11l17 13 7-6.1L48 14V0H0z" /><path clip-path="url(#b)" fill="#34A853" d="M0 37l30-23 7.9 1L48 0v48H0z" /><path clip-path="url(#b)" fill="#4285F4" d="M48 48L17 24l-4-3 35-10z" /></svg> */}
-                                             <FaGoogle class="text-green-700" />
-                                             <span class="ml-4">
-                                                 Log in
-                                                 with
-                                                 Google</span>
-                                         </div>
-                                     </button>
+                                        <button type="button" onClick={renderProps.onClick} disabled={renderProps.disabled} class="w-full block bg-white hover:bg-green-200 focus:bg-gray-100 text-gray-900 font-semibold rounded-lg px-4 py-3 border border-gray-300">
+                                            <div class="flex items-center justify-center">
+                                                {/* <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" class="w-6 h-6" viewBox="0 0 48 48"><defs><path id="a" d="M44.5 20H24v8.5h11.8C34.7 33.9 30.1 37 24 37c-7.2 0-13-5.8-13-13s5.8-13 13-13c3.1 0 5.9 1.1 8.1 2.9l6.4-6.4C34.6 4.1 29.6 2 24 2 11.8 2 2 11.8 2 24s9.8 22 22 22c11 0 21-8 21-22 0-1.3-.2-2.7-.5-4z" /></defs><clipPath id="b"><use xlink:href="#a" overflow="visible" /></clipPath><path clip-path="url(#b)" fill="#FBBC05" d="M0 37V11l17 13z" /><path clip-path="url(#b)" fill="#EA4335" d="M0 11l17 13 7-6.1L48 14V0H0z" /><path clip-path="url(#b)" fill="#34A853" d="M0 37l30-23 7.9 1L48 0v48H0z" /><path clip-path="url(#b)" fill="#4285F4" d="M48 48L17 24l-4-3 35-10z" /></svg> */}
+                                                <FaGoogle class="text-green-700" />
+                                                <span class="ml-4">
+                                                    Log in
+                                                    with
+                                                    Google</span>
+                                            </div>
+                                        </button>
                                     )}
                                     onSuccess={googleSuccess}
                                     onFailure={googleFailure}
