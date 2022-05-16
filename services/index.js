@@ -72,6 +72,41 @@ export const getVarietyDetails = async (slug) => {
   return result.variety;
 }
 
+export const getProducts = async () => {
+  const query = gql`
+  query MyQuery {
+    productsConnection {
+      edges {
+        node {
+          slug
+        }
+      }
+    }
+  }
+    `
+  const result = await request(graphqlAPI, query);
+
+  return result.productsConnection.edges;
+}
+
+export const getProductDetails = async (slug) => {
+  const query = gql`  
+    query getProductDetails($slug: String!) {
+      product(where: {slug: $slug}) {
+            name
+            price
+            slug
+            description
+            image {
+              url
+            }        
+      }
+    }
+  `
+  const result = await request(graphqlAPI, query, { slug });
+
+  return result.product;
+}
 
 // export const getRecentPosts = async () => {
 //   const query = gql`

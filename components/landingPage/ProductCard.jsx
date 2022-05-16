@@ -50,9 +50,11 @@ const ProductCard = ({ category, products }) => {
                                                 </div>
                                                 <div class="flex flex-col xl:flex-row justify-between items-center mb-5">
                                                     <div class="text-xl pb-2 md:pb-0 font-bold text-gray-900 dark:text-white">Rs: {card.price}</div>
+                                                    <Link key={card.slug} href={`/product/${card.slug}`} >
                                                     <button class="text-white bg-orange-400 hover:bg-orange-300 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm w-full md:w-1/2 p-2 sm:py-2.5 text-center">
                                                         View Details
                                                     </button>
+                                                    </Link>
                                                 </div>
                                             </div>
                                         </div>
