@@ -27,13 +27,8 @@ const Signin = ({ inType }) => {
     }
     const router = useRouter()
     // const dispatch = useDispatch();
-    // const classes = useStyles();
-    // const [open, setOpen] = React.useState(false);
-    // const handleClose = () => {
-    //     setOpen(false);
-    // };
-
     const [email, setemail] = useState(null);
+    const [ name, setName] = useState(null);
     const [isEmailValidate, setIsEmailValidate] = useState(false);
     const [isPasswordValidate, setIsPasswordValidate] = useState(false);
     const [showError, setShowError] = useState(false);
@@ -46,30 +41,22 @@ const Signin = ({ inType }) => {
         console.log(`Email and Passwords are ==> ${email} & ${password}`)
         if (isEmailValidate && isPasswordValidate) {
             alert("Verify your email address for login");
-            // setOpen(!open);
-            // firebase?.auth()?.createUserWithEmailAndPassword(
-            //     email,
-            //     password
-            // ).then(userCredential => {
-            //     // console.log('=====', user)
-            //     userCredential.user.sendEmailVerification();
-            //     firebase.auth().signOut();
-            //     alert("Verify your email address for login");
-
-            //     history.push("/login")
-            //     setOpen(false);
-
-
-            // }).catch(err => {
-            //     // console.log("Error ==> ", err)
-            //     alert(err.message)
-            //     setOpen(false);
-
-            // })
-            // setlname('')
-            // setfname('')
-            // setemail('')
-            // setpassword('')
+            firebase.auth().createUserWithEmailAndPassword(
+                email,
+                password
+            ).then(userCredential => {
+                console.log('=====', user)
+                userCredential.user.sendEmailVerification();
+                firebase.auth().signOut();
+                alert("Verify your email address for login");
+                router.push("/tailor")
+            }).catch(err => {
+                console.log("Error ==> ", err)
+                alert(err.message)
+            })
+            setName('')
+            setemail('')
+            setpassword('')
         } else {
             setShowError(true)
         }
@@ -77,52 +64,45 @@ const Signin = ({ inType }) => {
 
 
     const signIn = e => {
-        console.log('in1')
+        console.log('SignIn')
         e.preventDefault();
         console.log(`Email and Passwords are ==> ${email} & ${password}`)
         if (isEmailValidate && isPasswordValidate) {
             alert("Successfully login");
             console.log('in2')
-            // setOpen(!open);
             console.log(firebase)
-            // firebase?.auth()?.signInWithEmailAndPassword(
-            //     email,
-            //     password
-            // ).then(data => {
-            //     // sessionStorage.setItem("email", data.user.email)
-            //     console.log('in3')
-            //     const user = firebase.auth().currentUser;
-            //     const emailVerified = user.emailVerified;
-            //     if (!emailVerified) {
-            //         console.log('in4')
-            //         alert('First confirm your email address!')
-            //         // setOpen(false);
-            //         return;
-            //     }
-
-            //     // setOpen(false);
-            //     // dispatch(authenticate(data.user.uid, data.user.email));
-            //     localStorage.setItem('user', data.user.email.toLowerCase());
-            //     router.push('/')
-            //     localStorage.removeItem('admin')
-            //     console.log('user has set', localStorage.getItem('user'))
-            //     //-------------------------------------------------------------TODO-
-            //     // data?.user.email === "admin@gmail.com" ? history.push("/Packages") : history.push("/user")
-            // }).catch(err => {
-            //     console.log(err)
-            //     alert("Incorrect Credentials")
-            //     setOpen(false);
-
-            // })
+            firebase.auth().signInWithEmailAndPassword(
+                email,
+                password
+            ).then(data => {
+                // sessionStorage.setItem("email", data.user.email)
+                console.log('in3')
+                const user = firebase.auth().currentUser;
+                const emailVerified = user.emailVerified;
+                if (!emailVerified) {
+                    console.log('in4')
+                    alert('First confirm your email address!')
+                    return;
+                }
+                // dispatch(authenticate(data.user.uid, data.user.email));
+                localStorage.setItem('user', data.user.email.toLowerCase());
+                router.push('/customer')
+                localStorage.removeItem('admin')
+                console.log('user has set', localStorage.getItem('user'))
+                //-------------------------------------------------------------TODO-
+                // data?.user.email === "admin@gmail.com" ? history.push("/Packages") : history.push("/user")
+            }).catch(err => {   
+                console.log(err)
+                alert("Incorrect Credentials")
+            })
         }
         else {
             setShowError(true)
-            // setOpen(false);
         }
     }
 
     const forgotPassword = (Email) => {
-        firebase.auth().sendPasswordResetEmail(Email)
+        firebase?.auth().sendPasswordResetEmail(Email)
             .then(function () {
                 alert('Please check your email...')
             }).catch(function (e) {
@@ -152,7 +132,7 @@ const Signin = ({ inType }) => {
             <div class="bg-green-960 hidden lg:block w-full md:w-1/2 xl:w-2/3 h-screen">
                 <img src="https://images.unsplash.com/photo-1609709295948-17d77cb2a69b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8Y2xvdGhzfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60" alt="" class="w-full h-full object-cover" />
             </div>
-
+            {console.log("type --> ", inType, firebase)}
             <div class="bg-green-960 w-full md:max-w-md lg:max-w-full md:mx-auto md:mx-0 md:w-1/2 xl:w-1/3 h-screen px-6 lg:px-16 xl:px-12
 flex items-center justify-center">
 
@@ -165,12 +145,12 @@ flex items-center justify-center">
                         {
                             inType && (<div>
                                 <label class="block text-gray-100">Full Name</label>
-                                <input type="text" name="" id="" placeholder="Enter Full Name" class="w-full px-4 py-3 text-black rounded-lg bg-gray-100 mt-2 border focus:border-green-950 focus:bg-white focus:outline-none" autofocus autocomplete />
+                                <input type="text" placeholder="Enter Full Name" class="w-full px-4 py-3 text-black rounded-lg bg-gray-100 mt-2 border focus:border-green-950 focus:bg-white focus:outline-none" value={name} onChange={onChangeInput.bind(null, "name")}  autofocus autocomplete />
                             </div>)
                         }
                         <div>
                             <label class="block mt-4 text-gray-100">Email Address</label>
-                            <input type="email" name="" id="" placeholder="Enter Email Address" class="w-full px-4 py-3 text-black rounded-lg bg-gray-100 mt-2 border focus:border-green-950 focus:bg-white focus:outline-none" value={email} onChange={onChangeInput.bind(null, "email")} required />
+                            <input type="email" placeholder="Enter Email Address" class="w-full px-4 py-3 text-black rounded-lg bg-gray-100 mt-2 border focus:border-green-950 focus:bg-white focus:outline-none" value={email} onChange={onChangeInput.bind(null, "email")} required />
                         </div>
                         {showError && (!isEmailValidate && (
                             <div class="text-red-500 font-bold text-right">Wrong email entered!</div>
@@ -178,7 +158,7 @@ flex items-center justify-center">
 
                         <div class="mt-4">
                             <label class="block text-gray-100">Password</label>
-                            <input type="password" name="" id="" placeholder="Enter Password" minlength="6" class="w-full px-4 py-3 text-black rounded-lg bg-gray-100 mt-2 border focus:border-green-950 focus:bg-white focus:outline-none" value={password} onChange={onChangeInput.bind(null, "password")} required />
+                            <input type="password" placeholder="Enter Password" minlength="6" class="w-full px-4 py-3 text-black rounded-lg bg-gray-100 mt-2 border focus:border-green-950 focus:bg-white focus:outline-none" value={password} onChange={onChangeInput.bind(null, "password")} required />
                         </div>
                         {showError && (!isPasswordValidate && (
                             <div class="text-red-500 font-bold text-right">At least 6 characters!</div>
@@ -188,7 +168,7 @@ flex items-center justify-center">
                             inType && (<>
                                 <div class="mt-4">
                                     <label class="block text-gray-100">Password*</label>
-                                    <input type="password" name="" id="" placeholder="Confirm Password" minlength="6" class="w-full px-4 py-3 text-black rounded-lg bg-gray-100 mt-2 border focus:border-green-950
+                                    <input type="password" placeholder="Confirm Password" minlength="6" class="w-full px-4 py-3 text-black rounded-lg bg-gray-100 mt-2 border focus:border-green-950
     focus:bg-white focus:outline-none" required value={confirmPassword} onChange={onChangeInput.bind(null, "confirm")} />
                                 </div>
                                 {password != confirmPassword && (
