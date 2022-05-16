@@ -1,6 +1,16 @@
 import React from 'react'
+import {AiOutlineMinus, AiOutlinePlus} from 'react-icons/ai'
+import Link from 'next/link'
+import { useRouter } from 'next/router'
+
 
 const cart = () => {
+    const router = useRouter()
+    const getAccessToken = () => {
+        if (typeof window !== 'undefined') 
+           return localStorage.getItem('user');
+     };
+     
     return (
         <div class="container mx-auto mt-10">
             <div class="flex shadow-md my-10">
@@ -26,15 +36,11 @@ const cart = () => {
                                 <a href="#" class="font-semibold hover:text-red-500 text-gray-500 text-xs">Remove</a>
                             </div>
                         </div>
-                        <div class="flex justify-center w-1/5">
-                            <svg class="fill-current text-gray-600 w-3" viewBox="0 0 448 512"><path d="M416 208H32c-17.67 0-32 14.33-32 32v32c0 17.67 14.33 32 32 32h384c17.67 0 32-14.33 32-32v-32c0-17.67-14.33-32-32-32z" />
-                            </svg>
-
+                        <div class="flex justify-center hover:cursor-pointer items-center w-1/5">
+                            <AiOutlinePlus />
                             <input class="mx-2 border text-center w-8" type="text" value="1" />
 
-                            <svg class="fill-current text-gray-600 w-3" viewBox="0 0 448 512">
-                                <path d="M416 208H272V64c0-17.67-14.33-32-32-32h-32c-17.67 0-32 14.33-32 32v144H32c-17.67 0-32 14.33-32 32v32c0 17.67 14.33 32 32 32h144v144c0 17.67 14.33 32 32 32h32c17.67 0 32-14.33 32-32V304h144c17.67 0 32-14.33 32-32v-32c0-17.67-14.33-32-32-32z" />
-                            </svg>
+                            <AiOutlineMinus />
                         </div>
                         <span class="text-center w-1/5 font-semibold text-sm">$400.00</span>
                         <span class="text-center w-1/5 font-semibold text-sm">$400.00</span>
@@ -51,15 +57,11 @@ const cart = () => {
                                 <a href="#" class="font-semibold hover:text-red-500 text-gray-500 text-xs">Remove</a>
                             </div>
                         </div>
-                        <div class="flex justify-center w-1/5">
-                            <svg class="fill-current text-gray-600 w-3" viewBox="0 0 448 512"><path d="M416 208H32c-17.67 0-32 14.33-32 32v32c0 17.67 14.33 32 32 32h384c17.67 0 32-14.33 32-32v-32c0-17.67-14.33-32-32-32z" />
-                            </svg>
-
+                        <div class="flex hover:cursor-pointer justify-center items-center w-1/5">
+                            <AiOutlinePlus />
                             <input class="mx-2 border text-center w-8" type="text" value="1" />
 
-                            <svg class="fill-current text-gray-600 w-3" viewBox="0 0 448 512">
-                                <path d="M416 208H272V64c0-17.67-14.33-32-32-32h-32c-17.67 0-32 14.33-32 32v144H32c-17.67 0-32 14.33-32 32v32c0 17.67 14.33 32 32 32h144v144c0 17.67 14.33 32 32 32h32c17.67 0 32-14.33 32-32V304h144c17.67 0 32-14.33 32-32v-32c0-17.67-14.33-32-32-32z" />
-                            </svg>
+                            <AiOutlineMinus />
                         </div>
                         <span class="text-center w-1/5 font-semibold text-sm">$40.00</span>
                         <span class="text-center w-1/5 font-semibold text-sm">$40.00</span>
@@ -76,24 +78,20 @@ const cart = () => {
                                 <a href="#" class="font-semibold hover:text-red-500 text-gray-500 text-xs">Remove</a>
                             </div>
                         </div>
-                        <div class="flex justify-center w-1/5">
-                            <svg class="fill-current text-gray-600 w-3" viewBox="0 0 448 512"><path d="M416 208H32c-17.67 0-32 14.33-32 32v32c0 17.67 14.33 32 32 32h384c17.67 0 32-14.33 32-32v-32c0-17.67-14.33-32-32-32z" />
-                            </svg>
+                        <div class="flex hover:cursor-pointer justify-center items-center w-1/5">
+                            <AiOutlinePlus />
                             <input class="mx-2 border text-center w-8" type="text" value="1" />
 
-                            <svg class="fill-current text-gray-600 w-3" viewBox="0 0 448 512">
-                                <path d="M416 208H272V64c0-17.67-14.33-32-32-32h-32c-17.67 0-32 14.33-32 32v144H32c-17.67 0-32 14.33-32 32v32c0 17.67 14.33 32 32 32h144v144c0 17.67 14.33 32 32 32h32c17.67 0 32-14.33 32-32V304h144c17.67 0 32-14.33 32-32v-32c0-17.67-14.33-32-32-32z" />
-                            </svg>
+                            <AiOutlineMinus />
                         </div>
                         <span class="text-center w-1/5 font-semibold text-sm">$150.00</span>
                         <span class="text-center w-1/5 font-semibold text-sm">$150.00</span>
                     </div>
 
-                    <a href="#" class="flex font-semibold text-indigo-600 text-sm mt-10">
-
+                    <button onClick={() => router.push('/')} class="flex font-semibold text-indigo-600 text-sm mt-10">
                         <svg class="fill-current mr-2 text-indigo-600 w-4" viewBox="0 0 448 512"><path d="M134.059 296H436c6.627 0 12-5.373 12-12v-56c0-6.627-5.373-12-12-12H134.059v-46.059c0-21.382-25.851-32.09-40.971-16.971L7.029 239.029c-9.373 9.373-9.373 24.569 0 33.941l86.059 86.059c15.119 15.119 40.971 4.411 40.971-16.971V296z" /></svg>
                         Continue Shopping
-                    </a>
+                    </button>
                 </div>
 
                 <div id="summary" class="w-1/4 px-8 py-10">
@@ -102,12 +100,6 @@ const cart = () => {
                         <span class="font-semibold text-sm uppercase">Items 3</span>
                         <span class="font-semibold text-sm">590$</span>
                     </div>
-                    {/* <div>
-                        <label class="font-medium inline-block mb-3 text-sm uppercase">Shipping</label>
-                        <select class="block p-2 text-gray-600 w-full text-sm">
-                            <option>Standard shipping - $10.00</option>
-                        </select>
-                    </div> */}
                     <div class="py-10">
                         <label for="promo" class="font-semibold inline-block mb-3 text-sm uppercase">Promo Code</label>
                         <input type="text" id="promo" placeholder="Enter your code" class="p-2 text-sm w-full border border-gray-200" />
@@ -118,7 +110,7 @@ const cart = () => {
                             <span>Total cost</span>
                             <span>$600</span>
                         </div>
-                        <button class="bg-indigo-500 font-semibold hover:bg-indigo-600 py-3 text-sm text-white uppercase w-full">Checkout</button>
+                        <Link href={`${getAccessToken ? '/customer' : '/login'}`}><button class="bg-indigo-500 font-semibold hover:bg-indigo-600 py-3 text-sm text-white uppercase w-full">Checkout</button></Link>
                     </div>
                 </div>
 
