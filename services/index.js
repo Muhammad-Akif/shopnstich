@@ -99,6 +99,12 @@ export const getProductDetails = async (slug) => {
             description
             image {
               url
+            }
+            variety {
+              name
+            }
+            category {
+              name
             }        
       }
     }

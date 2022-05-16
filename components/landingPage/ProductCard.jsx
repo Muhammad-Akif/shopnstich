@@ -31,7 +31,6 @@ const ProductCard = ({ category, products }) => {
                                                 <div class="flex w-52 lg:w-full p-6 hover:cursor-pointer justify-center items-center group-hover:scale-110 transition-transform duration-200 ease-in-out">
                                                   
                                                     <img
-                                                        // alt={name}
                                                         height="auto"
                                                         width="auto"
                                                         src={card.image?.url}

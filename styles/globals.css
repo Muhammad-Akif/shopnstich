@@ -25,6 +25,11 @@ body {
     background-image: url("../images/landingPage/cover.png");
 }
 
+.img_h{
+    height: 500px;
+    width: 100%;
+    object-fit: contain;
+}
 
 /* ---------------------reviews------------ */
 
