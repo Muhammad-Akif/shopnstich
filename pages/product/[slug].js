@@ -1,5 +1,7 @@
 import React from 'react'
 import { getProducts, getProductDetails } from '../../services'
+import { BsArrowBarLeft } from "react-icons/bs";
+import Link from 'next/link';
 
 const product = ({ product }) => {
   return (
@@ -17,7 +19,8 @@ const product = ({ product }) => {
         </button>
       </div>
       <div class="absolute top-5 left-6">
-        <span class="font-semibold text-xl font-serif">Product Detail</span>
+        <Link href="/"><BsArrowBarLeft class="text-2xl hover:cursor-pointer inline-block"/></Link>
+        <span class="font-semibold align-middle pl-5 text-xl font-serif">Product Detail</span>
       </div>
       <section class="text-gray-700 h-screen body-font overflow-hidden bg-white">
         <div class="container px-5 py-20  mx-auto">
@@ -69,7 +72,7 @@ const product = ({ product }) => {
                 </div>
               </div>
               <div class="flex">
-                <span class="title-font font-medium text-2xl text-gray-900">$58.00</span>
+                <span class="title-font font-medium text-2xl text-gray-900">Rs: {product.price}</span>
                 <button class="flex ml-auto text-white bg-red-500 border-0 py-2 px-6 focus:outline-none hover:bg-red-600 rounded">Add to Cart</button>
               </div>
             </div>

@@ -1,5 +1,6 @@
 import React from 'react'
 import Image from 'next/image'
+import Link from 'next/link'
 
 
 const Trending = ({ products }) => {
@@ -26,8 +27,9 @@ const Trending = ({ products }) => {
                     <div class="grid pb-12 grid-cols-1 md:grid-cols-3 gap-4 px-6 sm:px-20">
                         {trends.map((trend, key) => (
                             <div key={key} class="wrapper antialiased text-gray-900 cursor-pointer">
-                                <div data-aos="zoom-in">
-                                    {/* <Image
+                                <Link href={`/product/${trend.slug}`} >
+                                    <div data-aos="zoom-in">
+                                        {/* <Image
                                         // alt={author.name}
                                         unoptimized
                                         layout='responsive'
@@ -35,36 +37,37 @@ const Trending = ({ products }) => {
                                         src={trend.img}
                                         class=" object-center rounded-lg shadow-lg"
                                     /> */}
-                                    <img
-                                        // alt={name}
-                                        height="auto"
-                                        width="auto"
-                                        src={trend.image?.url}
-                                    />
-                                    <div class="relative -mt-2 mx-2 ">
-                                        <div class="bg-white p-6 rounded-lg shadow-lg">
-                                            <div class="flex items-baseline">
-                                                <span class="bg-teal-200 text-teal-800 text-xs px-2 inline-block rounded-full  uppercase font-semibold tracking-wide">
-                                                    Trendings
-                                                </span>
-                                                {/* <div class="ml-2 text-gray-600 uppercase text-xs font-semibold tracking-wider">
+                                        <img
+                                            // alt={name}
+                                            height="auto"
+                                            width="auto"
+                                            src={trend.image?.url}
+                                        />
+                                        <div class="relative -mt-2 mx-2 ">
+                                            <div class="bg-white p-6 rounded-lg shadow-lg">
+                                                <div class="flex items-baseline">
+                                                    <span class="bg-teal-200 text-teal-800 text-xs px-2 inline-block rounded-full  uppercase font-semibold tracking-wide">
+                                                        Trendings
+                                                    </span>
+                                                    {/* <div class="ml-2 text-gray-600 uppercase text-xs font-semibold tracking-wider">
                                                     2 baths  &bull; 3 rooms
                                                 </div> */}
-                                            </div>
+                                                </div>
 
-                                        <h4 class="mt-1 text-xl font-semibold uppercase leading-tight truncate">{trend.name}</h4>
+                                                <h4 class="mt-1 text-xl font-semibold uppercase leading-tight truncate">{trend.name}</h4>
 
-                                            <div class="mt-1">
-                                            <div class="text-md pb-2 md:pb-0 text-gray-900 dark:text-white">Rs: {trend.price}</div>
-                                            </div>
-                                            <div class="mt-4">
-                                                <span class="text-teal-600 text-md font-semibold">4/5 ratings </span>
-                                                <span class="text-sm text-gray-600">(based on 234 ratings)</span>
+                                                <div class="mt-1">
+                                                    <div class="text-md pb-2 md:pb-0 text-gray-900 dark:text-white">Rs: {trend.price}</div>
+                                                </div>
+                                                <div class="mt-4">
+                                                    <span class="text-teal-600 text-md font-semibold">4/5 ratings </span>
+                                                    <span class="text-sm text-gray-600">(based on 234 ratings)</span>
+                                                </div>
                                             </div>
                                         </div>
-                                    </div>
 
-                                </div>
+                                    </div>
+                                </Link>
                             </div>
                         ))}
                     </div>

@@ -8,7 +8,7 @@ const RelatedProducts = ({ name, price, image, slug, createdAt }) => {
 
     return (
         <article key={slug}>
-            <Link href={`/products/${slug}`}>
+            <Link href={`/product/${slug}`}>
                 <a className="group no-underline w-full h-full flex">
                     <div className="bg-gray-50 rounded-lg cursor-pointer w-full overflow-hidden relative px-3 py-6 md:px-6">
                         <img

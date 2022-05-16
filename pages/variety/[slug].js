@@ -5,12 +5,10 @@ import { getVarieties, getVarietyDetails } from '../../services'
 const varietyDetails = ({ variety }) => {
   return (
     <div>
-      <Navbar adjust={true}/>
-      <BreadCrumbs />
+      <Navbar adjust={true} />
+      {/* <BreadCrumbs /> */}
       <img src={variety?.image?.url} class="max-w-full mx-auto h-auto py-5" alt="..." />
-      <div className="gap-8 grid sm:grid-cols-2 lg:grid-cols-3">
-        {variety?.products.map(RelatedProducts)}
-      </div>
+      {variety?.products.length > 0 ? <div className="gap-8 grid sm:grid-cols-2 lg:grid-cols-3">{variety?.products.map(RelatedProducts)}</div> : <div class='flex justify-center items-center text-red-500 font-bold text-xl py-5'> Comming Soon !</div>}
       <Footer />
     </div>
   )
