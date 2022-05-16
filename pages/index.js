@@ -1,9 +1,11 @@
 import { useState } from 'react'
 import Head from 'next/head'
+import { getAllProducts } from '../services'
 import { Navbar } from '../components'
 import { MainTextnImage, MapnConnect, Trending, ProductCard, Reviews, Footer } from '../components'
 
-export default function Home() {
+export default function Home({products}) {
+  console.log("products ----> ",products)
   const [cart, setCart] = useState(0)
   const menz = [{ img: "https://fakestoreapi.com/img/71li-ujtlUL._AC_UX679_.jpg" }, { img: "https://fakestoreapi.com/img/71-3HjGNDUL._AC_SY879._SX._UX._SY._UY_.jpg" }, { img: "https://fakestoreapi.com/img/71YXzeOuslL._AC_UY879_.jpg" }, { img: "https://lh3.googleusercontent.com/p/AF1QipOn4IfCcul6NAiYMHJTsVck_Nf3kPFD98DkO4XF=w284-h284-n-k-rw-no-v1" }, { img: "https://cdn.shopify.com/s/files/1/0450/4331/8939/files/DSC_0036_394x.jpg?v=1634026105" }, { img: "https://www.next.us/nxtcms/resource/image/4263646/portrait_ratio2x3/320/480/fbb8ed9cbbfd4ff53ca19f90949b623d/nH/19.jpg" }, { img: "https://www.next.us/nxtcms/resource/image/4436010/portrait_ratio2x3/320/480/57ae26d50c743a30165f244214f83477/Jb/sic-9---sportswear.jpg" }, { img: "https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg" }, { img: "https://www.next.us/nxtcms/resource/image/4436022/portrait_ratio2x3/320/480/de368fdf0276eda9ca30f95fa90f63aa/oE/sic-15---pyjamas.jpg" }]
   const womenz = [{ img: "https://fakestoreapi.com/img/81XH0e8fefL._AC_UY879_.jpg" }, { img: "https://fakestoreapi.com/img/51Y5NI-I5jL._AC_UX679_.jpg" }, { img: "https://fakestoreapi.com/img/71z3kpMAYsL._AC_UY879_.jpg" }, { img: "https://imgv2.staticdj.com/3d5bfd3d794b8e3ebc7429535d9ac396_540x.jpeg" }, { img: "https://imgv2.staticdj.com/5a5826a4e7f81f7e22c75ded66f1d7be_540x.jpeg" }, { img: "https://imgv2.staticdj.com/14c258d1bc6afef3bf39a2596d55b8c0_540x.jpeg" }]
@@ -28,9 +30,9 @@ export default function Home() {
       {/* <MainBanner /> */}
       <Trending trends={trends} />
       <div className="product-banner">
-        <ProductCard setCart={setCart} cart={cart} category="Men" cloths={menz} />
-        <ProductCard setCart={setCart} cart={cart} category="Women" cloths={womenz} />
-        <ProductCard setCart={setCart} cart={cart} category="Kids" cloths={kidz} />
+        <ProductCard setCart={setCart} cart={cart} category="Men" products={products} />
+        <ProductCard setCart={setCart} cart={cart} category="Women" products={products}/>
+        <ProductCard setCart={setCart} cart={cart} category="Kids" products={products}/>
       </div>
 
       <Reviews />
@@ -38,4 +40,12 @@ export default function Home() {
       <Footer />
     </>
   )
+}
+
+export async function getStaticProps() {
+  const data = await getAllProducts();
+  console.log("dtat --> ",data)
+  return {
+    props: { products: data }
+  }
 }

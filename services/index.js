@@ -131,6 +131,7 @@ export const getVarietyDetails = async (slug) => {
 // }
 
 export const submitAuth = async (obj) => {
+  console.log('obj --> ', obj)
   const result = await fetch('/api/auth', {
     method: 'POST',
     headers: {
@@ -158,30 +159,30 @@ export const submitAuth = async (obj) => {
 //   return result.comments;
 // };
 
-// export const getFeaturedPosts = async () => {
-//   const query = gql`
-//     query GetCategoryPost() {
-//       posts(where: {featuredPost: true}) {
-//         author {
-//           name
-//           photo {
-//             url
-//           }
-//         }
-//         featuredImage {
-//           url
-//         }
-//         title
-//         slug
-//         createdAt
-//       }
-//     }   
-//   `;
+export const getAllProducts = async () => {
+  const query = gql`
+  query MyQuery {
+    products {
+      excerpt
+      name
+      price
+      slug
+      image {
+        url
+      }
+      description
+      category {
+        name
+      }
+    }
+  }
+  `;
 
-//   const result = await request(graphqlAPI, query);
+  const result = await request(graphqlAPI, query);
+  console.log('result ---> ',result);
 
-//   return result.posts;
-// };
+  return result.products;
+};
 
 // export const getAdjacentPosts = async (createdAt, slug) => {
 //   const query = gql`

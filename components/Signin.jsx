@@ -92,7 +92,9 @@ const Signin = ({ inType }) => {
                 }
                 // dispatch(authenticate(data.user.uid, data.user.email));
                 localStorage.setItem('user', data.user.email.toLowerCase());
-                submitAuth({ email: data.user.email, uid: data.user.uid })
+                const obj = { email: data.user.email, uid: data.user.uid }
+                console.log("singin obj --> ", obj)
+                submitAuth(obj)
                     .then((res) => {
                         setShowSuccessMessage(true);
                         setTimeout(() => {

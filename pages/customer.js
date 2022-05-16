@@ -4,23 +4,23 @@ import control from '../images/customer/control.png'
 import Chart_fill from '../images/customer/Chart_fill.png'
 import Chat from '../images/customer/Chat.png'
 import User from '../images/customer/User.png'
-// import Calendar from '../images/customer/Calendar.png'
-// import Search from '../images/customer/Search.png'
-// import Chart from '../images/customer/Chart.png'
-// import Folder from '../images/customer/Folder.png'
-// import Setting from '../images/customer/Setting.png'
+import Calendar from '../images/customer/Calendar.png'
+import Search from '../images/customer/Search.png'
+import Chart from '../images/customer/Chart.png'
+import Folder from '../images/customer/Folder.png'
+import Setting from '../images/customer/Setting.png'
 import logo from '../images/customer/logo.png'
 
 const App = () => {
   const [open, setOpen] = useState(true);
   const Menus = [
+    { title: "Accounts", src: User, gap: true },
     { title: "Dashboard", src: Chart_fill },
     { title: "Inbox", src: Chat },
-    { title: "Accounts", src: User, gap: true },
-    // { title: "Schedule ", src: Calendar },
+    { title: "Orders ", src: Folder, gap: true },
+    { title: "Offer & Deals ", src: Calendar },
     // { title: "Search", src: Search },
     // { title: "Analytics", src: Chart },
-    // { title: "Files ", src: Folder, gap: true },
     // { title: "Setting", src: Setting },
   ];
   
@@ -33,10 +33,11 @@ const App = () => {
       >
         <Image
           src={control}
-          className={`absolute cursor-pointer -right-3 top-9 w-7 border-dark-purple
+          className={`absolute cursor-pointer -right-3  top-9 w-7 border-dark-purple
            border-2 rounded-full  ${!open && "rotate-180"}`}
           onClick={() => setOpen(!open)}
         />
+        <div className="pb-8" />
         <div className="flex gap-x-4 items-center">
           <Image
             src={logo}
@@ -49,7 +50,7 @@ const App = () => {
               !open && "scale-0"
             }`}
           >
-            Designer
+            Customer
           </h1>
         </div>
         <ul className="pt-6">
