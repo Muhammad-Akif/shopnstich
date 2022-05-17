@@ -13,12 +13,13 @@ function validateEmail(email) {
 }
 
 const Signin = ({ inType }) => {
+    const router = useRouter()
     const googleSuccess = async (res) => {
         const result = res?.profileObj;
         const token = res?.tokenId;
         try {
             dispatch({ type: "AUTH", data: { result, token } })
-            history.push("/");
+            router.push("/");
         } catch (error) {
             console.log(error)
         }
@@ -26,7 +27,6 @@ const Signin = ({ inType }) => {
     const googleFailure = () => {
         console.log("Google Login Failure...")
     }
-    const router = useRouter()
     // const dispatch = useDispatch();
     const [email, setemail] = useState(null);
     const [name, setName] = useState(null);

@@ -4,25 +4,35 @@ import control from '../images/customer/control.png'
 import Chart_fill from '../images/customer/Chart_fill.png'
 import Chat from '../images/customer/Chat.png'
 import User from '../images/customer/User.png'
-import Calendar from '../images/customer/Calendar.png'
 import Folder from '../images/customer/Folder.png'
 import logo from '../images/customer/logo.png'
+import { GoSignOut } from "react-icons/go";
 import { Dashboard, Profile, Orders, Inbox, Deals } from '../components'
+import { useRouter } from 'next/router'
+
 
 const App = () => {
+  const router = useRouter()
   const [open, setOpen] = useState(true);
   const Menus = [
-    { id: 0, title: "Dashboard", tab: Dashboard,  src: Chart_fill, gap: true },
+    { id: 0, title: "Dashboard", tab: Dashboard, src: Chart_fill, gap: true },
     { id: 1, title: "Accounts", tab: Profile, src: User },
-    { id: 2, title: "Inbox", tab: Inbox, src: Chat },
-    { id: 3, title: "Orders ",tab: Orders, src: Folder, gap: true },
-    { id: 4, title: "Offer & Deals ", tab:Deals, src: Calendar },
+    { id: 2, title: "Inbox", tab: Inbox, src: Chat, gap: true },
+    { id: 3, title: "Orders ", tab: Orders, src: Folder },
+    // { id: 4, title: "Offer & Deals ", tab:Deals, src: Calendar },
+    { id: 4, title: "Logout", tab: Deals, src: GoSignOut, gap: true },
   ];
   const [Tab, setTab] = useState(Menus[0])
 
   const changeToggle = (Menu) => {
     console.log(" Menu ---> ", Menu);
-    setTab(Menu);
+    if(Menu.title == "Logout"){
+      localStorage.removeItem('user')
+      router.push("/")
+    }
+    else{
+      setTab(Menu);
+    }
   }
 
   return (
@@ -39,6 +49,7 @@ const App = () => {
         />
         <div className="pb-8" />
         <div className="flex gap-x-4 items-center">
+
           <Image
             src={logo}
             className={`cursor-pointer duration-500 ${open && "rotate-[360deg]"
@@ -60,8 +71,10 @@ const App = () => {
               ${Menu.gap ? "mt-9" : "mt-2"} ${index === Tab.id && "bg-light-white"
                 } `}
             >
-
-              <Image src={Menu.src} />
+              {Menu.id == 4 ?
+                <Menu.src class="text-white text-xl ml-1" /> :
+                <Image src={Menu.src} />
+              }
               <span className={`${!open && "hidden"} origin-left duration-200`}>
                 {Menu.title}
               </span>
@@ -70,7 +83,7 @@ const App = () => {
         </ul>
       </div>
       <div className="h-screen overflow-y-scroll flex-1 p-7">
-        { console.log('tabs --> ',Tab)}
+        {console.log('tabs --> ', Tab)}
         <Tab.tab />
       </div>
     </div>
