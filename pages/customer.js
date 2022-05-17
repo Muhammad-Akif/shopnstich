@@ -7,24 +7,29 @@ import User from '../images/customer/User.png'
 import Calendar from '../images/customer/Calendar.png'
 import Folder from '../images/customer/Folder.png'
 import logo from '../images/customer/logo.png'
-import { Dashboard } from '../components'
+import { Dashboard, Profile, Orders, Inbox, Deals } from '../components'
 
 const App = () => {
   const [open, setOpen] = useState(true);
   const Menus = [
-    { title: "Dashboard", src: Chart_fill, gap: true },
-    { title: "Accounts", src: User },
-    { title: "Inbox", src: Chat },
-    { title: "Orders ", src: Folder, gap: true },
-    { title: "Offer & Deals ", src: Calendar },
+    { id: 0, title: "Dashboard", tab: Dashboard,  src: Chart_fill, gap: true },
+    { id: 1, title: "Accounts", tab: Profile, src: User },
+    { id: 2, title: "Inbox", tab: Inbox, src: Chat },
+    { id: 3, title: "Orders ",tab: Orders, src: Folder, gap: true },
+    { id: 4, title: "Offer & Deals ", tab:Deals, src: Calendar },
   ];
-  
+  const [Tab, setTab] = useState(Menus[0])
+
+  const changeToggle = (Menu) => {
+    console.log(" Menu ---> ", Menu);
+    setTab(Menu);
+  }
+
   return (
     <div className="flex">
       <div
-        className={` ${
-          open ? "w-72" : "w-20 "
-        } bg-dark-purple h-screen p-5  pt-8 relative duration-300`}
+        className={` ${open ? "w-72" : "w-20 "
+          } bg-dark-purple h-screen p-5  pt-8 relative duration-300`}
       >
         <Image
           src={control}
@@ -36,14 +41,12 @@ const App = () => {
         <div className="flex gap-x-4 items-center">
           <Image
             src={logo}
-            className={`cursor-pointer duration-500 ${
-              open && "rotate-[360deg]"
-            }`}
+            className={`cursor-pointer duration-500 ${open && "rotate-[360deg]"
+              }`}
           />
           <h1
-            className={`text-white origin-left font-medium text-xl duration-200 ${
-              !open && "scale-0"
-            }`}
+            className={`text-white origin-left font-medium text-xl duration-200 ${!open && "scale-0"
+              }`}
           >
             Customer
           </h1>
@@ -51,11 +54,11 @@ const App = () => {
         <ul className="pt-6">
           {Menus.map((Menu, index) => (
             <li
+              onClick={changeToggle.bind(null, Menu)}
               key={index}
               className={`flex  rounded-md p-2 cursor-pointer hover:bg-light-white text-gray-300 text-sm items-center gap-x-4 
-              ${Menu.gap ? "mt-9" : "mt-2"} ${
-                index === 0 && "bg-light-white"
-              } `}
+              ${Menu.gap ? "mt-9" : "mt-2"} ${index === Tab.id && "bg-light-white"
+                } `}
             >
 
               <Image src={Menu.src} />
@@ -67,7 +70,8 @@ const App = () => {
         </ul>
       </div>
       <div className="h-screen overflow-y-scroll flex-1 p-7">
-        <Dashboard/>
+        { console.log('tabs --> ',Tab)}
+        <Tab.tab />
       </div>
     </div>
   );
