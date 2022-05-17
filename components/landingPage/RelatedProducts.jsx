@@ -2,9 +2,7 @@
 import Link from 'next/link'
 import React from 'react'
 
-const RelatedProducts = ({ name, price, image, slug, createdAt }) => {
-    console.log("---->", image)
-
+const RelatedProducts = ({ name, price, image, slug }) => {
 
     return (
         <article key={slug}>
@@ -22,8 +20,8 @@ const RelatedProducts = ({ name, price, image, slug, createdAt }) => {
                             <p className="text-gray-800 font-semibold text-lg group-hover:text-indigo-600 mb-1">
                                 {name}
                             </p>
-                            <p className="text-gray-400 text-sm">
-                                {price}
+                            <p className="text-gray-600 text-sm">
+                                Rs: {price}
                             </p>
                         </div>
                     </div>

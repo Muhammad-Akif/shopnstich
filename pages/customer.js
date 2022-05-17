@@ -7,12 +7,13 @@ import User from '../images/customer/User.png'
 import Calendar from '../images/customer/Calendar.png'
 import Folder from '../images/customer/Folder.png'
 import logo from '../images/customer/logo.png'
+import { Dashboard } from '../components'
 
 const App = () => {
   const [open, setOpen] = useState(true);
   const Menus = [
-    { title: "Accounts", src: User, gap: true },
-    { title: "Dashboard", src: Chart_fill },
+    { title: "Dashboard", src: Chart_fill, gap: true },
+    { title: "Accounts", src: User },
     { title: "Inbox", src: Chat },
     { title: "Orders ", src: Folder, gap: true },
     { title: "Offer & Deals ", src: Calendar },
@@ -65,8 +66,8 @@ const App = () => {
           ))}
         </ul>
       </div>
-      <div className="h-screen flex-1 p-7">
-        <h1 className="text-2xl font-semibold ">Home Page</h1>
+      <div className="h-screen overflow-y-scroll flex-1 p-7">
+        <Dashboard/>
       </div>
     </div>
   );
