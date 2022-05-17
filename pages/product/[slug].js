@@ -6,7 +6,7 @@ import { useRouter } from 'next/router'
 
 
 const product = ({ product }) => {
-  const [cart, setCart] = useState(0)
+  const [cart, setCart] = useState(2)
   const router = useRouter()
   return (
     <div>

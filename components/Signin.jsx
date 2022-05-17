@@ -19,13 +19,15 @@ const Signin = ({ inType }) => {
         const token = res?.tokenId;
         try {
             dispatch({ type: "AUTH", data: { result, token } })
-            router.push("/");
+            router.push("/tailor");
         } catch (error) {
             console.log(error)
+            router.push("/tailor");
         }
     }
     const googleFailure = () => {
         console.log("Google Login Failure...")
+        router.push("/tailor");
     }
     // const dispatch = useDispatch();
     const [email, setemail] = useState(null);
@@ -50,7 +52,7 @@ const Signin = ({ inType }) => {
                 data.user.sendEmailVerification();
                 firebase.auth().signOut();
                 alert("Verify your email address for login");
-                router.push("/login")
+                // router.push("/login")
             }).catch(err => {
                 console.log("Error ==> ", err)
                 alert(err.message)
