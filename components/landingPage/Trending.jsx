@@ -60,7 +60,7 @@ const Trending = ({ products }) => {
                                                     <div class="text-md pb-2 md:pb-0 text-gray-900 dark:text-white">Rs: {trend.price}</div>
                                                 </div>
                                                 <div class="mt-4">
-                                                    <span class="text-teal-600 text-md font-semibold">4/5 ratings </span>
+                                                    <span class="text-teal-600 text-md font-semibold">{key==0 ? 4.5 : key==1 ? 4.8 : 5}/5 ratings </span>
                                                     <span class="text-sm text-gray-600">(based on 234 ratings)</span>
                                                 </div>
                                             </div>

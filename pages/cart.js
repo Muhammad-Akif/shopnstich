@@ -1,16 +1,34 @@
-import React from 'react'
-import {AiOutlineMinus, AiOutlinePlus} from 'react-icons/ai'
+
+import React, { useEffect, useState } from 'react'
+import { getAllProducts } from '../services'
+import { AiOutlineMinus, AiOutlinePlus } from 'react-icons/ai'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
 
 
 const cart = () => {
     const router = useRouter()
+    const [Products, setProducts] = useState(null)
+    const [menProducts, setMenProducts] = useState(null)
+    const [womenProducts, setWomenProducts] = useState(null)
+    const [kidsProducts, setKidsProducts] = useState(null)
+    const [Orders, setOrders] = useState(null)
     const getAccessToken = () => {
-        if (typeof window !== 'undefined') 
-           return localStorage.getItem('user');
-     };
-     
+        if (typeof window !== 'undefined')
+            return localStorage.getItem('user');
+    };
+    useEffect(() => {
+        getAllProducts().then(products => {
+            setProducts(products)
+            setMenProducts(products?.filter(product => product.category.name === "Men").slice(0, 3))
+            setWomenProducts(products?.filter(product => product.category.name === "Women").slice(0, 3))
+            setKidsProducts(products?.filter(product => product.category.name === "Kids").slice(0, 3))
+            setOrders([menProducts, womenProducts, kidsProducts])
+        })
+    }, [])
+
+    console.log(womenProducts)
+
     return (
         <div class="container mx-auto mt-10">
             <div class="flex shadow-md my-10">
@@ -25,68 +43,34 @@ const cart = () => {
                         <h3 class="font-semibold text-center text-gray-600 text-xs uppercase w-1/5 text-center">Price</h3>
                         <h3 class="font-semibold text-center text-gray-600 text-xs uppercase w-1/5 text-center">Total</h3>
                     </div>
-                    <div class="flex items-center hover:bg-gray-100 -mx-8 px-6 py-5">
-                        <div class="flex w-2/5">
-                            <div class="w-20">
-                                <img class="h-24" src="https://drive.google.com/uc?id=18KkAVkGFvaGNqPy2DIvTqmUH_nk39o3z" alt="" />
-                            </div>
-                            <div class="flex flex-col justify-between ml-4 flex-grow">
-                                <span class="font-bold text-sm">Iphone 6S</span>
-                                <span class="text-red-500 text-xs">Apple</span>
-                                <a href="#" class="font-semibold hover:text-red-500 text-gray-500 text-xs">Remove</a>
-                            </div>
-                        </div>
-                        <div class="flex justify-center hover:cursor-pointer items-center w-1/5">
-                            <AiOutlinePlus />
-                            <input class="mx-2 border text-center w-8" type="text" value="1" />
 
-                            <AiOutlineMinus />
-                        </div>
-                        <span class="text-center w-1/5 font-semibold text-sm">$400.00</span>
-                        <span class="text-center w-1/5 font-semibold text-sm">$400.00</span>
-                    </div>
+                    {womenProducts?.map((pro) => (
+                        <>
+                            <div class="flex items-center hover:bg-gray-100 -mx-8 px-6 py-5">
+                                <div class="flex w-2/5">
+                                    <div class="w-20">
+                                        <img class="h-24" src={pro.image.url} alt="" />
+                                    </div>
+                                    <div class="flex flex-col justify-between ml-4 flex-grow">
+                                        <span class="font-bold text-sm">{pro.name}</span>
+                                        <span class="text-red-500 text-xs">{pro.category.name}</span>
+                                        <a href="#" class="font-semibold hover:text-red-500 text-gray-500 text-xs">Remove</a>
+                                    </div>
+                                </div>
+                                <div class="flex justify-center hover:cursor-pointer items-center w-1/5">
+                                    <AiOutlinePlus />
+                                    <input class="mx-2 border text-center w-8" type="text" value="1" />
 
-                    <div class="flex items-center hover:bg-gray-100 -mx-8 px-6 py-5">
-                        <div class="flex w-2/5">
-                            <div class="w-20">
-                                <img class="h-24" src="https://drive.google.com/uc?id=10ht6a9IR3K2i1j0rHofp9-Oubl1Chraw" alt="" />
+                                    <AiOutlineMinus />
+                                </div>
+                                <span class="text-center w-1/5 font-semibold text-sm">Rs {pro.price}</span>
+                                <span class="text-center w-1/5 font-semibold text-sm">Rs {pro.price}</span>
                             </div>
-                            <div class="flex flex-col justify-between ml-4 flex-grow">
-                                <span class="font-bold text-sm">Xiaomi Mi 20000mAh</span>
-                                <span class="text-red-500 text-xs">Xiaomi</span>
-                                <a href="#" class="font-semibold hover:text-red-500 text-gray-500 text-xs">Remove</a>
-                            </div>
-                        </div>
-                        <div class="flex hover:cursor-pointer justify-center items-center w-1/5">
-                            <AiOutlinePlus />
-                            <input class="mx-2 border text-center w-8" type="text" value="1" />
+                        </>
+                    ))}
 
-                            <AiOutlineMinus />
-                        </div>
-                        <span class="text-center w-1/5 font-semibold text-sm">$40.00</span>
-                        <span class="text-center w-1/5 font-semibold text-sm">$40.00</span>
-                    </div>
 
-                    <div class="flex items-center hover:bg-gray-100 -mx-8 px-6 py-5">
-                        <div class="flex w-2/5">
-                            <div class="w-20">
-                                <img class="h-24" src="https://drive.google.com/uc?id=1vXhvO9HoljNolvAXLwtw_qX3WNZ0m75v" alt="" />
-                            </div>
-                            <div class="flex flex-col justify-between ml-4 flex-grow">
-                                <span class="font-bold text-sm">Airpods</span>
-                                <span class="text-red-500 text-xs">Apple</span>
-                                <a href="#" class="font-semibold hover:text-red-500 text-gray-500 text-xs">Remove</a>
-                            </div>
-                        </div>
-                        <div class="flex hover:cursor-pointer justify-center items-center w-1/5">
-                            <AiOutlinePlus />
-                            <input class="mx-2 border text-center w-8" type="text" value="1" />
 
-                            <AiOutlineMinus />
-                        </div>
-                        <span class="text-center w-1/5 font-semibold text-sm">$150.00</span>
-                        <span class="text-center w-1/5 font-semibold text-sm">$150.00</span>
-                    </div>
 
                     <button onClick={() => router.push('/')} class="flex font-semibold text-indigo-600 text-sm mt-10">
                         <svg class="fill-current mr-2 text-indigo-600 w-4" viewBox="0 0 448 512"><path d="M134.059 296H436c6.627 0 12-5.373 12-12v-56c0-6.627-5.373-12-12-12H134.059v-46.059c0-21.382-25.851-32.09-40.971-16.971L7.029 239.029c-9.373 9.373-9.373 24.569 0 33.941l86.059 86.059c15.119 15.119 40.971 4.411 40.971-16.971V296z" /></svg>
@@ -98,7 +82,7 @@ const cart = () => {
                     <h1 class="font-semibold text-2xl border-b pb-8">Order Summary</h1>
                     <div class="flex justify-between mt-10 mb-5">
                         <span class="font-semibold text-sm uppercase">Items 3</span>
-                        <span class="font-semibold text-sm">590$</span>
+                        <span class="font-semibold text-sm">Rs: 5997</span>
                     </div>
                     <div class="py-10">
                         <label for="promo" class="font-semibold inline-block mb-3 text-sm uppercase">Promo Code</label>
@@ -108,7 +92,7 @@ const cart = () => {
                     <div class="border-t mt-8">
                         <div class="flex font-semibold justify-between py-6 text-sm uppercase">
                             <span>Total cost</span>
-                            <span>$600</span>
+                            <span>Rs: 5997</span>
                         </div>
                         <Link href={`${getAccessToken ? '/customer' : '/login'}`}><button class="bg-indigo-500 font-semibold hover:bg-indigo-600 py-3 text-sm text-white uppercase w-full">Checkout</button></Link>
                     </div>

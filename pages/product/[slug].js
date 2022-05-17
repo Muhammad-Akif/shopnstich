@@ -1,19 +1,23 @@
-import React from 'react'
+import React,{useState} from 'react'
 import { getProducts, getProductDetails } from '../../services'
 import { BsArrowBarLeft } from "react-icons/bs";
 import Link from 'next/link';
+import { useRouter } from 'next/router'
+
 
 const product = ({ product }) => {
+  const [cart, setCart] = useState(0)
+  const router = useRouter()
   return (
     <div>
       <div class="absolute top-2 right-5">
-        <button class="py-4 px-1 relative border-2 border-transparent rounded-full text-white-900  outline-none text-white mr-4 transition duration-150 ease-in-out" aria-label="Cart">
+        <button class="py-4 px-1 relative border-2 border-transparent rounded-full text-white-900  outline-none text-white mr-4 transition duration-150 ease-in-out" onClick={() => router.push('/cart')} aria-label="Cart">
           <svg class="h-6 w-6 text-black" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" stroke="currentColor">
             <path d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"></path>
           </svg>
           <span class="absolute inset-0 object-right-top -mr-6">
             <div class="inline-flex items-center px-1.5 py-0.5 border-2 border-none rounded-full text-xs font-semibold leading-4 bg-red-600 text-white">
-              0
+              {cart}
             </div>
           </span>
         </button>
@@ -73,7 +77,7 @@ const product = ({ product }) => {
               </div>
               <div class="flex">
                 <span class="title-font font-medium text-2xl text-gray-900">Rs: {product.price}</span>
-                <button class="flex ml-auto text-white bg-red-500 border-0 py-2 px-6 focus:outline-none hover:bg-red-600 rounded">Add to Cart</button>
+                <button class="flex ml-auto text-white bg-red-500 border-0 py-2 px-6 focus:outline-none hover:bg-red-600 rounded" onClick={() => setCart(++cart)}>Add to Cart</button>
               </div>
             </div>
           </div>
