@@ -12,7 +12,7 @@ const cart = () => {
 
     const { totalPrice, totalQuantities, cartItems, setShowCart, toggleCartItemQuanitity, onRemove } = useStateContext();
 
-  
+
     const getAccessToken = () => {
         if (typeof window !== 'undefined')
             return localStorage.getItem('user');
@@ -25,7 +25,7 @@ const cart = () => {
                 <div class="w-3/4 bg-white px-10 py-10">
                     <div class="flex justify-between border-b pb-8">
                         <h1 class="font-semibold text-2xl">Shopping Cart</h1>
-                        <h2 class="font-semibold text-2xl">3 Items</h2>
+                        <h2 class="font-semibold text-2xl">{totalQuantities} Items</h2>
                     </div>
                     <div class="flex mt-10 mb-5">
                         <h3 class="font-semibold text-gray-600 text-xs uppercase w-2/5">Product Details</h3>
@@ -50,21 +50,22 @@ const cart = () => {
                                             class="font-semibold hover:text-red-500 text-gray-500 text-xs"
                                             onClick={() => onRemove(item)}
                                         >
-                                            <TiDeleteOutline />
+                                            Remove
                                         </button>
                                     </div>
                                 </div>
-                                <div class="flex justify-center hover:cursor-pointer items-center w-1/5">
-                                    <span className="minus" onClick={() => toggleCartItemQuanitity(item.id, 'dec')}>
-                                        <AiOutlineMinus />
-                                    </span>
-
-                                    <span className="num" onClick="">{item.quantity}</span>
-
-                                    <span className="plus" onClick={() => toggleCartItemQuanitity(item.id, 'inc')}>
-                                        <AiOutlinePlus />
-                                    </span>
+                                <div className="quantity">
+                                    <p className="quantity-desc flex items-center h-10">
+                                        <span className="minus" onClick={() => toggleCartItemQuanitity(item.id, 'dec')}>
+                                            <AiOutlineMinus />
+                                        </span>
+                                        <span className="num" onClick="">{item.quantity}</span>
+                                        <span className="plus" onClick={() => toggleCartItemQuanitity(item.id, 'inc')}>
+                                            <AiOutlinePlus />
+                                        </span>
+                                    </p>
                                 </div>
+
                                 <span class="text-center w-1/5 font-semibold text-sm">Rs {item.price}</span>
                                 <span class="text-center w-1/5 font-semibold text-sm">Rs {item.price * totalQuantities}</span>
                             </div>
@@ -82,7 +83,7 @@ const cart = () => {
                     <h1 class="font-semibold text-2xl border-b pb-8">Order Summary</h1>
                     <div class="flex justify-between mt-10 mb-5">
                         <span class="font-semibold text-sm uppercase">Items {totalQuantities}</span>
-                        <span class="font-semibold text-sm">Rs: 5997</span>
+                        <span class="font-semibold text-sm">{totalQuantities.length > 0 && (<span>Rs: {totalPrice}</span>)}</span>
                     </div>
                     <div class="py-10">
                         <label for="promo" class="font-semibold inline-block mb-3 text-sm uppercase">Promo Code</label>
