@@ -1,33 +1,23 @@
 
 import React, { useEffect, useState } from 'react'
-import { getAllProducts } from '../services'
 import { AiOutlineMinus, AiOutlinePlus } from 'react-icons/ai'
+import { TiDeleteOutline } from 'react-icons/ti';
+import { useStateContext } from '../context/StateContext';
 import Link from 'next/link'
 import { useRouter } from 'next/router'
 
 
 const cart = () => {
     const router = useRouter()
-    const [Products, setProducts] = useState(null)
-    const [menProducts, setMenProducts] = useState(null)
-    const [womenProducts, setWomenProducts] = useState(null)
-    const [kidsProducts, setKidsProducts] = useState(null)
-    const [Orders, setOrders] = useState(null)
+
+    const { totalPrice, totalQuantities, cartItems, setShowCart, toggleCartItemQuanitity, onRemove } = useStateContext();
+
+  
     const getAccessToken = () => {
         if (typeof window !== 'undefined')
             return localStorage.getItem('user');
     };
-    useEffect(() => {
-        getAllProducts().then(products => {
-            setProducts(products)
-            setMenProducts(products?.filter(product => product.category.name === "Men").slice(0, 3))
-            setWomenProducts(products?.filter(product => product.category.name === "Women").slice(0, 3))
-            setKidsProducts(products?.filter(product => product.category.name === "Kids").slice(0, 3))
-            setOrders([menProducts, womenProducts, kidsProducts])
-        })
-    }, [])
 
-    console.log(womenProducts)
 
     return (
         <div class="container mx-auto mt-10">
@@ -44,32 +34,42 @@ const cart = () => {
                         <h3 class="font-semibold text-center text-gray-600 text-xs uppercase w-1/5 text-center">Total</h3>
                     </div>
 
-                    {womenProducts?.map((pro) => (
+                    {cartItems.length >= 1 && cartItems.map((item) => (
                         <>
                             <div class="flex items-center hover:bg-gray-100 -mx-8 px-6 py-5">
                                 <div class="flex w-2/5">
                                     <div class="w-20">
-                                        <img class="h-24" src={pro.image.url} alt="" />
+                                        <img class="h-24" src={item.image.url} alt="" />
                                     </div>
                                     <div class="flex flex-col justify-between ml-4 flex-grow">
-                                        <span class="font-bold text-sm">{pro.name}</span>
+                                        <span class="font-bold text-sm">{item.name}</span>
                                         <span class="text-red-500 text-xs">{pro.category.name}</span>
-                                        <a href="#" class="font-semibold hover:text-red-500 text-gray-500 text-xs">Remove</a>
+                                        <button
+                                            type="button"
+                                            className="remove-item"
+                                            class="font-semibold hover:text-red-500 text-gray-500 text-xs"
+                                            onClick={() => onRemove(item)}
+                                        >
+                                            <TiDeleteOutline />
+                                        </button>
                                     </div>
                                 </div>
                                 <div class="flex justify-center hover:cursor-pointer items-center w-1/5">
-                                    <AiOutlinePlus />
-                                    <input class="mx-2 border text-center w-8" type="text" value="1" />
+                                    <span className="minus" onClick={() => toggleCartItemQuanitity(item._id, 'dec')}>
+                                        <AiOutlineMinus />
+                                    </span>
 
-                                    <AiOutlineMinus />
+                                    <span className="num" onClick="">{item.quantity}</span>
+
+                                    <span className="plus" onClick={() => toggleCartItemQuanitity(item._id, 'inc')}>
+                                        <AiOutlinePlus />
+                                    </span>
                                 </div>
-                                <span class="text-center w-1/5 font-semibold text-sm">Rs {pro.price}</span>
+                                <span class="text-center w-1/5 font-semibold text-sm">Rs {item.price}</span>
                                 <span class="text-center w-1/5 font-semibold text-sm">Rs {pro.price}</span>
                             </div>
                         </>
                     ))}
-
-
 
 
                     <button onClick={() => router.push('/')} class="flex font-semibold text-indigo-600 text-sm mt-10">
@@ -89,13 +89,16 @@ const cart = () => {
                         <input type="text" id="promo" placeholder="Enter your code" class="p-2 text-sm w-full border border-gray-200" />
                     </div>
                     <button class="bg-red-500 hover:bg-red-600 px-5 py-2 text-sm text-white uppercase">Apply</button>
-                    <div class="border-t mt-8">
-                        <div class="flex font-semibold justify-between py-6 text-sm uppercase">
-                            <span>Total cost</span>
-                            <span>Rs: 5997</span>
+                    {cartItems.length >= 1 && (
+
+                        <div class="border-t mt-8">
+                            <div class="flex font-semibold justify-between py-6 text-sm uppercase">
+                                <span>Total cost</span>
+                                <span>Rs: {totalPrice}</span>
+                            </div>
+                            <Link href={`${getAccessToken ? '/customer' : '/login'}`}><button class="bg-indigo-500 font-semibold hover:bg-indigo-600 py-3 text-sm text-white uppercase w-full">Checkout</button></Link>
                         </div>
-                        <Link href={`${getAccessToken ? '/customer' : '/login'}`}><button class="bg-indigo-500 font-semibold hover:bg-indigo-600 py-3 text-sm text-white uppercase w-full">Checkout</button></Link>
-                    </div>
+                    )}
                 </div>
 
             </div>
