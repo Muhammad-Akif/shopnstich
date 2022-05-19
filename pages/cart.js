@@ -83,7 +83,7 @@ const cart = () => {
                     <h1 class="font-semibold text-2xl border-b pb-8">Order Summary</h1>
                     <div class="flex justify-between mt-10 mb-5">
                         <span class="font-semibold text-sm uppercase">Items {totalQuantities}</span>
-                        <span class="font-semibold text-sm">{totalQuantities.length > 0 && (<span>Rs: {totalPrice}</span>)}</span>
+                        <span class="font-semibold text-sm">{totalQuantities.length > 0 || (<span>Rs: {totalPrice}</span>)}</span>
                     </div>
                     <div class="py-10">
                         <label for="promo" class="font-semibold inline-block mb-3 text-sm uppercase">Promo Code</label>

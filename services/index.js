@@ -46,6 +46,7 @@ export const getVarietyDetails = async (slug) => {
     query getVarietyDetails($slug: String!) {
       variety(where: {slug: $slug}) {
         products {
+          id
           name
           price
           image {
@@ -93,6 +94,7 @@ export const getProductDetails = async (slug) => {
   const query = gql`  
     query getProductDetails($slug: String!) {
       product(where: {slug: $slug}) {
+            id
             name
             price
             slug
@@ -204,6 +206,7 @@ export const getAllProducts = async () => {
   const query = gql`
   query MyQuery {
     products {
+      id
       excerpt
       name
       price
