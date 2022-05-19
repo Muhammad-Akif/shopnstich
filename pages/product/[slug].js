@@ -3,11 +3,18 @@ import { getProducts, getProductDetails } from '../../services'
 import { BsArrowBarLeft } from "react-icons/bs";
 import Link from 'next/link';
 import { useRouter } from 'next/router'
+import { useStateContext } from '../../context/StateContext';
 
 
 const product = ({ product }) => {
+
   const [cart, setCart] = useState(2)
+  const { decQty, incQty, qty, onAdd, setShowCart } = useStateContext();
   const router = useRouter()
+  const handleBuyNow = () => {
+    onAdd(product, qty);
+    setShowCart(true);
+  }
   return (
     <div>
       <div class="absolute top-2 right-5">
