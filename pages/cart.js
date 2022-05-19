@@ -43,7 +43,7 @@ const cart = () => {
                                     </div>
                                     <div class="flex flex-col justify-between ml-4 flex-grow">
                                         <span class="font-bold text-sm">{item.name}</span>
-                                        <span class="text-red-500 text-xs">{pro.category.name}</span>
+                                        <span class="text-red-500 text-xs">{item.category.name}</span>
                                         <button
                                             type="button"
                                             className="remove-item"
@@ -55,18 +55,18 @@ const cart = () => {
                                     </div>
                                 </div>
                                 <div class="flex justify-center hover:cursor-pointer items-center w-1/5">
-                                    <span className="minus" onClick={() => toggleCartItemQuanitity(item._id, 'dec')}>
+                                    <span className="minus" onClick={() => toggleCartItemQuanitity(item.id, 'dec')}>
                                         <AiOutlineMinus />
                                     </span>
 
                                     <span className="num" onClick="">{item.quantity}</span>
 
-                                    <span className="plus" onClick={() => toggleCartItemQuanitity(item._id, 'inc')}>
+                                    <span className="plus" onClick={() => toggleCartItemQuanitity(item.id, 'inc')}>
                                         <AiOutlinePlus />
                                     </span>
                                 </div>
                                 <span class="text-center w-1/5 font-semibold text-sm">Rs {item.price}</span>
-                                <span class="text-center w-1/5 font-semibold text-sm">Rs {pro.price}</span>
+                                <span class="text-center w-1/5 font-semibold text-sm">Rs {item.price * totalQuantities}</span>
                             </div>
                         </>
                     ))}
@@ -81,7 +81,7 @@ const cart = () => {
                 <div id="summary" class="w-1/4 px-8 py-10">
                     <h1 class="font-semibold text-2xl border-b pb-8">Order Summary</h1>
                     <div class="flex justify-between mt-10 mb-5">
-                        <span class="font-semibold text-sm uppercase">Items 3</span>
+                        <span class="font-semibold text-sm uppercase">Items {totalQuantities}</span>
                         <span class="font-semibold text-sm">Rs: 5997</span>
                     </div>
                     <div class="py-10">

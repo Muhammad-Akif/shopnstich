@@ -1,6 +1,7 @@
-import React,{useState} from 'react'
+import React, { useState } from 'react'
 import { getProducts, getProductDetails } from '../../services'
 import { BsArrowBarLeft } from "react-icons/bs";
+import { AiOutlineMinus, AiOutlinePlus } from 'react-icons/ai'
 import Link from 'next/link';
 import { useRouter } from 'next/router'
 import { useStateContext } from '../../context/StateContext';
@@ -8,13 +9,9 @@ import { useStateContext } from '../../context/StateContext';
 
 const product = ({ product }) => {
 
-  const [cart, setCart] = useState(2)
-  const { decQty, incQty, qty, onAdd, setShowCart } = useStateContext();
+  const { decQty, incQty, qty, onAdd, totalQuantities } = useStateContext();
   const router = useRouter()
-  const handleBuyNow = () => {
-    onAdd(product, qty);
-    setShowCart(true);
-  }
+
   return (
     <div>
       <div class="absolute top-2 right-5">
@@ -24,13 +21,13 @@ const product = ({ product }) => {
           </svg>
           <span class="absolute inset-0 object-right-top -mr-6">
             <div class="inline-flex items-center px-1.5 py-0.5 border-2 border-none rounded-full text-xs font-semibold leading-4 bg-red-600 text-white">
-              {cart}
+              {totalQuantities}
             </div>
           </span>
         </button>
       </div>
       <div class="absolute top-5 left-6">
-        <Link href="/"><BsArrowBarLeft class="text-2xl hover:cursor-pointer inline-block"/></Link>
+        <Link href="/"><BsArrowBarLeft class="text-2xl hover:cursor-pointer inline-block" /></Link>
         <span class="font-semibold align-middle pl-5 text-xl font-serif">Product Detail</span>
       </div>
       <section class="text-gray-700 h-screen body-font overflow-hidden bg-white">
@@ -60,7 +57,7 @@ const product = ({ product }) => {
                   <span class="text-gray-600 ml-3">4 Reviews</span>
                 </span>
                 <span class="flex ml-3 pl-3 py-2 border-l-2 border-gray-200">
-                {product.variety.name}
+                  {product.variety.name}
                 </span>
               </div>
               <p class="leading-relaxed">{product.description}</p>
@@ -81,10 +78,18 @@ const product = ({ product }) => {
                     </span>
                   </div>
                 </div>
+                <h3 class="pl-4 pr-3">Quantity:</h3>
+                <div className="quantity">
+                  <p className="quantity-desc flex items-center h-10">
+                    <span className="minus" onClick={decQty}><AiOutlineMinus /></span>
+                    <span className="num">{qty}</span>
+                    <span className="plus" onClick={incQty}><AiOutlinePlus /></span>
+                  </p>
+                </div>
               </div>
               <div class="flex">
                 <span class="title-font font-medium text-2xl text-gray-900">Rs: {product.price}</span>
-                <button class="flex ml-auto text-white bg-red-500 border-0 py-2 px-6 focus:outline-none hover:bg-red-600 rounded" onClick={() => setCart(++cart)}>Add to Cart</button>
+                <button type="button" class="flex ml-auto text-white bg-red-500 border-0 py-2 px-6 focus:outline-none hover:bg-red-600 rounded" onClick={() => onAdd(product, qty)}>Add to Cart</button>
               </div>
             </div>
           </div>
