@@ -106,7 +106,7 @@ export async function getStaticPaths() { // all Variety slugs to generate paths
   const Products = await getProducts();
   return {
     paths: Products?.map(({ node: { slug } }) => ({ params: { slug } })),
-    fallback: false
+    fallback: true
   }
 }
 
