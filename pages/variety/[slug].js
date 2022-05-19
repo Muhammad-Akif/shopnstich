@@ -18,9 +18,10 @@ export default varietyDetails;
 
 export async function getStaticPaths() { // all Variety slugs to generate paths 
   const varieties = await getVarieties();
+  console.log('var ---> ',varieties)
   return {
     paths: varieties?.map(({ node: { slug } }) => ({ params: { slug } })),
-    fallback: false
+    fallback: true
   }
 }
 
