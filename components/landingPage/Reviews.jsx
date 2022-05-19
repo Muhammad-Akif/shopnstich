@@ -7,7 +7,7 @@ const Reviews = () => {
                 <div data-aos="zoom-up">
                     Client Reviews
                 </div>
-                    <div class="h-1 my-2 bg-green-400 w-2/4 sm:w-1/12" />
+                <div class="h-1 my-2 bg-green-400 w-2/4 sm:w-1/12" />
                 <p class="text-green-960 text-lg sm:text-2xl w-full italic text-center">
                     Few Feedback From Our Buyers, <span class="text-orange-400">Must Read!</span>
                 </p>
@@ -17,47 +17,42 @@ const Reviews = () => {
                 <div class="carousel-inner relative w-full overflow-hidden">
                     <div class="carousel-item active relative float-left w-full text-center">
                         <p class="text-xl italic mx-auto text-gray-500 max-w-4xl">
-                            "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit, error amet
-                            numquam iure provident voluptate esse quasi, voluptas nostrum quisquam!"
+                            "Great Shopping website, mostly reviews I saw they are real. mostly Tailor's stitched the cloths very nice as i want, Overall good Services"
                         </p>
                         <div class="mt-12 mb-6 flex justify-center">
                             <img
-                                src="https://mdbcdn.b-cdn.net/img/Photos/Avatars/img%20(2).webp"
+                                src="https://media-exp1.licdn.com/dms/image/C4D03AQFOPDsThKgzXw/profile-displayphoto-shrink_200_200/0/1626702041430?e=1658361600&v=beta&t=zL4pPZf9Cow15ULWmFY1iU_tXiU8kWs7XAeapTCsrR0"
                                 class="rounded-full w-24 h-24 shadow-lg"
                                 alt="smaple image"
                             />
                         </div>
-                        <p class="text-teal-600">- Anna Morian</p>
+                        <p class="text-teal-600">- Malik Saqib</p>
                     </div>
                     <div class="carousel-item relative float-left w-full text-center">
                         <p class="text-xl italic mx-auto text-gray-500 max-w-4xl">
-                            "Neque cupiditate assumenda in maiores repudiandae mollitia adipisci maiores
-                            repudiandae mollitia consectetur adipisicing architecto elit sed adipiscing
-                            elit."
+                            "Great Shopping website, mostly reviews I saw they are real. mostly Tailor's stitched the cloths very nice as i want, Overall good Services"
                         </p>
                         <div class="mt-12 mb-6 flex justify-center">
                             <img
-                                src="https://mdbcdn.b-cdn.net/img/Photos/Avatars/img%20(31).webp"
+                                src="https://media-exp1.licdn.com/dms/image/C4D03AQHySRflS9uZSQ/profile-displayphoto-shrink_200_200/0/1641677442759?e=1658361600&v=beta&t=UL1vOOjGjGRLhTn4QqT_rHUxfsPbAJbfuBV8LT6Wy4c"
                                 class="rounded-full w-24 h-24 shadow-lg"
                                 alt="smaple image"
                             />
                         </div>
-                        <p class="text-teal-600">- Teresa May</p>
+                        <p class="text-teal-600">- Hasnat Ahmad</p>
                     </div>
                     <div class="carousel-item relative float-left w-full text-center">
                         <p class="text-xl italic mx-auto text-gray-500 max-w-4xl">
-                            "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum
-                            dolore eu fugiat nulla pariatur est laborum neque cupiditate assumenda in
-                            maiores."
+                            "Great Shopping website, mostly reviews I saw they are real. mostly Tailor's stitched the cloths very nice as i want, Overall good Services"
                         </p>
                         <div class="mt-12 mb-6 flex justify-center">
                             <img
-                                src="https://mdbcdn.b-cdn.net/img/Photos/Avatars/img%20(10).webp"
+                                src="https://media-exp1.licdn.com/dms/image/C4D03AQEUs8HTHhFf9A/profile-displayphoto-shrink_200_200/0/1626173576886?e=1658361600&v=beta&t=UkFLhoaTocHwa8ga3rkXUVS1BZOUtPfaQitiUkfLLac"
                                 class="rounded-full w-24 h-24 shadow-lg"
                                 alt="smaple image"
                             />
                         </div>
-                        <p class="text-teal-600">- Kate Allise</p>
+                        <p class="text-teal-600">- Ayesha Khalid</p>
                     </div>
                 </div>
                 <button

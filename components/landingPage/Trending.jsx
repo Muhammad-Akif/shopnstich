@@ -39,8 +39,7 @@ const Trending = ({ products }) => {
                                     /> */}
                                         <img
                                             // alt={name}
-                                            height="auto"
-                                            width="auto"
+                                            // className="h-1/4 object-contain w-full"
                                             src={trend.image?.url}
                                         />
                                         <div class="relative -mt-2 mx-2 ">
