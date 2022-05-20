@@ -1,6 +1,7 @@
 import React from 'react'
 
 const measurement = () => {
+    use
     const menDetails = [
         {image: 'https://www.crowntailor.com/images/menm/men_size_1.jpg', title: "FULL SHOULDER WIDTH", description: "Measure from the end of the right shoulder to the end of the left shoulder. We define the 'End of the Shoulder as where the horizontal plane of the shoulder intersects thevertical plane of the arm'"},
         {image: 'https://www.crowntailor.com/images/menm/men_size_2.jpg', title: "SLEEVES", description: "The 'Pinch' of the hand is found where the base of the thumb and the base of the index finger intersect"},
@@ -16,6 +17,30 @@ const measurement = () => {
         {image: 'https://www.crowntailor.com/images/menm/men_size_12.jpg', title: "THIGH", description: "Measure around your thigh at its widest point. You need measure only one side."},
         {image: 'https://www.crowntailor.com/images/menm/men_size_13.jpg', title: "TROUSER'S LENGTH", description: "Measure from the top of your pant’s waistband to the floor along the outside of your leg. Make sure the tape is tight, that you are standing straight, and then measure."},
         {image: 'https://www.crowntailor.com/images/menm/men_size_14.jpg', title: "CUFF", description: "Measure width around cuff as shown."},
+    ]
+    const womenDetails = [
+        {image: 'https://www.crowntailor.com/images/womenw/wmen_size_1.jpg', title: "FRONT LENGTH", description: "Measure from shoulder seam (at neck) to bust point."},
+        {image: 'https://www.crowntailor.com/images/womenw/wmen_size_2.jpg', title: "FRONT LENGTH", description: "Measure from shoulder seam (at neck) over bust to waist."},
+        {image: 'https://www.crowntailor.com/images/womenw/wmen_size_3.jpg', title: "BACK LENGTH", description: "Measure from the collar seam to back waist line."},
+        {image: 'https://www.crowntailor.com/images/womenw/wmen_size_4.jpg', title: "FRONT WIDTH", description: "Measure from top armpit angle to other armpit angle across the front chest."},
+        {image: 'https://www.crowntailor.com/images/womenw/wmen_size_5.jpg', title: "BUST", description: "Measure around the biggest part of bust and keep tape a little high on back."},
+        {image: 'https://www.crowntailor.com/images/womenw/wmen_size_6.jpg', title: "WAIST", description: "Measure around waistline where normally you would wear your pant / skirt."},
+        {image: 'https://www.crowntailor.com/images/womenw/wmen_size_7.jpg', title: "BACK WIDTH", description: "Measure from top armpit angle to other armpit angle across your back."},
+        {image: 'https://www.crowntailor.com/images/womenw/wmen_size_8.jpg', title: "POINT BUST", description: "Measure from one point bust to another point bust."},
+        {image: 'https://www.crowntailor.com/images/womenw/wmen_size_9.jpg', title: "SLEEVE LENGTH", description: "Measure from shoulder seam to wrist."},
+        {image: 'https://www.crowntailor.com/images/womenw/wmen_size_10.jpg', title: "ARM", description: "Measure around the arm."},
+        {image: 'https://www.crowntailor.com/images/womenw/wmen_size_11.jpg', title: "ARMHOLE", description: "Measure around the armhole."},
+        {image: 'https://www.crowntailor.com/images/womenw/wmen_size_12.jpg', title: "NECK", description: "Measure around the neck."},
+        {image: 'https://www.crowntailor.com/images/womenw/wmen_size_13.jpg', title: "CUFF", description: "Measure around the cuff as shown."},
+        {image: 'https://www.crowntailor.com/images/womenw/wmen_size_14.jpg', title: "JACKET / BLOUSE LENGTH", description: "Measure from top of highest shoulder point to the length of your jacket design style."},
+        {image: 'https://www.crowntailor.com/images/womenw/wmen_size_14.jpg', title: "COAT LENGTH", description: "Measure from shoulder seam over bust to coat length."},
+        {image: 'https://www.crowntailor.com/images/womenw/wmen_size_16.jpg', title: "SKIRT LENGTH", description: "Measure from waist to skirt length."},
+        {image: 'https://www.crowntailor.com/images/womenw/wmen_size_17.jpg', title: "HIP", description: "Measure around biggest part of hip and seat"},
+        {image: 'https://www.crowntailor.com/images/womenw/wmen_size_18.jpg', title: "HIGH HIP", description: "Measure around hips."},
+        {image: 'https://www.crowntailor.com/images/womenw/wmen_size_19.jpg', title: "INSEAM", description: "Measure from crotch to bottom of cuff."},
+        {image: 'https://www.crowntailor.com/images/womenw/wmen_size_20.jpg', title: "TROUSER LENGTH", description: "Measure around biggest part of hip and seat"},
+        {image: 'https://www.crowntailor.com/images/womenw/wmen_size_21.jpg', title: "CUFF", description: "Measure around biggest part of hip and seat"},
+        {image: 'https://www.crowntailor.com/images/womenw/wmen_size_23.jpg', title: "TROUSER THIGH", description: "Measure around the biggest part of the leg."},
     ]
   return (
     <div>measurement</div>
