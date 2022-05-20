@@ -1,23 +1,33 @@
 import React from 'react'
 import { useStateContext } from '../../../context/StateContext';
 
-const Measure = ({confirm, info}) => {
+const Measure = ({ confirm, info }) => {
     const { personalInfo, setPersonalInfo, measureDetails } = useStateContext();
-    const arr = []
+
     let renderMeasure = ""
-    for (let i = 0; i < renderMeasure.length; i++) {
-        arr.push(renderMeasure[i].title)
-    }
-    console.log("arr --> ", arr)
     if (personalInfo.gender == 'male') {
         renderMeasure = measureDetails.menDetails
     }
     else {
         renderMeasure = measureDetails.womenDetails
     }
-    
+
+    let arr = []
+    for (let i = 0; i < renderMeasure.length; i++) {
+        setPersonalInfo((preVal) => {
+            return {
+                ...preVal,
+                [renderMeasure[i].title]: "",
+            }
+        })
+        arr.push(renderMeasure[i].title)
+    }
+    console.log("arr --> ", arr)
+    console.log("arr2 --> ", personalInfo)
+
     const InputEvent = (event) => {
         const { name, value } = event.target;
+        console.log("details --> ", name, value)
         setPersonalInfo((preVal) => {
             return {
                 ...preVal,
@@ -25,6 +35,11 @@ const Measure = ({confirm, info}) => {
             }
         })
     }
+
+    const getValue = (inst) => {
+        personalInfo.inst
+    }
+
     return (
         <>
             <div class="bg-blue-100 rounded-lg py-5 px-6 mb-4 text-base text-red-600" role="alert">
@@ -45,7 +60,7 @@ const Measure = ({confirm, info}) => {
                                             <label class="pt-5 block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-password">
                                                 Size
                                             </label>
-                                            <input required name={`${data.title}`} value='' onChange={InputEvent} class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" />
+                                            <input required name={data.title} value={() => getValue(data.title)} type="text" onChange={InputEvent} class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" />
                                         </div>
                                     </div>
                                 </div>

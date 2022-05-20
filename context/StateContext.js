@@ -17,7 +17,7 @@ export const StateContext = ({ children }) => {
     phone: "123",
     age: "123",
     height: "12",
-    gender: "male"
+    gender: "male",
   })
   const [measureDetails, setMeasureDetails] = useState({
     menDetails: [
