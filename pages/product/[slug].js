@@ -104,10 +104,10 @@ export default product
 
 export async function getStaticPaths() { // all Variety slugs to generate paths 
   const Products = await getProducts();
-  console.log('varw ---> ',Products)
+  console.log('varw ---> ',Products[0])
   return {
     paths: Products?.map(({ node: { slug } }) => ({ params: { slug } })),
-    fallback: true
+    fallback: false
   }
 }
 
