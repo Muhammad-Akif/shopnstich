@@ -103,8 +103,10 @@ export default product
 
 
 export async function getStaticPaths() { // all Variety slugs to generate paths 
+  require('sharp');
+  const sharp = require('import-fresh')('sharp');
   const Products = await getProducts();
-  console.log('varw ---> ',Products[0])
+  console.log('varw ---> ', Products[0])
   return {
     paths: Products?.map(({ node: { slug } }) => ({ params: { slug } })),
     fallback: false
