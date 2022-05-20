@@ -8,7 +8,8 @@ import { useRouter } from 'next/router'
 
 const cart = () => {
     const router = useRouter()
-
+    const [promoCode, setPromoCode] = useState('')
+    const [validCode, setValidCode] = useState('')
     const { totalPrice, totalQuantities, cartItems, toggleCartItemQuanitity, onRemove } = useStateContext();
 
 
@@ -44,9 +45,7 @@ const cart = () => {
                                         <span class="font-bold text-sm">{item.name}</span>
                                         <span class="text-red-500 text-xs">{item.category.name}</span>
                                         <button
-                                            type="button"
-                                            className="remove-item"
-                                            class="font-semibold hover:text-red-500 text-gray-500 text-xs"
+                                            class="font-semibold self-start text-red-500 text-xs"
                                             onClick={() => onRemove(item)}
                                         >
                                             Remove
@@ -86,15 +85,18 @@ const cart = () => {
                     </div>
                     <div class="py-10">
                         <label for="promo" class="font-semibold inline-block mb-3 text-sm uppercase">Promo Code</label>
-                        <input type="text" id="promo" placeholder="Enter your code" class="p-2 text-sm w-full border border-gray-200" />
+                        <input type="text" id="promo" placeholder="Enter your code" onChange={(e) => setPromoCode(e.target.value)} class="p-2 text-sm w-full border border-gray-200" />
                     </div>
-                    <button class="bg-red-500 hover:bg-red-600 px-5 py-2 text-sm text-white uppercase">Apply</button>
+                    <button class="bg-red-500 hover:bg-red-600 px-5 py-2 text-sm text-white uppercase" onClick={() => setValidCode(promoCode)}>Apply</button>
                     {cartItems.length >= 1 && (
 
                         <div class="border-t mt-8">
                             <div class="flex font-semibold justify-between py-6 text-sm uppercase">
                                 <span>Total cost</span>
-                                <span>Rs: {totalPrice}</span>
+                                {
+                                    validCode == "bonus2022" ? <span> Rs: {parseInt(totalPrice - totalPrice / 4)}</span> :
+                                    validCode == "sale2022" ? <span> Rs: {parseInt(totalPrice - totalPrice / 8)}</span> :
+                                            <span>Rs: {totalPrice}</span>}
                             </div>
                             <Link href={`${getAccessToken ? '/customer' : '/login'}`}><button class="bg-indigo-500 font-semibold hover:bg-indigo-600 py-3 text-sm text-white uppercase w-full">Checkout</button></Link>
                         </div>
