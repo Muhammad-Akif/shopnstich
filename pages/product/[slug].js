@@ -26,8 +26,8 @@ const product = ({ product }) => {
           </span>
         </button>
       </div>
-      <div class="absolute top-5 left-6">
-        <Link href="/"><BsArrowBarLeft class="text-2xl hover:cursor-pointer inline-block" /></Link>
+      <div class="absolute top-5 left-5">
+        {/* <Link href="/"><BsArrowBarLeft class="text-2xl hover:cursor-pointer inline-block" /></Link> */}
         <span class="font-semibold align-middle pl-5 text-xl font-serif">Product Detail</span>
       </div>
       <section class="text-gray-700 h-screen body-font overflow-hidden bg-white">
