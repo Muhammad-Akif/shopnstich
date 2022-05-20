@@ -102,18 +102,15 @@ const product = ({ product }) => {
 export default product
 
 
-// export async function getStaticPaths() { // all Variety slugs to generate paths 
-//   require('sharp');
-//   const sharp = require('import-fresh')('sharp');
-//   const Products = await getProducts();
-//   console.log('varw ---> ', Products[0])
-//   return {
-//     paths: Products?.map(({ node: { slug } }) => ({ params: { slug } })),
-//     fallback: false
-//   }
-// }
+export async function getStaticPaths() {
+  const Products = await getProducts();
+  return {
+    paths: Products?.map(({ node: { slug } }) => ({ params: { slug } })),
+    fallback: false
+  }
+}
 
-export async function getServerSideProps({ params }) {
+export async function getStaticProps({ params }) {
   const data = await getProductDetails(params?.slug);
   return {
     props: { product: data }
