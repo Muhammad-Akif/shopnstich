@@ -151,32 +151,7 @@ a {
   .track:hover {
     animation-play-state: paused;
   }
-  @keyframes marquee {
-    from { transform: translateX(0); }
-    to { transform: translateX(-50%); }
-  }
   
-   span.text-red {
-      -webkit-text-stroke: 1px #f02d34;
-      margin-left: 6px;
-  }
-  .logo{
-    color: gray;
-    font-size: 18px;
-  
-  }
-  .cart-icon{
-    font-size: 25px;
-    color: gray;
-    cursor: pointer;
-    position: relative;
-    transition: transform .4s ease;
-    border: none;
-    background-color: transparent;
-  }
-  .cart-icon:hover{
-    transform: scale(1.1,1.1);
-  }
   .cart-item-qty{
     position: absolute;
     right: -8px;
@@ -320,17 +295,6 @@ a {
   .banner-desc{
     display: flex ;
     justify-content: space-between;
-  }
-  .banner-desc button{
-    border-radius: 15px;
-    padding: 10px 16px;
-    background-color: white;
-    color: red;
-    border: none;
-    margin-top: 40px;
-    font-size: 18px;
-    font-weight: 500;
-    cursor: pointer;
   }
   .banner-desc .left h3{
     font-weight: 900;
