@@ -16,16 +16,16 @@ const varietyDetails = ({ variety }) => {
 
 export default varietyDetails;
 
-export async function getStaticPaths() { // all Variety slugs to generate paths 
-  const varieties = await getVarieties();
-  console.log('var ---> ',varieties)
-  return {
-    paths: varieties?.map(({ node: { slug } }) => ({ params: { slug } })),
-    fallback: true
-  }
-}
+// export async function getStaticPaths() { // all Variety slugs to generate paths 
+//   const varieties = await getVarieties();
+//   console.log('var ---> ',varieties)
+//   return {
+//     paths: varieties?.map(({ node: { slug } }) => ({ params: { slug } })),
+//     fallback: true
+//   }
+// }
 
-export async function getStaticProps({ params }) {
+export async function getServerSideProps({ params }) {
   const data = await getVarietyDetails(params?.slug);
   return {
     props: { variety: data }
