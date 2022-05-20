@@ -91,8 +91,8 @@ const measurement = () => {
                 </div>
                 <div class="mt-8 p-4">
                     {
-                        (isMeasure && isConfirm) ? (<Confirm />)
-                            : isMeasure ? (<Measure />)
+                        (isMeasure && isConfirm) ? (<Confirm measure={measure} />)
+                            : isMeasure ? (<Measure confirm={confirm} info={info} />)
                                 : (
                                     <form onSubmit={formSubmit}>
 

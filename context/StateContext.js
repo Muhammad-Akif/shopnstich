@@ -38,7 +38,7 @@ export const StateContext = ({ children }) => {
     ],
     womenDetails: [
       { image: 'https://www.crowntailor.com/images/womenw/wmen_size_1.jpg', title: "FRONT LENGTH", description: "Measure from shoulder seam (at neck) to bust point." },
-      { image: 'https://www.crowntailor.com/images/womenw/wmen_size_2.jpg', title: "FRONT LENGTH", description: "Measure from shoulder seam (at neck) over bust to waist." },
+      { image: 'https://www.crowntailor.com/images/womenw/wmen_size_2.jpg', title: "FULL FRONT LENGTH", description: "Measure from shoulder seam (at neck) over bust to waist." },
       { image: 'https://www.crowntailor.com/images/womenw/wmen_size_3.jpg', title: "BACK LENGTH", description: "Measure from the collar seam to back waist line." },
       { image: 'https://www.crowntailor.com/images/womenw/wmen_size_4.jpg', title: "FRONT WIDTH", description: "Measure from top armpit angle to other armpit angle across the front chest." },
       { image: 'https://www.crowntailor.com/images/womenw/wmen_size_5.jpg', title: "BUST", description: "Measure around the biggest part of bust and keep tape a little high on back." },

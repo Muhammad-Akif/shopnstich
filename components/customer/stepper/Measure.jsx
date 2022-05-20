@@ -1,15 +1,21 @@
 import React from 'react'
 import { useStateContext } from '../../../context/StateContext';
 
-const Measure = () => {
+const Measure = ({confirm, info}) => {
     const { personalInfo, setPersonalInfo, measureDetails } = useStateContext();
+    const arr = []
     let renderMeasure = ""
+    for (let i = 0; i < renderMeasure.length; i++) {
+        arr.push(renderMeasure[i].title)
+    }
+    console.log("arr --> ", arr)
     if (personalInfo.gender == 'male') {
         renderMeasure = measureDetails.menDetails
     }
     else {
         renderMeasure = measureDetails.womenDetails
     }
+    
     const InputEvent = (event) => {
         const { name, value } = event.target;
         setPersonalInfo((preVal) => {
@@ -39,7 +45,7 @@ const Measure = () => {
                                             <label class="pt-5 block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-password">
                                                 Size
                                             </label>
-                                            <input required name={data.title} onChange={InputEvent} class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" />
+                                            <input required name={`${data.title}`} value='' onChange={InputEvent} class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" />
                                         </div>
                                     </div>
                                 </div>
@@ -48,14 +54,14 @@ const Measure = () => {
                 }
             </div>
             <div class="flex p-2 mt-4">
-                <button class="text-base hover:scale-110 focus:outline-none flex justify-center px-4 py-2 rounded font-bold cursor-pointer 
+                <button onClick={() => info()} class="text-base hover:scale-110 focus:outline-none flex justify-center px-4 py-2 rounded font-bold cursor-pointer 
                     hover:bg-gray-200  
                     bg-gray-100 
                     text-gray-700 
                     border duration-200 ease-in-out 
                     border-gray-600 transition">Previous</button>
                 <div class="flex-auto flex flex-row-reverse">
-                    <button type="submit" class="text-base  ml-2  hover:scale-110 focus:outline-none flex justify-center px-4 py-2 rounded font-bold cursor-pointer 
+                    <button onClick={() => confirm()} class="text-base  ml-2  hover:scale-110 focus:outline-none flex justify-center px-4 py-2 rounded font-bold cursor-pointer 
                     hover:bg-teal-600  
                     bg-teal-600 
                     text-teal-100 
