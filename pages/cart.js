@@ -2,9 +2,10 @@
 import React, { useEffect, useState } from 'react'
 import { AiOutlineMinus, AiOutlinePlus } from 'react-icons/ai'
 import { useStateContext } from '../context/StateContext';
-import Link from 'next/link'
+// import Link from 'next/link'
 import { useRouter } from 'next/router'
-
+import toast from 'react-hot-toast';
+import getStripe from '../lib/getStripe';
 
 const cart = () => {
     const router = useRouter()
@@ -17,6 +18,26 @@ const cart = () => {
         if (typeof window !== 'undefined')
             return localStorage.getItem('user');
     };
+
+    const handleCheckout = async () => {
+        const stripe = await getStripe();
+    
+        const response = await fetch('/api/stripe', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(cartItems),
+        });
+    
+        if(response.statusCode === 500) return;
+        
+        const data = await response.json();
+    
+        toast.loading('Redirecting...');
+    
+        stripe.redirectToCheckout({ sessionId: data.id });
+      }
 
 
     return (
@@ -98,7 +119,7 @@ const cart = () => {
                                     validCode == "sale2022" ? <span> Rs: {parseInt(totalPrice - totalPrice / 8)}</span> :
                                             <span>Rs: {totalPrice}</span>}
                             </div>
-                            <Link href={`${getAccessToken ? '/customer' : '/login'}`}><button class="bg-indigo-500 font-semibold hover:bg-indigo-600 py-3 text-sm text-white uppercase w-full">Checkout</button></Link>
+                            <button onClick={handleCheckout} class="bg-indigo-500 font-semibold hover:bg-indigo-600 py-3 text-sm text-white uppercase w-full">Checkout</button>
                         </div>
                     )}
                 </div>
@@ -107,6 +128,7 @@ const cart = () => {
         </div>
     )
 }
+{/* <Link href={`${getAccessToken ? '/customer' : '/login'}`}></Link> */}
 
 export default cart
 
