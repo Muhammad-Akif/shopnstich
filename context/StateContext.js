@@ -5,6 +5,7 @@ const Context = createContext();
 
 export const StateContext = ({ children }) => {
   const [showCart, setShowCart] = useState(false);
+  const [searchResult, setSearchResult] = useState(null)
   const [cartItems, setCartItems] = useState([]);
   const [totalPrice, setTotalPrice] = useState(0);
   const [isMeasure, setMeasure] = useState(false)
@@ -155,7 +156,9 @@ return (
       isConfirm,
       setConfirm,
       personalInfo,
-      setPersonalInfo
+      setPersonalInfo,
+      searchResult, 
+      setSearchResult
     }}
   >
     {children}

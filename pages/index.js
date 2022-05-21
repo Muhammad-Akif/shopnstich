@@ -21,12 +21,12 @@ export default function Home({ products }) {
         <MainTextnImage />
       </div>
 
+      {/* <MainBanner /> */}
       <Trending products={products} />
-
       <div className="product-banner">
-        <ProductCard setCart={setCart} cart={cart} category="Men" products={products} />
-        <ProductCard setCart={setCart} cart={cart} category="Women" products={products} />
-        <ProductCard setCart={setCart} cart={cart} category="Kids" products={products} />
+        <ProductCard category="Men" products={products} />
+        <ProductCard category="Women" products={products} />
+        <ProductCard category="Kids" products={products} />
       </div>
 
       <Reviews />

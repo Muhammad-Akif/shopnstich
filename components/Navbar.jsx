@@ -7,25 +7,42 @@ import { useStateContext } from '../context/StateContext';
 import { getMenuDetails } from '../services'
 import { useRouter } from 'next/router'
 
-function Navbar({ products }) {
-    const { totalQuantities } = useStateContext();
+function Navbar({ adjust, products }) {
+
+    const { totalQuantities, searchResult, setSearchResult } = useStateContext();
     const router = useRouter()
     const [megaMenu, setMegaMenu] = useState([])
-    const [search, setSearch] = useState(null)
+    const [Search, setSearch] = useState(null)
     useEffect(() => {
         getMenuDetails().then((newCategories) => setMegaMenu(newCategories))
     }, [])
 
     const handleSubmit = (e) => {
         e.preventDefault()
-        // if(search.toLowerCase() in ){
-
-        // }
+        console.log("search -->", Search)
+        const result = products.filter(product => {
+            if (product.name.toLowerCase() == Search.toLowerCase()) {
+                return product
+            }
+            if (product.name.toLowerCase().search(Search.toLowerCase()) > 0 || product.name.toLowerCase() == Search.toLowerCase()) {
+                return product
+            }
+            if (product.variety.name.toLowerCase().search(Search.toLowerCase()) > 0 || product.variety.name.toLowerCase() == Search.toLowerCase()) {
+                return product
+            }
+        })
+        if (result?.length > 0) {
+            setSearchResult(result)
+            router.push("/search")
+        }
+        else {
+            alert("No Search Found!")
+        }
     }
 
     return (
         <>
-            <nav class={`flex items-center justify-between flex-wrap bg-green-960 px-6 pt-6 sm:px-12 ${products ? 'sm:py-5' : 'sm:py-10'}`}>
+            <nav class={`flex items-center justify-between flex-wrap bg-green-960 px-6 pt-6 sm:px-12 ${adjust ? 'sm:py-5' : 'sm:py-10'}`}>
                 <div data-aos="zoom-out" class="flex items-center justify-between flex-shrink-0 mr-6">
                     <Link href="/"><Image class="hover:cursor-pointer" src={logo} width="170" height="42" title='logo' /></Link>
 
@@ -44,7 +61,7 @@ function Navbar({ products }) {
                         </a>
                     </div>
                     <form onSubmit={handleSubmit} class="group relative mr-4">
-                        <input required name="search" value={search} onChange={(e) => setSearch(e.target.value)} class="focus:ring-2 focus:ring-green-950 focus:outline-none w-full text-sm leading-6 text-gray-900 placeholder-gray-500 rounded-md py-2 pl-10 ring-1 ring-gray-200 shadow-sm" type="text" placeholder="Search Cloths ..." />
+                        <input required name="Search" value={Search} onChange={(e) => setSearch(e.target.value)} class="focus:ring-2 focus:ring-green-950 focus:outline-none w-full text-sm leading-6 text-gray-900 placeholder-gray-500 rounded-md py-2 pl-10 ring-1 ring-gray-200 shadow-sm" type="text" placeholder="Search Cloths ..." />
                         <button type="submit" className="cursor-pointer">
                             <svg width="20" height="20" fill="currentColor" class="absolute left-3 top-1/2 -mt-2.5 text-gray-400 pointer-events-none group-focus-within:text-green-960" aria-hidden="true">
                                 <path fill-rule="evenodd" clip-rule="evenodd" d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z" />

@@ -218,6 +218,9 @@ export const getAllProducts = async () => {
       category {
         name
       }
+      variety {
+        name
+      }
     }
   }
   `;
