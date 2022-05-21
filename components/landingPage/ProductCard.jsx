@@ -50,7 +50,8 @@ const ProductCard = ({ category, products }) => {
                                                 </div>
                                             </Link>
                                             <div class="px-5 w-52 lg:w-full">
-                                                <h3 class="text-md xl:text-lg font-semibold tracking-tight  text-gray-900">{card.excerpt}</h3>
+                                                <h3 class="text-md xl:text-lg font-bold font-serif tracking-tight  text-gray-900">{card.name}</h3>
+                                                <h3 class="text-base xl:text-md font-semibold tracking-tight  text-gray-700">{card.excerpt} ...</h3>
                                                 <div class="flex items-center mt-2.5 mb-2">
                                                     {/* {
                                                         lst.map(()=>(

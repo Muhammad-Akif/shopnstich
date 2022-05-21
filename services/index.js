@@ -73,21 +73,6 @@ export const getVarietyDetails = async (slug) => {
   return result.variety;
 }
 
-export const getImages = async (slug) => {
-  const query = gql`
-  query ProductQuery($id: ID!) {
-    product(where: { id: $id }) {
-      images(first: 1) {
-        url
-      }
-    }
-  }
-`
-  const result = await request(graphqlAPI, query, { slug });
-
-  return result;
-}
-
 export const getProducts = async () => {
   const query = gql`
   query MyQuery {

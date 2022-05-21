@@ -1,7 +1,4 @@
 import Stripe from 'stripe';
-import { GraphQLClient, gql } from 'graphql-request';
-const graphqlAPI = process.env.NEXT_PUBLIC_MATBLOGS_ENDPOINT;
-const graphcmsToken = process.env.MATBLOGS_TOKEN
 
 const stripe = new Stripe(process.env.NEXT_PUBLIC_STRIPE_SECRET_KEY);
 
@@ -19,11 +16,6 @@ export default async function handler(req, res) {
             { shipping_rate: 'shr_1L1ohKCiqiL1ruIGBVvV5qrB' },
           ],
           line_items: req.body.map( (item) => {
-              
-            // const {
-            //     product: { images }
-            //   } = await getImages(item.id)
-
             return {
               price_data: {
                 currency: 'pkr',
@@ -41,7 +33,7 @@ export default async function handler(req, res) {
             }
           }),
           success_url: `${req.headers.origin}/success`,
-          cancel_url: `${req.headers.origin}/canceled`,
+          cancel_url: `${req.headers.origin}/cart`,
         }
 
         // Create Checkout Sessions from body params.
