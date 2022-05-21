@@ -1,0 +1,110 @@
+@media (min-width: 768px) and (max-width: 991px) {
+.navbar-holder .navbar-collapse.collapse {
+	display: none !important;
+}
+.navbar-holder .navbar-collapse.collapse.in {
+	display: block !important;
+}
+.navbar-holder .navbar-header .collapse, .navbar-holder .navbar-toggle {
+	display: block !important;
+}
+.navbar-holder .navbar-header {
+	float: none;
+}
+.navbar-holder .navbar-nav{
+	float:none !important;
+}
+.navbar-holder .navbar-nav > li{
+	float:none;
+}
+.navbar-holder .nav.navbar-nav{
+	margin-right: 10px;
+    margin-left: 10px;
+}
+.navbar-holder{
+	position:relative;
+}
+.banner-img{
+	display: block;
+    height: auto !important;
+    overflow: hidden;
+}
+.banner-holder {
+    display: block;
+    vertical-align: middle;
+    margin-top: 100px;
+    margin-bottom: 100px;
+}
+}
+
+@media screen and (max-width: 1000px) {
+	.main-nav-bar ul li a {
+    font-size: 14px;
+    padding: 8px 6px;}
+	
+	}
+@media screen and (max-width: 767px) {
+	
+	.services-wrapper {
+	    height: auto;
+    overflow:auto;
+}
+	
+	.contact-form-section{ padding-left:0px;}
+	.dropit-btn {
+	display: block !important;
+}
+
+.main-nav-bar {
+	display: none;
+}
+.main-nav-bar {
+	background: #fff none repeat scroll 0 0;
+	/*float: none;*/
+	margin-top: 0px !important;
+	/*left: 0;*/
+	position: relative;
+	text-align: center;
+	top: 0;
+	width: 100%;
+	z-index: 999;
+}
+.main-nav-bar ul li a{color: #525558 !important;}
+.main-nav-bar ul li {
+	border-bottom: 1px solid #ccc;
+	display: block !important;
+	margin-bottom: 5px;
+	margin-right: 0px !important;
+}
+.main-nav-bar ul li:last-child {
+	border: none;
+}
+.main-nav-bar ul li a {
+	display: block;
+}
+	
+	}
+	
+@media screen and (max-width: 480px) {
+	.why-us-image img{ width:auto;}
+	.service-item:hover .service-image-outer {
+	margin-top: 0px;
+}
+	
+	.contact-list li{ padding-left:0px;}
+	.icon_contact {
+    width: 16px;}
+.servic-bottom span{ display:block;}
+.service-icon-bottom{ display:block;}
+.service-price{display:block;}
+.banner-content-heading{line-height: 28px;font-size: 20px;}
+.tailor-title{font-size: 14px;}
+	.why-us-text{ text-align:center !important;}
+	.work-holder-box .row{ background:none; background-image:none;}
+	.contact-list{ margin-top:50px;}
+	.item-alter { margin-bottom: 55px;}
+	.why-us-image{ text-align:center;}
+	.column{ margin-bottom:40px;}
+	
+	.service-item{ margin-bottom:30px;}
+		}	

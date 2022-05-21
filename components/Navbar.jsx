@@ -56,7 +56,7 @@ function Navbar({ adjust, products }) {
                             }
 
                         </div>
-                        <a href="#responsive-header" class="block mt-4 hover:text-green-950 transition duration-150 ease-in-out maincolor lg:inline-block lg:mt-0 text-white mr-4">
+                        <a onClick={() => router.push("/app-working")} class="block mt-4 hover:text-green-950 cursor-pointer transition duration-150 ease-in-out maincolor lg:inline-block lg:mt-0 text-white mr-4">
                             How it Works?
                         </a>
                     </div>
