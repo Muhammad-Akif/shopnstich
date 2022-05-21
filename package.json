@@ -9,6 +9,7 @@
     "@stripe/stripe-js": "^1.25.0",
     "@trendyol-js/react-carousel": "^2.0.1",
     "aos": "^2.3.4",
+    "canvas-confetti": "^1.5.1",
     "daisyui": "^1.16.6",
     "firebase": "^9.6.1",
     "framer-motion": "^6.3.3",
