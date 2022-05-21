@@ -14,9 +14,10 @@ export default async function handler(req, res) {
         mode: 'payment',
         payment_method_types: ['card'],
         billing_address_collection: 'auto',
-        // shipping_options: [
-          //   { shipping_rate: 'shr_1Kn3IaEnylLNWUqj5rqhg9oV' },
-          // ],
+        shipping_options: [
+            { shipping_rate: 'shr_1L1ogFCiqiL1ruIGwoHw5nhi' },
+            { shipping_rate: 'shr_1L1ohKCiqiL1ruIGBVvV5qrB' },
+          ],
           line_items: req.body.map( (item) => {
               
             // const {
@@ -28,7 +29,7 @@ export default async function handler(req, res) {
                 currency: 'pkr',
                 product_data: {
                   name: item.name,
-                  images: item.image.url
+                  images: [item.image.url]
                 },
                 unit_amount: item.price * 100,
               },
