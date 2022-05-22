@@ -1,10 +1,12 @@
 import React from 'react'
-import { Whyus, Process } from '../components'
+import { Whyus, Process,Navbar, Footer } from '../components'
 const appworking = () => {
   return (
     <div>
-      <Whyus />
+      <Navbar adjust="false" />
       <Process />
+      <Whyus />
+      <Footer />
     </div>
   )
 }
