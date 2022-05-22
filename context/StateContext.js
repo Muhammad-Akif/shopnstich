@@ -8,6 +8,7 @@ export const StateContext = ({ children }) => {
   const [searchResult, setSearchResult] = useState(null)
   const [cartItems, setCartItems] = useState([]);
   const [totalPrice, setTotalPrice] = useState(0);
+  const [size, setSize] = useState("M");
   const [isMeasure, setMeasure] = useState(false)
   const [isConfirm, setConfirm] = useState(false)
   const [totalQuantities, setTotalQuantities] = useState(0);
@@ -69,7 +70,7 @@ const [measureDetails, setMeasureDetails] = useState({
 let foundProduct;
 let index;
 
-const onAdd = (product, quantity) => {
+const onAdd = (product, quantity, size) => {
   const checkProductInCart = cartItems.find((item) => item.id === product.id);
 
   setTotalPrice((prevTotalPrice) => prevTotalPrice + product.price * quantity);
@@ -79,7 +80,8 @@ const onAdd = (product, quantity) => {
     const updatedCartItems = cartItems.map((cartProduct) => {
       if (cartProduct.id === product.id) return {
         ...cartProduct,
-        quantity: cartProduct.quantity + quantity
+        quantity: cartProduct.quantity + quantity,
+        size,
       }
     })
 
@@ -158,7 +160,9 @@ return (
       personalInfo,
       setPersonalInfo,
       searchResult, 
-      setSearchResult
+      setSearchResult,
+      size, 
+      setSize
     }}
   >
     {children}

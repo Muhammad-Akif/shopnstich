@@ -5,7 +5,7 @@ import { getAllProducts } from '../services'
 const appworking = ({products}) => {
   return (
     <div>
-      <Navbar products={products} adjust="false" />
+      <Navbar products={products} adjust="false"/>
       <Process />
       <Whyus />
       <Footer />

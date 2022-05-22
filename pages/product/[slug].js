@@ -9,7 +9,8 @@ import { useStateContext } from '../../context/StateContext';
 
 const product = ({ product }) => {
 
-  const { decQty, incQty, qty, onAdd, totalQuantities } = useStateContext();
+  const { decQty, incQty, qty, onAdd, totalQuantities, size, setSize } = useStateContext();
+
   const router = useRouter()
 
   return (
@@ -65,11 +66,11 @@ const product = ({ product }) => {
                 <div class="flex items-center">
                   <span class="mr-3">Size</span>
                   <div class="relative">
-                    <select class="rounded border appearance-none border-gray-400 py-2 focus:outline-none focus:border-red-500 text-base pl-3 pr-10">
-                      <option>SM</option>
-                      <option>M</option>
-                      <option>L</option>
-                      <option>XL</option>
+                    <select required value={size} onChange={(e) => setSize(e.target.value)} class="rounded border appearance-none border-gray-400 py-2 focus:outline-none focus:border-red-500 text-base pl-3 pr-10">
+                      <option value="SM">SM</option>
+                      <option value="M">M</option>
+                      <option value="L">L</option>
+                      <option value="XL">XL</option>
                     </select>
                     <span class="absolute right-0 top-0 h-full w-10 text-center text-gray-600 pointer-events-none flex items-center justify-center">
                       <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-4 h-4" viewBox="0 0 24 24">
@@ -89,7 +90,7 @@ const product = ({ product }) => {
               </div>
               <div class="flex">
                 <span class="title-font font-medium text-2xl text-gray-900">Rs: {product.price}</span>
-                <button type="button" class="flex ml-auto text-white bg-red-500 border-0 py-2 px-6 focus:outline-none hover:bg-red-600 rounded" onClick={() => onAdd(product, qty)}>Add to Cart</button>
+                <button type="button" class="flex ml-auto text-white bg-red-500 border-0 py-2 px-6 focus:outline-none hover:bg-red-600 rounded" onClick={() => onAdd(product, qty, size)}>Add to Cart</button>
               </div>
             </div>
           </div>

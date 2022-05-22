@@ -30,7 +30,7 @@ const Reviews = () => {
                     </div>
                     <div class="carousel-item relative float-left w-full text-center">
                         <p class="text-xl italic mx-auto text-gray-500 max-w-4xl">
-                            "Great Shopping website, mostly reviews I saw they are real. mostly Tailor's stitched the cloths very nice as i want, Overall good Services"
+                            "ShopnStitch is Excellent, i buy bunch of different unstitched cloths found best Quality, same as viewed in the website, great experience"
                         </p>
                         <div class="mt-12 mb-6 flex justify-center">
                             <img
@@ -43,7 +43,7 @@ const Reviews = () => {
                     </div>
                     <div class="carousel-item relative float-left w-full text-center">
                         <p class="text-xl italic mx-auto text-gray-500 max-w-4xl">
-                            "Great Shopping website, mostly reviews I saw they are real. mostly Tailor's stitched the cloths very nice as i want, Overall good Services"
+                            "Buy from this website without any doubt, all products are delivered as see's in the website without quality drop, must try at least once here"
                         </p>
                         <div class="mt-12 mb-6 flex justify-center">
                             <img
