@@ -2,8 +2,11 @@ import React from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
 import tailorImg from '../../images/landingPage/08.png'
+import { useStateContext } from '../../context/StateContext';
+
 
 const mainTextnImage = () => {
+    const { isTailor, setTailor } = useStateContext();
     return (
         <div class="px-5 sm:mx-auto py-6 sm:py-8 flex flex-col-reverse md:flex-row sm:justify-around sm:items-center">
             <div data-aos="fade-up" class="text-white py-4  text-xl sm:w-11/12 md:w-1/2 xl:w-[45%] sm:text-4xl xl:mr-20 md:text-5xl font-serif"> <strong class="text-green-950"> Best Place</strong>, Where You Shop & Stitch Your Worthy Cloths Trustedly...
@@ -17,7 +20,7 @@ const mainTextnImage = () => {
                             <button class="py-2 px-3 w-full bg-transparent border-2 border-green-500 text-green-500 text-lg rounded-lg hover:bg-green-500 hover:text-white focus:border-4 focus:border-green-300">Lets Get Started...</button>
                         </Link>
                         <Link href='/signup'>
-                            <button class="py-2 px-3 w-full bg-transparent border-2 border-green-500 text-green-500 text-lg rounded-lg hover:bg-green-500 hover:text-white focus:border-4 focus:border-green-300">Become a Tailor...</button>
+                            <button onClick={() => setTailor(true)} class="py-2 px-3 w-full bg-transparent border-2 border-green-500 text-green-500 text-lg rounded-lg hover:bg-green-500 hover:text-white focus:border-4 focus:border-green-300">Become a Tailor...</button>
                         </Link>
                     </div>
                 </div>

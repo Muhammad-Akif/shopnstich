@@ -173,8 +173,8 @@ flex items-center justify-center">
                         <h1 class="text-xl md:text-2xl font-bold leading-tight mt-12"> {inType ? 'Create a new account' : `Log in as ${isTailor ? "Tailor" : "Customer"}`}</h1>
                         <div class="mb-1 mr-1">
                             <div class="relative inline-block w-10 mr-2 align-middle select-none transition duration-200 ease-in">
-                                <input type="checkbox" name="toggle" id="toggle" onClick={() => setTailor(!isTailor)} class="toggle-checkbox absolute block w-6 h-6 rounded-full bg-white border-4 appearance-none cursor-pointer" />
-                                <label for="toggle" class="toggle-label block overflow-hidden h-6 rounded-full bg-gray-300 cursor-pointer"></label>
+                                <input type="checkbox"  name="toggle" id="toggle" value={isTailor} onChange={() => setTailor(!isTailor)} class={`${isTailor ? "right-0 bg-green-400 border-whitez": ""} absolute block w-6 h-6 rounded-full bg-white border-4 appearance-none cursor-pointer`} />
+                                <label for="toggle" class={`${isTailor ? "bg-green-400": ""} block overflow-hidden h-6 rounded-full bg-gray-300 cursor-pointer`}></label>
                             </div>
                             <label for="toggle" class="text-xs text-gray-200">Tailor</label>
                         </div>
