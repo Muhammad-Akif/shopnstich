@@ -43,7 +43,6 @@ const Signin = ({ inType }) => {
         if (confirmPassword != password) return;
         console.log(`Email and Passwords are ==> ${email} & ${password}`)
         if (isEmailValidate && isPasswordValidate) {
-            alert("Verify your email address for login");
             firebase.auth().createUserWithEmailAndPassword(
                 email,
                 password
@@ -52,7 +51,7 @@ const Signin = ({ inType }) => {
                 data.user.sendEmailVerification();
                 firebase.auth().signOut();
                 alert("Verify your email address for login");
-                // router.push("/login")
+                router.push("/login")
             }).catch(err => {
                 console.log("Error ==> ", err)
                 alert(err.message)
@@ -60,6 +59,7 @@ const Signin = ({ inType }) => {
             setName('')
             setemail('')
             setpassword('')
+            setConfirmPassword('')
         } else {
             setShowError(true)
         }
@@ -71,7 +71,6 @@ const Signin = ({ inType }) => {
         e.preventDefault();
         console.log(`Email and Passwords are ==> ${email} & ${password}`)
         if (isEmailValidate && isPasswordValidate) {
-            alert("Successfully login");
             console.log('in2')
             console.log(firebase)
             firebase.auth().signInWithEmailAndPassword(
@@ -91,6 +90,7 @@ const Signin = ({ inType }) => {
                     alert('First confirm your email address!')
                     return;
                 }
+                alert("Successfully login");
                 // dispatch(authenticate(data.user.uid, data.user.email));
                 localStorage.setItem('user', data.user.email.toLowerCase());
                 const obj = { email: data.user.email, uid: data.user.uid }

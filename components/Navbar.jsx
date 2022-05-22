@@ -9,7 +9,7 @@ import { useRouter } from 'next/router'
 
 function Navbar({ adjust, products }) {
 
-    const { totalQuantities, searchResult, setSearchResult } = useStateContext();
+    const { totalQuantities, setSearchResult } = useStateContext();
     const router = useRouter()
     const [megaMenu, setMegaMenu] = useState([])
     const [Search, setSearch] = useState(null)
