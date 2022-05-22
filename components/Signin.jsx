@@ -5,6 +5,7 @@ import { FaGoogle } from 'react-icons/fa'
 import firebase from '../config/index.js';
 import { useRouter } from 'next/router'
 import { submitAuth } from '../services'
+import { useStateContext } from '../context/StateContext';
 // // import { authenticate } from '../redux/actions';
 
 function validateEmail(email) {
@@ -14,20 +15,24 @@ function validateEmail(email) {
 
 const Signin = ({ inType }) => {
     const router = useRouter()
+    const { isTailor, setTailor } = useStateContext();
     const googleSuccess = async (res) => {
         const result = res?.profileObj;
         const token = res?.tokenId;
         try {
             dispatch({ type: "AUTH", data: { result, token } })
-            router.push("/tailor");
+            if(!isTailor){
+                router.push('/customer')
+            }
+            else{
+                router.push('/tailor')
+            }
         } catch (error) {
             console.log(error)
-            router.push("/tailor");
         }
     }
     const googleFailure = () => {
         console.log("Google Login Failure...")
-        router.push("/tailor");
     }
     // const dispatch = useDispatch();
     const [email, setemail] = useState(null);
@@ -98,7 +103,13 @@ const Signin = ({ inType }) => {
                 submitAuth(obj)
                     .then((res) => {
                         console.log(" res ----> ", res)
-                        router.push('/customer')
+                        if(!isTailor){
+                            router.push('/customer')
+                        }
+                        else{
+                            router.push('/tailor')
+                        }
+
                     }
                     );
                 localStorage.removeItem('admin')
@@ -147,6 +158,7 @@ const Signin = ({ inType }) => {
 
     return (
         <section class="flex flex-col md:flex-row h-screen items-center">
+            {console.log("tailor ---> ",isTailor)}
             <div class="bg-green-960 hidden lg:block w-full md:w-1/2 xl:w-2/3 h-screen">
                 <img src="https://images.unsplash.com/photo-1609709295948-17d77cb2a69b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8Y2xvdGhzfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60" alt="" class="w-full h-full object-cover" />
             </div>
@@ -157,7 +169,16 @@ flex items-center justify-center">
                 <div class="w-full h-100 text-gray-100">
 
                     <Link href="/"><img class="hover:cursor-pointer -mb-8 m-auto" src='https://svgshare.com/i/gKc.svg' width="180" title='logo' /></Link>
-                    <h1 class="text-xl md:text-2xl font-bold leading-tight mt-12"> {inType ? 'Create a new account' : 'Log in to your account'}</h1>
+                    <div class="flex justify-between items-end">
+                        <h1 class="text-xl md:text-2xl font-bold leading-tight mt-12"> {inType ? 'Create a new account' : `Log in as ${isTailor ? "Tailor" : "Customer"}`}</h1>
+                        <div class="mb-1 mr-1">
+                            <div class="relative inline-block w-10 mr-2 align-middle select-none transition duration-200 ease-in">
+                                <input type="checkbox" name="toggle" id="toggle" onClick={() => setTailor(!isTailor)} class="toggle-checkbox absolute block w-6 h-6 rounded-full bg-white border-4 appearance-none cursor-pointer" />
+                                <label for="toggle" class="toggle-label block overflow-hidden h-6 rounded-full bg-gray-300 cursor-pointer"></label>
+                            </div>
+                            <label for="toggle" class="text-xs text-gray-200">Tailor</label>
+                        </div>
+                    </div>
 
                     <form class="mt-6" action="#" method="POST">
                         {
