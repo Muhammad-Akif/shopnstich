@@ -1,8 +1,10 @@
 import React from 'react'
-
+import { Whyus } from '../components'
 const appworking = () => {
   return (
-    <div>appworking</div>
+    <div>
+      <Whyus />
+    </div>
   )
 }
 
