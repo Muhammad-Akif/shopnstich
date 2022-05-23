@@ -1,5 +1,8 @@
 import firebase from 'firebase/compat/app';
 import 'firebase/compat/auth';
+import 'firebase/compat/storage';
+import 'firebase/compat/firestore';
+
 // import { useStateContext } from '../context/StateContext';
 // const { } = useStateContext();
 
@@ -26,5 +29,9 @@ const firebaseConfig = {
 // };
 
 firebase?.initializeApp(firebaseConfig);
+
+export const projectStorage = firebase.storage();
+export const projectFirestore = firebase.firestore();
+export const timestamp = firebase.firestore.FieldValue.serverTimestamp;
 
 export default firebase;
