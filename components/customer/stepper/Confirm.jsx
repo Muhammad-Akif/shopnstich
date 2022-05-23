@@ -1,9 +1,10 @@
+import React, { useState } from 'react'
 import { useRouter } from 'next/router';
-import React from 'react'
 import { useStateContext } from '../../../context/StateContext';
 
 const Confirm = ({ measure }) => {
     const { personalInfo, setPersonalInfo } = useStateContext();
+    const [isComplete, setComplete] = useState(false)
     const router = useRouter();
 
     const InputEvent = (event) => {
@@ -20,23 +21,24 @@ const Confirm = ({ measure }) => {
     const formSubmit = (e) => {
         e.preventDefault()
         if (personalInfo.size.length > 1 && personalInfo.fit.length > 1) {
-            const Obj = {
-                size: personalInfo.size,
-                fit: personalInfo.fit,
-                other: personalInfo.other,
-            }
-            console.log("Obj ===> ", Obj)
-            router.push("/customer")
+            if (personalInfo.email.length > 1 && personalInfo.menNeck.length > 1 || personalInfo.neck.length > 1) router.push("/customer")
+            else setComplete(true)
         }
         else {
-            alert("Enter Complete Details!")
+            alert("Please! Enter Complete Details...")
         }
     };
 
     return (
         <>
+            {
+                isComplete && (
+                    <div class="bg-blue-100 rounded-lg py-5 px-6 mb-4 text-base text-red-600" role="alert">
+                        For Continue ! Enter Complete Personal & Measure Details ...
+                    </div>)
+            }
             <form onSubmit={formSubmit}>
-                { console.log("pre data --> ", personalInfo)}
+                {console.log("pre data --> ", personalInfo)}
                 <div class="flex flex-col md:flex-row">
                     <div class="w-full mx-2 flex-1 relative">
                         <div class="font-bold h-6 mt-3 text-gray-600 text-xs leading-8 uppercase"> You have taken your sizes ?</div>
