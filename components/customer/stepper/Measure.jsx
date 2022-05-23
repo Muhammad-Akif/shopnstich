@@ -31,7 +31,7 @@ const Measure = ({ confirm, info }) => {
     return (
         <>
             <div class="bg-blue-100 rounded-lg py-5 px-6 mb-4 text-base text-red-600" role="alert">
-                Your Measurements Must be Accurate ...!
+                Your Measurements Must be Accurate in <span class="font-bold">Inches</span> ...!
             </div>
             <form onSubmit={handleSubmit}>
                 <div class="w-full pb-5 p-5 text-center font-bold text-blue-400 text-2xl font-serif">{personalInfo.gender.toUpperCase()} MEASUREMENTS</div>
@@ -49,7 +49,7 @@ const Measure = ({ confirm, info }) => {
                                                 <label class="pt-5 block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-password">
                                                     Size
                                                 </label>
-                                                <input required name={data.name} value={personalInfo[data.name]} type="text" onChange={InputEvent} class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" />
+                                                <input required name={data.name} value={personalInfo[data.name]} type="number" onChange={InputEvent} class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" />
                                             </div>
                                         </div>
                                     </div>

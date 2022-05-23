@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { GiClothes } from 'react-icons/gi'
 import { Measure, Confirm } from '../components'
+import ProgressBar from '../components/ProgressBar';
 import { useStateContext } from '../context/StateContext';
 
 
@@ -9,6 +10,10 @@ const measurement = () => {
     const [isMeasure, setMeasure] = useState(false)
     const [isConfirm, setConfirm] = useState(false)
     const [isGender, setGender] = useState(true)
+    const [file, setFile] = useState(null);
+    const [error, setError] = useState(null);
+
+    const types = ['image/png', 'image/jpeg'];
 
     const InputEvent = (event) => {
         const { name, value } = event.target;
@@ -18,6 +23,15 @@ const measurement = () => {
                 [name]: value,
             }
         })
+        let selected = e.target.files[0];
+
+        if (selected && types.includes(selected.type)) {
+            setFile(selected);
+            setError('');
+        } else {
+            setFile(null);
+            setError('Please select an image file (png or jpg)');
+        }
     }
     const info = () => {
         setMeasure(false)
@@ -95,62 +109,72 @@ const measurement = () => {
                             : isMeasure ? (<Measure confirm={confirm} info={info} />)
                                 : (
                                     <form onSubmit={formSubmit}>
-
-                                        <div>
-                                            <div class="bg-blue-100 rounded-lg py-5 px-6 mb-4 text-base text-red-600" role="alert">
-                                                Note: Must Enter Your Valid Infomation ...!
-                                            </div>
-                                            <div class="flex flex-col md:flex-row">
-                                                <div class="w-full mx-2 flex-1">
-                                                    <div class="font-bold h-6 mt-3 text-gray-600 text-xs leading-8 uppercase"> Full Name</div>
-                                                    <div class="bg-white my-2 p-1 flex border border-gray-200 rounded">
-                                                        <input required name="fullname" value={personalInfo.fullname} onChange={InputEvent} placeholder="Enter Your Name" class="p-1 px-2 appearance-none outline-none w-full text-gray-800" />
-                                                    </div>
-                                                </div>
-                                                <div class="w-full mx-2 flex-1">
-                                                    <div class="font-bold h-6 mt-3 text-gray-600 text-xs leading-8 uppercase"> Email</div>
-                                                    <div class="bg-white my-2 p-1 flex border border-gray-200 rounded">
-                                                        <input required name="email" value={personalInfo.email} onChange={InputEvent} placeholder="Email Address" type='email' class="p-1 px-2 appearance-none outline-none w-full text-gray-800" />
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="flex flex-col md:flex-row">
-                                                <div class="w-full mx-2 flex-1">
-                                                    <div class="font-bold h-6 mt-3 text-gray-600 text-xs leading-8 uppercase"> Phone</div>
-                                                    <div class="bg-white my-2 p-1 flex border border-gray-200 rounded">
-                                                        <input required name="phone" value={personalInfo.phone} onChange={InputEvent} placeholder="03*********" type="number" class="p-1 px-2 appearance-none outline-none w-full text-gray-800" />
-                                                    </div>
-                                                </div>
-                                                <div class="w-full mx-2 flex-1">
-                                                    <div class="font-bold h-6 mt-3 text-gray-600 text-xs leading-8 uppercase"> Age</div>
-                                                    <div class="bg-white my-2 p-1 flex border border-gray-200 rounded">
-                                                        <input required name="age" value={personalInfo.age} onChange={InputEvent} placeholder="22" type="number" class="p-1 px-2 appearance-none outline-none w-full text-gray-800" />
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="flex flex-col md:flex-row">
-                                                <div class="w-full mx-2 flex-1 relative">
-                                                    <div class="font-bold h-6 mt-3 text-gray-600 text-xs leading-8 uppercase"> Gender</div>
-                                                    <select required name="gender" value={personalInfo.gender} onChange={InputEvent} class="block mt-2 appearance-none w-full bg-gray-200 border border-gray-200 py-2.5 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="grid-state">
-                                                        <option class="text-gray-300" >select</option>
-                                                        <option value="male">Male</option>
-                                                        <option value="female">Female</option>
-                                                    </select>
-                                                    <div class="pointer-events-none absolute inset-y-0 right-0  top-10 flex items-center px-2 text-gray-700">
-                                                        <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z" /></svg>
-                                                    </div>
-                                                </div>
-                                                <div class="w-full mx-2 flex-1">
-                                                    <div class="font-bold h-6 mt-3 text-gray-600 text-xs leading-8 uppercase"> Height</div>
-                                                    <div class="bg-white my-2 p-1 flex border border-gray-200 rounded">
-                                                        <input required name="height" value={personalInfo.height} onChange={InputEvent} placeholder="5.8" type="number" class="p-1 px-2 appearance-none outline-none w-full text-gray-800" />
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            {!isGender && (
-                                                <div class="text-sm text-red-500 p-2 px-2">Gender Required !</div>
-                                            )}
+                                        <div class="bg-blue-100 w-1/2 rounded-lg py-5 px-6 mb-4 text-base text-red-600" role="alert">
+                                            Note: Must Enter Your Valid Infomation ...!
                                         </div>
+                                        <div class="flex flex-col absolute right-14 top-32">
+                                            <div class="flex justify-center">
+                                                <div class="mb-3 w-96">
+                                                    <label for="formFile" class="form-label inline-block mb-2 text-gray-700">Upload Image</label>
+                                                    <input class="form-control block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-green-600 focus:outline-none" type="file" id="formFile" />
+                                                </div>
+                                            </div>
+                                            <div className="output">
+                                                {error && <div className="error">{error}</div>}
+                                                {file && <div>{file.name}</div>}
+                                                {file && <ProgressBar file={file} setFile={setFile} />}
+                                            </div>
+                                        </div>
+                                        <div class="flex flex-col md:flex-row">
+                                            <div class="w-full mx-2 flex-1">
+                                                <div class="font-bold h-6 mt-3 text-gray-600 text-xs leading-8 uppercase"> Full Name</div>
+                                                <div class="bg-white my-2 p-1 flex border border-gray-200 rounded">
+                                                    <input required name="fullname" value={personalInfo.fullname} onChange={InputEvent} placeholder="Enter Your Name" class="p-1 px-2 appearance-none outline-none w-full text-gray-800" />
+                                                </div>
+                                            </div>
+                                            <div class="w-full mx-2 flex-1">
+                                                <div class="font-bold h-6 mt-3 text-gray-600 text-xs leading-8 uppercase"> Email</div>
+                                                <div class="bg-white my-2 p-1 flex border border-gray-200 rounded">
+                                                    <input required name="email" value={personalInfo.email} onChange={InputEvent} placeholder="Email Address" type='email' class="p-1 px-2 appearance-none outline-none w-full text-gray-800" />
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="flex flex-col md:flex-row">
+                                            <div class="w-full mx-2 flex-1">
+                                                <div class="font-bold h-6 mt-3 text-gray-600 text-xs leading-8 uppercase"> Phone</div>
+                                                <div class="bg-white my-2 p-1 flex border border-gray-200 rounded">
+                                                    <input required name="phone" value={personalInfo.phone} onChange={InputEvent} placeholder="03*********" type="number" class="p-1 px-2 appearance-none outline-none w-full text-gray-800" />
+                                                </div>
+                                            </div>
+                                            <div class="w-full mx-2 flex-1">
+                                                <div class="font-bold h-6 mt-3 text-gray-600 text-xs leading-8 uppercase"> Age</div>
+                                                <div class="bg-white my-2 p-1 flex border border-gray-200 rounded">
+                                                    <input required name="age" value={personalInfo.age} onChange={InputEvent} placeholder="22" type="number" class="p-1 px-2 appearance-none outline-none w-full text-gray-800" />
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="flex flex-col md:flex-row">
+                                            <div class="w-full mx-2 flex-1 relative">
+                                                <div class="font-bold h-6 mt-3 text-gray-600 text-xs leading-8 uppercase"> Gender</div>
+                                                <select required name="gender" value={personalInfo.gender} onChange={InputEvent} class="block mt-2 appearance-none w-full bg-gray-200 border border-gray-200 py-2.5 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="grid-state">
+                                                    <option class="text-gray-300" >select</option>
+                                                    <option value="male">Male</option>
+                                                    <option value="female">Female</option>
+                                                </select>
+                                                <div class="pointer-events-none absolute inset-y-0 right-0  top-10 flex items-center px-2 text-gray-700">
+                                                    <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z" /></svg>
+                                                </div>
+                                            </div>
+                                            <div class="w-full mx-2 flex-1">
+                                                <div class="font-bold h-6 mt-3 text-gray-600 text-xs leading-8 uppercase"> Height</div>
+                                                <div class="bg-white my-2 p-1 flex border border-gray-200 rounded">
+                                                    <input required name="height" value={personalInfo.height} onChange={InputEvent} placeholder="5.8" type="number" class="p-1 px-2 appearance-none outline-none w-full text-gray-800" />
+                                                </div>
+                                            </div>
+                                        </div>
+                                        {!isGender && (
+                                            <div class="text-sm text-red-500 p-2 px-2">Gender Required !</div>
+                                        )}
                                         <div class="flex p-2 mt-4">
                                             <button class="text-base hover:scale-110 focus:outline-none flex justify-center px-4 py-2 rounded font-bold cursor-pointer 
                     hover:bg-gray-200  
