@@ -1,16 +1,14 @@
 import React, { useState } from 'react'
 import { GiClothes } from 'react-icons/gi'
 import { Measure, Confirm } from '../components'
-import ProgressBar from '../components/ProgressBar';
 import { useStateContext } from '../context/StateContext';
 
 
 const measurement = () => {
-    const { personalInfo, setPersonalInfo } = useStateContext();
+    const { personalInfo, setPersonalInfo, file, setFile } = useStateContext();
     const [isMeasure, setMeasure] = useState(false)
     const [isConfirm, setConfirm] = useState(false)
     const [isGender, setGender] = useState(true)
-    const [file, setFile] = useState(null);
     const [error, setError] = useState(null);
 
     const types = ['image/png', 'image/jpeg'];
@@ -23,8 +21,10 @@ const measurement = () => {
                 [name]: value,
             }
         })
-        let selected = e.target.files[0];
+    }
 
+    const handleChange = (e) => {
+        let selected = e.target.files[0];
         if (selected && types.includes(selected.type)) {
             setFile(selected);
             setError('');
@@ -33,6 +33,7 @@ const measurement = () => {
             setError('Please select an image file (png or jpg)');
         }
     }
+
     const info = () => {
         setMeasure(false)
         setConfirm(false)
@@ -112,17 +113,16 @@ const measurement = () => {
                                         <div class="bg-blue-100 w-1/2 rounded-lg py-5 px-6 mb-4 text-base text-red-600" role="alert">
                                             Note: Must Enter Your Valid Infomation ...!
                                         </div>
-                                        <div class="flex flex-col absolute right-14 top-32">
+                                        <div class="flex flex-col absolute right-14 top-36">
                                             <div class="flex justify-center">
                                                 <div class="mb-3 w-96">
-                                                    <label for="formFile" class="form-label inline-block mb-2 text-gray-700">Upload Image</label>
-                                                    <input class="form-control block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-green-600 focus:outline-none" type="file" id="formFile" />
+                                                    <label for="formFile" class="form-label inline-block mb-2 text-gray-700 uppercase text-center">Upload Image</label>
+                                                    <input required onChange={handleChange} class="form-control block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-green-600 focus:outline-none" type="file" id="formFile" />
                                                 </div>
                                             </div>
                                             <div className="output">
                                                 {error && <div className="error">{error}</div>}
                                                 {file && <div>{file.name}</div>}
-                                                {file && <ProgressBar file={file} setFile={setFile} />}
                                             </div>
                                         </div>
                                         <div class="flex flex-col md:flex-row">

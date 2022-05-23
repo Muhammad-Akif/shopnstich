@@ -1,5 +1,6 @@
 import React, { createContext, useContext, useState, useEffect } from 'react';
 import { toast } from 'react-hot-toast';
+import { projectStorage, projectFirestore, timestamp } from '../config/index';
 
 const Context = createContext();
 
@@ -10,6 +11,12 @@ export const StateContext = ({ children }) => {
   const [totalPrice, setTotalPrice] = useState(0);
   const [size, setSize] = useState("M");
   const [isMeasure, setMeasure] = useState(false)
+
+  const [file, setFile] = useState(null);
+  const [progress, setProgress] = useState(0);
+  const [error, setError] = useState(null);
+  const [url, setUrl] = useState(null);
+
   const [isTailor, setTailor] = useState(false)
   const [isConfirm, setConfirm] = useState(false)
   const [totalQuantities, setTotalQuantities] = useState(0);
@@ -143,6 +150,24 @@ export const StateContext = ({ children }) => {
     setCartItems(newCartItems);
   }
 
+  const useStorage = (file, data) => {
+    // references
+    const storageRef = projectStorage.ref(file.name);
+    const collectionRef = projectFirestore.collection('images');
+
+    storageRef.put(file).on('state_changed', (snap) => {
+      let percentage = (snap.bytesTransferred / snap.totalBytes) * 100;
+      setProgress(percentage);
+    }, (err) => {
+      setError(err);
+    }, async () => {
+      const url = await storageRef.getDownloadURL();
+      const createdAt = timestamp();
+      await collectionRef.add({ url, createdAt, data });
+      setUrl(url);
+    });
+  };
+
   const toggleCartItemQuanitity = (id, value) => {
     foundProduct = cartItems.find((item) => item.id === id)
     index = cartItems.findIndex((product) => product.id === id);
@@ -203,7 +228,9 @@ export const StateContext = ({ children }) => {
         size,
         setSize,
         isTailor,
-        setTailor
+        setTailor,
+        file,
+        setFile
       }}
     >
       {children}

@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState,useEffect } from "react";
 import Image from 'next/image'
 import control from '../images/customer/control.png'
 import Chart_fill from '../images/customer/Chart_fill.png'
@@ -10,10 +10,10 @@ import { GoSignOut } from "react-icons/go";
 import { Dashboard, Profile, Orders, Inbox, Deals } from '../components'
 import { useRouter } from 'next/router'
 
-
 const App = () => {
   const router = useRouter()
   const [open, setOpen] = useState(true);
+  
   const Menus = [
     { id: 0, title: "Dashboard", tab: Dashboard, src: Chart_fill, gap: true },
     { id: 1, title: "Accounts", tab: Profile, src: User },
@@ -26,17 +26,18 @@ const App = () => {
 
   const changeToggle = (Menu) => {
     console.log(" Menu ---> ", Menu);
-    if(Menu.title == "Logout"){
+    if (Menu.title == "Logout") {
       localStorage.removeItem('user')
       router.push("/")
     }
-    else{
+    else {
       setTab(Menu);
     }
   }
 
   return (
     <div className="flex">
+      {console.log("progress --> ", progress)}
       <div
         className={` ${open ? "w-72" : "w-20 "
           } bg-dark-purple h-screen p-5  pt-8 relative duration-300`}
