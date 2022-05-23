@@ -36,7 +36,7 @@ const Confirm = ({ measure }) => {
     return (
         <>
             <form onSubmit={formSubmit}>
-
+                { console.log("pre data --> ", personalInfo)}
                 <div class="flex flex-col md:flex-row">
                     <div class="w-full mx-2 flex-1 relative">
                         <div class="font-bold h-6 mt-3 text-gray-600 text-xs leading-8 uppercase"> You have taken your sizes ?</div>

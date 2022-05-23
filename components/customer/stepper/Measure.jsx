@@ -3,20 +3,22 @@ import { useStateContext } from '../../../context/StateContext';
 
 const Measure = ({ confirm, info }) => {
     const { personalInfo, setPersonalInfo, measureDetails } = useStateContext();
-
-    // personalInfo and arr
-
-    const InputEvent = (event) => {
-        const { name, value } = event.target;
-        console.log("details --> ", name, value)
-        setPersonalInfo((preVal) => {
-            return {
-                ...preVal,
-                [name]: value,
-            }
-        })
-    }
-
+    const [sizeInfo, setSizeInfo] = useState({
+        fullShoulderWidth: "",
+        sleeves: "",
+        menWaist: "",
+        fullChest: "",
+        hipsOrSeat: "",
+        frontShoulderWidth: "",
+        backShoulderWidth: "",
+        frontJacketLength: "",
+        menNeck: "",
+        trouserWaist: "",
+        crotch: "",
+        thigh: "",
+        trousersLength: "",
+        menCuff: "",
+    })
     let renderMeasure = ""
     if (personalInfo.gender == 'male') {
         renderMeasure = measureDetails.menDetails
@@ -24,17 +26,33 @@ const Measure = ({ confirm, info }) => {
     else {
         renderMeasure = measureDetails.womenDetails
     }
-    
-    // let arr = []
-    // for (let i = 0; i < renderMeasure.length; i++) {
-    //     arr.push(renderMeasure[i].slug)
-    //     setPersonalInfo({
-    //         ...personalInfo,
-    //         [renderMeasure[i].slug]: "",
-    //     })
-    // }
-    // console.log("arr --> ", arr)
-    // console.log("arr2 --> ", personalInfo)
+    // personalInfo and arr
+
+    const InputEvent = (event) => {
+        const { name, value } = event.target;
+        console.log("details --> ", name, value)
+        setSizeInfo((preVal) => {
+            return {
+                ...preVal,
+                [name]: value,
+            }
+        })
+        setPersonalInfo((preVal) => {
+            return {
+                ...preVal,
+                [name]: value,
+            }
+        })
+    }
+    const beforeNext = () => {
+        setPersonalInfo((preVal) => {
+            return {
+                ...preVal,
+                ...sizeInfo
+            }
+        })
+        confirm()
+    }
 
 
     return (
@@ -57,7 +75,7 @@ const Measure = ({ confirm, info }) => {
                                             <label class="pt-5 block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-password">
                                                 Size
                                             </label>
-                                            <input required name="" value="" type="text" onChange={InputEvent} class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" />
+                                            <input required name={data.name} value={sizeInfo[data.name]} type="text" onChange={InputEvent} class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" />
                                         </div>
                                     </div>
                                 </div>
@@ -74,7 +92,7 @@ const Measure = ({ confirm, info }) => {
                     border duration-200 ease-in-out 
                     border-gray-600 transition">Previous</button>
                 <div class="flex-auto flex flex-row-reverse">
-                    <button onClick={() => confirm()} class="text-base  ml-2  hover:scale-110 focus:outline-none flex justify-center px-4 py-2 rounded font-bold cursor-pointer 
+                    <button onClick={beforeNext} class="text-base  ml-2  hover:scale-110 focus:outline-none flex justify-center px-4 py-2 rounded font-bold cursor-pointer 
                     hover:bg-teal-600  
                     bg-teal-600 
                     text-teal-100 
