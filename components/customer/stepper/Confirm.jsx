@@ -3,10 +3,11 @@ import { useRouter } from 'next/router';
 import { useStateContext } from '../../../context/StateContext';
 
 const Confirm = ({ measure }) => {
-    const { personalInfo, setPersonalInfo, file } = useStateContext();
+    const { personalInfo, setPersonalInfo, file, useStorage, setFile } = useStateContext();
     const [isComplete, setComplete] = useState(false)
 
     const router = useRouter();
+
 
     const InputEvent = (event) => {
         const { name, value } = event.target;
@@ -23,6 +24,8 @@ const Confirm = ({ measure }) => {
         e.preventDefault()
         if (personalInfo.size.length > 1 && personalInfo.fit.length > 1) {
             if (personalInfo.email.length > 1 && file && personalInfo.menNeck.length > 1 || personalInfo.neck.length > 1) {
+                useStorage(file, personalInfo)
+                setFile(null)
                 router.push("/customer")
             }
             else setComplete(true)
@@ -41,6 +44,7 @@ const Confirm = ({ measure }) => {
                     </div>)
             }
             <form onSubmit={formSubmit}>
+                {console.log("pre data --> ", personalInfo, file)}
                 <div class="flex flex-col md:flex-row">
                     <div class="w-full mx-2 flex-1 relative">
                         <div class="font-bold h-6 mt-3 text-gray-600 text-xs leading-8 uppercase"> You have taken your sizes ?</div>

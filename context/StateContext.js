@@ -22,12 +22,12 @@ export const StateContext = ({ children }) => {
   const [totalQuantities, setTotalQuantities] = useState(0);
   const [qty, setQty] = useState(1);
   const [personalInfo, setPersonalInfo] = useState({
-    fullname: "Muhammad Akif",
-    email: "akif@gmail.com  ",
-    phone: "123",
-    age: "123",
-    height: "12",
-    gender: "male",
+    fullname: "",
+    email: "",
+    phone: "",
+    age: "",
+    height: "",
+    gender: "",
     size: "",
     fit: "",
     other: "",
@@ -230,7 +230,10 @@ export const StateContext = ({ children }) => {
         isTailor,
         setTailor,
         file,
-        setFile
+        setFile,
+        useStorage,
+        progress, 
+        setProgress
       }}
     >
       {children}
