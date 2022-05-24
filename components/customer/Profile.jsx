@@ -1,17 +1,24 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useStateContext } from '../../context/StateContext';
 const profile = () => {
-    const { personalInfo, measureDetails } = useStateContext();
+    const { personalInfo, measureDetails, useFirestore } = useStateContext();
+    useEffect(() => {
+        if(!personalInfo.fullname > 0){
+            useFirestore('images')
+        }
+    }, [])
+    
+    var data = Object.entries(personalInfo);
 
-    let measurements;
-    if (personalInfo.gender == "male") {
-        measurements = measureDetails.menDetails
-    }
-    else {
-        measurements = measureDetails.womenDetails
-    }
+    // let measurements;
+    // if (personalInfo.gender == "male") {
+    //     measurements = measureDetails.menDetails
+    // }
+    // else {
+    //     measurements = measureDetails.womenDetails
+    // }
 
-    console.log("convert --> ",Object.entries(personalInfo));
+    console.log("convert --> ", data);
 
     return (
         <div className="bg-white dark:bg-gray-800">
@@ -80,23 +87,25 @@ const profile = () => {
                                     <div class="px-4 py-2">Feb 06, 1998</div>
                                 </div>
                             </div>
+                            <div class="text-gray-700">
+                                <div class="grid md:grid-cols-2 text-sm">
+                                    {console.log("chal oa")}
+                                    {
+                                        data.map((item, index) => {
+                                            console.log("-->", item[0]);
+                                            <div key={index} class="grid grid-cols-2">
+                                                <div class="px-4 py-2 font-semibold">{item[0]}</div>
+                                                <div class="px-4 py-2">{item[1]}</div>
+                                            </div>
+                                        })
+                                    }
+                                </div>
+                            </div>
                         </div>
                         <button
                             class="block w-full text-blue-800 text-sm font-semibold rounded-lg hover:bg-gray-100 focus:outline-none focus:shadow-outline focus:bg-gray-100 hover:shadow-xs p-3 my-4">Show
                             Measurements
                         </button>
-                        <div class="text-gray-700">
-                            {/* <div class="grid md:grid-cols-2 text-sm">
-                                {
-                                    measurements.map((measurement, index) => {
-                                        <div key={index} class="grid grid-cols-2">
-                                            <div class="px-4 py-2 font-semibold">{measurement.title}</div>
-                                            <div class="px-4 py-2">{measurement[info]}</div>
-                                        </div>
-                                    })
-                                }
-                            </div> */}
-                        </div>
                     </div>
                 </div>
             </div>

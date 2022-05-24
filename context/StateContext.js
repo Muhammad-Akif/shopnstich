@@ -168,6 +168,23 @@ export const StateContext = ({ children }) => {
     });
   };
 
+  const useFirestore = (collection) => {
+      const unsub = projectFirestore.collection(collection)
+        .orderBy('createdAt', 'desc')
+        .onSnapshot(snap => {
+          let documents = [];
+          snap.forEach(doc => {
+            documents.push({...doc.data(), id: doc.id});
+          });
+          setPersonalInfo(documents);
+        });
+  
+      return () => unsub();
+      // this is a cleanup function that react will run when
+      // a component using the hook unmounts
+  }
+
+
   const toggleCartItemQuanitity = (id, value) => {
     foundProduct = cartItems.find((item) => item.id === id)
     index = cartItems.findIndex((product) => product.id === id);
@@ -233,7 +250,8 @@ export const StateContext = ({ children }) => {
         setFile,
         useStorage,
         progress, 
-        setProgress
+        setProgress,
+        useFirestore
       }}
     >
       {children}

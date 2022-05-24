@@ -2,16 +2,13 @@ import React, { useState, useEffect } from 'react'
 import { getAllProducts } from '../../services'
 import { RelatedProducts } from '../../components'
 import useFirestore from '../../hooks/useFirestore';
-import { useStateContext } from '../../context/StateContext';
 
 const Dashboard = () => {
     const { docs } = useFirestore('images');
-    const { setPersonalInfo } = useStateContext();
     const [Products, setProducts] = useState(null)
     const [menProducts, setMenProducts] = useState(null)
     const [womenProducts, setWomenProducts] = useState(null)
     const [kidsProducts, setKidsProducts] = useState(null)
-    console.log("docs --> ",docs);
 
     useEffect(() => {
         getAllProducts().then(products => {
@@ -19,7 +16,6 @@ const Dashboard = () => {
             setMenProducts(products?.filter(product => product.category.name === "Men"))
             setWomenProducts(products?.filter(product => product.category.name === "Women"))
             setKidsProducts(products?.filter(product => product.category.name === "Kids"))
-            setPersonalInfo(docs[0]?.data)
         })
     }, [])
     const addToggle = (type) => {
