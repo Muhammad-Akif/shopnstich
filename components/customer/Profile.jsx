@@ -1,5 +1,16 @@
 import React from "react";
+import { useStateContext } from '../../context/StateContext';
 const profile = () => {
+    const { personalInfo, measureDetails } = useStateContext();
+
+    let measurements;
+    if (personalInfo.gender == "male") {
+        measurements = measureDetails.menDetails
+    }
+    else {
+        measurements = measureDetails.womenDetails
+    }
+    
     return (
         <div className="bg-white dark:bg-gray-800">
             <div className="container mx-auto bg-white dark:bg-gray-800 rounded">
@@ -13,7 +24,7 @@ const profile = () => {
                         </div>
                     </div>
                     <img
-                       src="https://mdbcdn.b-cdn.net/img/new/avatars/2.webp"
+                        src="https://mdbcdn.b-cdn.net/img/new/avatars/2.webp"
                         class="rounded-full w-16 mb-2"
                         alt="Avatar"
                     />
@@ -32,6 +43,7 @@ const profile = () => {
                         </div>
                         <div class="text-gray-700">
                             <div class="grid md:grid-cols-2 text-sm">
+
                                 <div class="grid grid-cols-2">
                                     <div class="px-4 py-2 font-semibold">First Name</div>
                                     <div class="px-4 py-2">Jane</div>
@@ -68,10 +80,10 @@ const profile = () => {
                                 </div>
                             </div>
                         </div>
-                        <button
+                        {/* <button
                             class="block w-full text-blue-800 text-sm font-semibold rounded-lg hover:bg-gray-100 focus:outline-none focus:shadow-outline focus:bg-gray-100 hover:shadow-xs p-3 my-4">Show
                             Measurements
-                        </button>
+                        </button> */}
 
                     </div>
                 </div>
