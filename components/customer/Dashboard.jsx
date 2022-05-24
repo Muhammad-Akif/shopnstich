@@ -19,7 +19,7 @@ const Dashboard = () => {
             setMenProducts(products?.filter(product => product.category.name === "Men"))
             setWomenProducts(products?.filter(product => product.category.name === "Women"))
             setKidsProducts(products?.filter(product => product.category.name === "Kids"))
-            setPersonalInfo(docs[0].data)
+            setPersonalInfo(docs[0]?.data)
         })
     }, [])
     const addToggle = (type) => {

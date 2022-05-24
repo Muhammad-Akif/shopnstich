@@ -10,7 +10,9 @@ const profile = () => {
     else {
         measurements = measureDetails.womenDetails
     }
-    
+
+    console.log("convert --> ",Object.entries(personalInfo));
+
     return (
         <div className="bg-white dark:bg-gray-800">
             <div className="container mx-auto bg-white dark:bg-gray-800 rounded">
@@ -43,7 +45,6 @@ const profile = () => {
                         </div>
                         <div class="text-gray-700">
                             <div class="grid md:grid-cols-2 text-sm">
-
                                 <div class="grid grid-cols-2">
                                     <div class="px-4 py-2 font-semibold">First Name</div>
                                     <div class="px-4 py-2">Jane</div>
@@ -80,11 +81,22 @@ const profile = () => {
                                 </div>
                             </div>
                         </div>
-                        {/* <button
+                        <button
                             class="block w-full text-blue-800 text-sm font-semibold rounded-lg hover:bg-gray-100 focus:outline-none focus:shadow-outline focus:bg-gray-100 hover:shadow-xs p-3 my-4">Show
                             Measurements
-                        </button> */}
-
+                        </button>
+                        <div class="text-gray-700">
+                            {/* <div class="grid md:grid-cols-2 text-sm">
+                                {
+                                    measurements.map((measurement, index) => {
+                                        <div key={index} class="grid grid-cols-2">
+                                            <div class="px-4 py-2 font-semibold">{measurement.title}</div>
+                                            <div class="px-4 py-2">{measurement[info]}</div>
+                                        </div>
+                                    })
+                                }
+                            </div> */}
+                        </div>
                     </div>
                 </div>
             </div>
