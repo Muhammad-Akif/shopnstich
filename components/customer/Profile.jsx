@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useStateContext } from '../../context/StateContext';
 const profile = () => {
     const { personalInfo, measureDetails, useFirestore } = useStateContext();
@@ -13,41 +13,29 @@ const profile = () => {
     }
     else {
 
-        let measurements;
-        if (personalInfo.gender == "male") {
-            measurements = measureDetails.menDetails
-        }
-        else {
-            measurements = measureDetails.womenDetails
-        }
-
+        let measurements = [...measureDetails.menDetails, ...measureDetails.womenDetails];
         var data = Object.entries(personalInfo[0].data);
-        console.log("data --> ", data)
 
-
-        const basicInfo = [{
-            name: "fullName", title: "Full Name",
-            name: "email", title: "Email",
-            name: "phone", title: "Phone no.",
-            name: "age", title: "Age",
-            name: "height", title: "Height",
-            name: "gender", title: "Gender"
-        }]
-        // && x[0] == "other" && x[0] == "fit" && x[0] == "size"
-        var objs = data.map(x => {  //x=[a,b]
-            let obj = measurements.map(y => {  //{key: value }
+        let objs = []
+        var noReq = data.map(x => {  //x=[a,b]
+            let obj = measurements.find(y => {
                 if (x[0] == y.name) {
-                    console.log("a -->", y.title)
-                    return ({ title: y.title, value: x[1], type: "a" })
-                }
-                else {
-                    console.log("b ---> ", x[0])
-                    return ({ title: x[0], value: x[1], type: "b" })
+                    objs.push({ title: y.title, value: x[1], type: "b" })
+                    return true;
                 }
             })
-            return ({
-                ...obj[0]
-            })
+            if (obj == undefined) {
+                if (x[0] == "other" || x[0] == "fit" || x[0] == "size") {
+                    objs.push({ title: x[0].toUpperCase(), value: x[1], type: "b" })
+                }
+                else if (x[0] == "fullName") {
+                    objs.push({ title: "Full Name", value: x[1], type: "a" })
+                }
+                else{
+                    objs.push({ title: x[0].toUpperCase(), value: x[1], type: "a" })
+
+                }
+            }
         }
         );
 
@@ -106,6 +94,22 @@ const profile = () => {
                             class="block w-full text-blue-800 text-sm font-semibold rounded-lg hover:bg-gray-100 focus:outline-none focus:shadow-outline focus:bg-gray-100 hover:shadow-xs p-3 my-4">Show
                             Measurements
                         </button>
+                        <div class="text-gray-700">
+                            <div class="grid md:grid-cols-2 text-sm">
+                                {
+                                    isShow && objs?.map((item) => {
+                                        return (
+                                            item.type == "b" && (
+                                                <div class="grid grid-cols-2">
+                                                    <div class="px-4 py-2 font-semibold">{item.title}</div>
+                                                    <div class="px-4 py-2">{item.value}</div>
+                                                </div>
+                                            )
+                                        )
+                                    })
+                                }
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
