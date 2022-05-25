@@ -17,7 +17,9 @@ const profile = () => {
         var data = Object.entries(personalInfo[0].data);
 
         let objs = []
-        var noReq = data.map(x => {  //x=[a,b]
+        let fName = []
+        
+        let noReq = data.map(x => {  //x=[a,b]
             let obj = measurements.find(y => {
                 if (x[0] == y.name) {
                     objs.push({ title: y.title, value: x[1], type: "b" })
@@ -28,18 +30,23 @@ const profile = () => {
                 if (x[0] == "other" || x[0] == "fit" || x[0] == "size") {
                     objs.push({ title: x[0].toUpperCase(), value: x[1], type: "b" })
                 }
-                else if (x[0] == "fullName") {
-                    objs.push({ title: "Full Name", value: x[1], type: "a" })
+                else if (x[0] == "fullname") {
+                    fName.push({ title: "Full Name", value: x[1] })
                 }
-                else{
+                else {
                     objs.push({ title: x[0].toUpperCase(), value: x[1], type: "a" })
-
                 }
             }
         }
         );
-
+        
         console.log("convert --> ", objs);
+        let finalData = objs.filter(data => {
+            console.log("tell --> ",data.value.length)
+            if(data.value.length > 0) { return true }
+            else { return false }
+        })
+        console.log("new --> ", finalData)
     }
 
 
@@ -75,8 +82,12 @@ const profile = () => {
                         </div>
                         <div class="text-gray-700">
                             <div class="grid md:grid-cols-2 text-sm">
+                                <div class="grid grid-cols-2">
+                                    <div class="px-4 py-2 font-semibold">FULL NAME</div>
+                                    <div class="px-4 py-2">{fName[0].value}</div>
+                                </div>
                                 {
-                                    objs?.map((item) => {
+                                    finalData?.map((item) => {
                                         return (
                                             item.type == "a" && (
                                                 <div class="grid grid-cols-2">
@@ -97,7 +108,7 @@ const profile = () => {
                         <div class="text-gray-700">
                             <div class="grid md:grid-cols-2 text-sm">
                                 {
-                                    isShow && objs?.map((item) => {
+                                    isShow && finalData?.map((item) => {
                                         return (
                                             item.type == "b" && (
                                                 <div class="grid grid-cols-2">
