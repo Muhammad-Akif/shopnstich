@@ -3,22 +3,33 @@ import { useStateContext } from '../../context/StateContext';
 const profile = () => {
     const { personalInfo, measureDetails, useFirestore } = useStateContext();
     useEffect(() => {
-        if(!personalInfo.fullname > 0){
+        if (!personalInfo.fullname > 0) {
             useFirestore('images')
         }
-    }, [])
-    
-    var data = Object.entries(personalInfo);
+    }, [personalInfo])
+    if (personalInfo[0] == undefined) {
+        console.log("waiting")
+    }
+    else {
+        var data = Object.entries(personalInfo[0].data);
+        console.log("data --> ", data)
 
-    // let measurements;
-    // if (personalInfo.gender == "male") {
-    //     measurements = measureDetails.menDetails
-    // }
-    // else {
-    //     measurements = measureDetails.womenDetails
-    // }
+        var objs = data.map(x => ({
+            title: x[0],
+            value: x[1]
+        }));
 
-    console.log("convert --> ", data);
+        let measurements;
+        if (personalInfo.gender == "male") {
+            measurements = measureDetails.menDetails
+        }
+        else {
+            measurements = measureDetails.womenDetails
+        }
+
+        console.log("convert --> ", data);
+    }
+
 
     return (
         <div className="bg-white dark:bg-gray-800">
@@ -33,7 +44,7 @@ const profile = () => {
                         </div>
                     </div>
                     <img
-                        src="https://mdbcdn.b-cdn.net/img/new/avatars/2.webp"
+                        src={personalInfo[0]?.url}
                         class="rounded-full w-16 mb-2"
                         alt="Avatar"
                     />
@@ -52,54 +63,14 @@ const profile = () => {
                         </div>
                         <div class="text-gray-700">
                             <div class="grid md:grid-cols-2 text-sm">
-                                <div class="grid grid-cols-2">
-                                    <div class="px-4 py-2 font-semibold">First Name</div>
-                                    <div class="px-4 py-2">Jane</div>
-                                </div>
-                                <div class="grid grid-cols-2">
-                                    <div class="px-4 py-2 font-semibold">Last Name</div>
-                                    <div class="px-4 py-2">Doe</div>
-                                </div>
-                                <div class="grid grid-cols-2">
-                                    <div class="px-4 py-2 font-semibold">Gender</div>
-                                    <div class="px-4 py-2">Female</div>
-                                </div>
-                                <div class="grid grid-cols-2">
-                                    <div class="px-4 py-2 font-semibold">Contact No.</div>
-                                    <div class="px-4 py-2">+11 998001001</div>
-                                </div>
-                                <div class="grid grid-cols-2">
-                                    <div class="px-4 py-2 font-semibold">Current Address</div>
-                                    <div class="px-4 py-2">Beech Creek, PA, Pennsylvania</div>
-                                </div>
-                                <div class="grid grid-cols-2">
-                                    <div class="px-4 py-2 font-semibold">Permanant Address</div>
-                                    <div class="px-4 py-2">Arlington Heights, IL, Illinois</div>
-                                </div>
-                                <div class="grid grid-cols-2">
-                                    <div class="px-4 py-2 font-semibold">Email.</div>
-                                    <div class="px-4 py-2">
-                                        <a class="text-blue-800" href="mailto:jane@example.com">jane@example.com</a>
-                                    </div>
-                                </div>
-                                <div class="grid grid-cols-2">
-                                    <div class="px-4 py-2 font-semibold">Birthday</div>
-                                    <div class="px-4 py-2">Feb 06, 1998</div>
-                                </div>
-                            </div>
-                            <div class="text-gray-700">
-                                <div class="grid md:grid-cols-2 text-sm">
-                                    {console.log("chal oa")}
-                                    {
-                                        data.map((item, index) => {
-                                            console.log("-->", item[0]);
-                                            <div key={index} class="grid grid-cols-2">
-                                                <div class="px-4 py-2 font-semibold">{item[0]}</div>
-                                                <div class="px-4 py-2">{item[1]}</div>
-                                            </div>
-                                        })
-                                    }
-                                </div>
+                                {
+                                    objs?.map((item) => (
+                                        <div class="grid grid-cols-2">
+                                            <div class="px-4 py-2 font-semibold">{item.title}</div>
+                                            <div class="px-4 py-2">{item.value}</div>
+                                        </div>
+                                    ))
+                                }
                             </div>
                         </div>
                         <button

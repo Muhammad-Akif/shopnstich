@@ -1,10 +1,8 @@
 import React, { useState, useEffect } from 'react'
 import { getAllProducts } from '../../services'
 import { RelatedProducts } from '../../components'
-import useFirestore from '../../hooks/useFirestore';
 
 const Dashboard = () => {
-    const { docs } = useFirestore('images');
     const [Products, setProducts] = useState(null)
     const [menProducts, setMenProducts] = useState(null)
     const [womenProducts, setWomenProducts] = useState(null)
