@@ -2,22 +2,16 @@ import React, { useEffect } from "react";
 import { useStateContext } from '../../context/StateContext';
 const profile = () => {
     const { personalInfo, measureDetails, useFirestore } = useStateContext();
+    const [isShow, setShow] = useState(false)
     useEffect(() => {
         if (!personalInfo.fullname > 0) {
             useFirestore('images')
         }
-    }, [personalInfo])
+    }, [])
     if (personalInfo[0] == undefined) {
         console.log("waiting")
     }
     else {
-        var data = Object.entries(personalInfo[0].data);
-        console.log("data --> ", data)
-
-        var objs = data.map(x => ({
-            title: x[0],
-            value: x[1]
-        }));
 
         let measurements;
         if (personalInfo.gender == "male") {
@@ -27,7 +21,37 @@ const profile = () => {
             measurements = measureDetails.womenDetails
         }
 
-        console.log("convert --> ", data);
+        var data = Object.entries(personalInfo[0].data);
+        console.log("data --> ", data)
+
+
+        const basicInfo = [{
+            name: "fullName", title: "Full Name",
+            name: "email", title: "Email",
+            name: "phone", title: "Phone no.",
+            name: "age", title: "Age",
+            name: "height", title: "Height",
+            name: "gender", title: "Gender"
+        }]
+        // && x[0] == "other" && x[0] == "fit" && x[0] == "size"
+        var objs = data.map(x => {  //x=[a,b]
+            let obj = measurements.map(y => {  //{key: value }
+                if (x[0] == y.name) {
+                    console.log("a -->", y.title)
+                    return ({ title: y.title, value: x[1], type: "a" })
+                }
+                else {
+                    console.log("b ---> ", x[0])
+                    return ({ title: x[0], value: x[1], type: "b" })
+                }
+            })
+            return ({
+                ...obj[0]
+            })
+        }
+        );
+
+        console.log("convert --> ", objs);
     }
 
 
@@ -64,16 +88,21 @@ const profile = () => {
                         <div class="text-gray-700">
                             <div class="grid md:grid-cols-2 text-sm">
                                 {
-                                    objs?.map((item) => (
-                                        <div class="grid grid-cols-2">
-                                            <div class="px-4 py-2 font-semibold">{item.title}</div>
-                                            <div class="px-4 py-2">{item.value}</div>
-                                        </div>
-                                    ))
+                                    objs?.map((item) => {
+                                        return (
+                                            item.type == "a" && (
+                                                <div class="grid grid-cols-2">
+                                                    <div class="px-4 py-2 font-semibold">{item.title}</div>
+                                                    <div class="px-4 py-2">{item.value}</div>
+                                                </div>
+                                            )
+                                        )
+                                    })
                                 }
                             </div>
                         </div>
                         <button
+                            onClick={() => setShow(!isShow)}
                             class="block w-full text-blue-800 text-sm font-semibold rounded-lg hover:bg-gray-100 focus:outline-none focus:shadow-outline focus:bg-gray-100 hover:shadow-xs p-3 my-4">Show
                             Measurements
                         </button>
