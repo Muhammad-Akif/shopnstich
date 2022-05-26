@@ -17,6 +17,7 @@ export const StateContext = ({ children }) => {
   const [error, setError] = useState(null);
   const [url, setUrl] = useState(null);
 
+  const [edit, setEdit] = useState({})
   const [isTailor, setTailor] = useState(false)
   const [isConfirm, setConfirm] = useState(false)
   const [totalQuantities, setTotalQuantities] = useState(0);
@@ -169,19 +170,19 @@ export const StateContext = ({ children }) => {
   };
 
   const useFirestore = (collection) => {
-      const unsub = projectFirestore.collection(collection)
-        .orderBy('createdAt', 'desc')
-        .onSnapshot(snap => {
-          let documents = [];
-          snap.forEach(doc => {
-            documents.push({...doc.data(), id: doc.id});
-          });
-          setPersonalInfo(documents);
+    const unsub = projectFirestore.collection(collection)
+      .orderBy('createdAt', 'desc')
+      .onSnapshot(snap => {
+        let documents = [];
+        snap.forEach(doc => {
+          documents.push({ ...doc.data(), id: doc.id });
         });
-  
-      return () => unsub();
-      // this is a cleanup function that react will run when
-      // a component using the hook unmounts
+        setPersonalInfo(documents);
+      });
+
+    return () => unsub();
+    // this is a cleanup function that react will run when
+    // a component using the hook unmounts
   }
 
 
@@ -249,9 +250,11 @@ export const StateContext = ({ children }) => {
         file,
         setFile,
         useStorage,
-        progress, 
+        progress,
         setProgress,
-        useFirestore
+        useFirestore,
+        edit,
+        setEdit
       }}
     >
       {children}

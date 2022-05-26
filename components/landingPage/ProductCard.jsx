@@ -40,7 +40,7 @@ const ProductCard = ({ category, products }) => {
                                     <div class="w-52 lg:w-full h-auto overflow-hidden rounded-lg shadow-md bg-white hover:shadow-2xl transition-shadow duration-300 ease-in-out">
                                         <div className="card-wd">
                                             <Link href={`/product/${card.slug}`}>
-                                                <div class="flex w-52 lg:w-full p-6 hover:cursor-pointer justify-center items-center group-hover:scale-110 transition-transform duration-200 ease-in-out">
+                                                <div class="flex w-52 lg:w-full py-4 px-3 mb-1 hover:cursor-pointer justify-center items-center group-hover:scale-110 transition-transform duration-200 ease-in-out">
 
                                                     <img
                                                         height="auto"

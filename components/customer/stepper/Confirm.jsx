@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from 'react'
 import { useRouter } from 'next/router';
 import { useStateContext } from '../../../context/StateContext';
+import { projectFirestore} from '../../../config/index';
 
 const Confirm = ({ measure }) => {
-    const { personalInfo, setPersonalInfo, file, useStorage, setFile } = useStateContext();
+    const { personalInfo, setPersonalInfo, file, useStorage, setFile, edit } = useStateContext();
     const [isComplete, setComplete] = useState(false)
 
     const router = useRouter();
@@ -24,6 +25,9 @@ const Confirm = ({ measure }) => {
         e.preventDefault()
         if (personalInfo.size.length > 1 && personalInfo.fit.length > 1) {
             if (personalInfo.email.length > 1 && file && personalInfo.menNeck.length > 1 || personalInfo.neck.length > 1) {
+                if (edit.isEdit) {
+                    projectFirestore.collection("images").doc(edit.id).update({data: personalInfo});
+                }
                 useStorage(file, personalInfo)
                 setFile(null)
                 router.push("/customer")

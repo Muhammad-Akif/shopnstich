@@ -1,7 +1,11 @@
 import React, { useEffect, useState } from "react";
 import { useStateContext } from '../../context/StateContext';
+import { FaEdit } from 'react-icons/fa'
+import { useRouter } from 'next/router'
+
 const profile = () => {
-    const { personalInfo, measureDetails, useFirestore } = useStateContext();
+    const { personalInfo, measureDetails, useFirestore,setEdit } = useStateContext();
+    const router = useRouter()
     const [isShow, setShow] = useState(false)
     useEffect(() => {
         if (!personalInfo.fullname > 0) {
@@ -17,8 +21,8 @@ const profile = () => {
         var data = Object.entries(personalInfo[0].data);
 
         let objs = []
-        let fName = []
-        
+        let fName;
+
         let noReq = data.map(x => {  //x=[a,b]
             let obj = measurements.find(y => {
                 if (x[0] == y.name) {
@@ -31,7 +35,7 @@ const profile = () => {
                     objs.push({ title: x[0].toUpperCase(), value: x[1], type: "b" })
                 }
                 else if (x[0] == "fullname") {
-                    fName.push({ title: "Full Name", value: x[1] })
+                    fName = x[1]
                 }
                 else {
                     objs.push({ title: x[0].toUpperCase(), value: x[1], type: "a" })
@@ -39,14 +43,18 @@ const profile = () => {
             }
         }
         );
-        
-        console.log("convert --> ", objs);
+
         let finalData = objs.filter(data => {
-            console.log("tell --> ",data.value.length)
-            if(data.value.length > 0) { return true }
+            console.log("tell --> ", data.value.length)
+            if (data.value.length > 0) { return true }
             else { return false }
         })
-        console.log("new --> ", finalData)
+    }
+
+    const handleEdit = (id) => {
+        console.log("id ---> ", id)
+        setEdit({ id, isEdit: true});
+        router.push("/measurements")
     }
 
 
@@ -64,27 +72,30 @@ const profile = () => {
                     </div>
                     <img
                         src={personalInfo[0]?.url}
-                        class="rounded-full w-16 mb-2"
+                        class="rounded-lg w-16 mb-2"
                         alt="Avatar"
                     />
                 </div>
                 <div class="w-full mx-2 h-64">
                     <div class="bg-white p-3 shadow-sm rounded-sm">
-                        <div class="flex items-center py-2 space-x-2 font-semibold text-gray-900 leading-8">
-                            <span clas="text-green-500">
-                                <svg class="h-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
-                                    stroke="currentColor">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                        d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
-                                </svg>
-                            </span>
-                            <span class="tracking-wide">About</span>
+                        <div class="flex justify-between">
+                            <div class="flex items-center py-2 space-x-2 font-semibold text-gray-900 leading-8">
+                                <span clas="text-green-500">
+                                    <svg class="h-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                        stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+                                    </svg>
+                                </span>
+                                <span class="tracking-wide">About</span>
+                            </div>
+                            <FaEdit class="text-xl m-3 hover:cursor-pointer" onClick={handleEdit.bind(null, personalInfo[0]?.id)} />
                         </div>
                         <div class="text-gray-700">
                             <div class="grid md:grid-cols-2 text-sm">
                                 <div class="grid grid-cols-2">
                                     <div class="px-4 py-2 font-semibold">FULL NAME</div>
-                                    <div class="px-4 py-2">{fName[0].value}</div>
+                                    <div class="px-4 py-2">{fName}</div>
                                 </div>
                                 {
                                     finalData?.map((item) => {
