@@ -4,13 +4,11 @@ import { FaEdit } from 'react-icons/fa'
 import { useRouter } from 'next/router'
 
 const profile = () => {
-    const { personalInfo, setPersonalInfo, measureDetails, useFirestore,setEdit } = useStateContext();
+    const { personalInfo, setPersonalInfo, measureDetails, useFirestore, setEdit } = useStateContext();
     const router = useRouter()
     const [isShow, setShow] = useState(false)
     useEffect(() => {
-        if (!personalInfo.fullname > 0) {
-            useFirestore('images')
-        }
+        useFirestore('images')
     }, [])
     if (personalInfo[0] == undefined) {
         console.log("waiting")
@@ -55,7 +53,7 @@ const profile = () => {
         router.push("/measurements")
         console.log("id ---> ", id)
         setPersonalInfo(personalInfo[0].data)
-        setEdit({ id, isEdit: true});
+        setEdit({ id, isEdit: true });
     }
 
 

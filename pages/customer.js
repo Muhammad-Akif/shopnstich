@@ -16,8 +16,8 @@ const App = () => {
   
   const Menus = [
     { id: 0, title: "Dashboard", tab: Dashboard, src: Chart_fill, gap: true },
-    { id: 1, title: "Accounts", tab: Profile, src: User },
-    { id: 2, title: "Inbox", tab: Inbox, src: Chat, gap: true },
+    { id: 1, title: "Profile", tab: Profile, src: User },
+    { id: 2, title: "Dilevered", tab: Inbox, src: Chat, gap: true },
     { id: 3, title: "Orders ", tab: Orders, src: Folder },
     // { id: 4, title: "Offer & Deals ", tab:Deals, src: Calendar },
     { id: 4, title: "Logout", tab: Deals, src: GoSignOut, gap: true },
