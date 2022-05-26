@@ -6,6 +6,8 @@ import firebase from '../config/index.js';
 import { useRouter } from 'next/router'
 import { submitAuth } from '../services'
 import { useStateContext } from '../context/StateContext';
+import { projectFirestore} from '../config/index';
+import toast from 'react-hot-toast';
 // // import { authenticate } from '../redux/actions';
 
 function validateEmail(email) {
@@ -22,7 +24,13 @@ const Signin = ({ inType }) => {
         try {
             dispatch({ type: "AUTH", data: { result, token } })
             if(!isTailor){
-                router.push('/customer')
+                toast.loading('Redirecting...');
+                if(projectFirestore.collection("tailor")){
+                    router.push('/customer')
+                }
+                else{
+                    router.push('/tailorInfo')
+                }
             }
             else{
                 router.push('/tailor')
@@ -104,7 +112,13 @@ const Signin = ({ inType }) => {
                     .then((res) => {
                         console.log(" res ----> ", res)
                         if(!isTailor){
-                            router.push('/customer')
+                            toast.loading('Redirecting...');
+                            if(projectFirestore.collection("tailor")){
+                                router.push('/customer')
+                            }
+                            else{
+                                router.push('/tailorInfo')
+                            }
                         }
                         else{
                             router.push('/tailor')

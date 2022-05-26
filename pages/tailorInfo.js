@@ -6,7 +6,7 @@ const tailorInfo = () => {
     const [error, setError] = useState(null);
     const [isGender, setGender] = useState(false)
     const [isState, setState] = useState(false)
-    const { file, setFile, tailorInfo, setTailorInfo } = useStateContext();
+    const { file, setFile, tailorInfo, useStorage, setTailorInfo } = useStateContext();
 
     const types = ['image/png', 'image/jpeg'];
 
@@ -34,16 +34,17 @@ const tailorInfo = () => {
 
     const formSubmit = (e) => {
         e.preventDefault();
-        if (tailorInfo.gender.length < 1 ) {
+        if (tailorInfo.gender.length < 1) {
             setGender(true)
         }
-        else if(tailorInfo.province.length < 1) {
+        else if (tailorInfo.province.length < 1) {
             setState(true)
         }
         else {
             setGender(false)
             setState(false)
-            console.log("obj --> ",tailorInfo)
+            console.log("obj --> ", tailorInfo)
+            useStorage(file, tailorInfo, "tailor")
         }
     }
 
@@ -147,7 +148,7 @@ const tailorInfo = () => {
                 {isState && (
                     <div class="text-sm text-red-500 p-2 px-2">State / Province Required !</div>
                 )}
-              
+
                 <div class="flex flex-col md:flex-row">
                     <div class="w-full mx-2 flex-1">
                         <div class="font-bold h-6 mt-3 text-gray-600 text-xs leading-8 uppercase"> City</div>

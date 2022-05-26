@@ -26,9 +26,9 @@ const Confirm = ({ measure }) => {
         if (personalInfo.size.length > 1 && personalInfo.fit.length > 1) {
             if (personalInfo.email.length > 1 && file && personalInfo.menNeck.length > 1 || personalInfo.neck.length > 1) {
                 if (edit.isEdit) {
-                    projectFirestore.collection("images").doc(edit.id).update({data: personalInfo});
+                    projectFirestore.collection("customer").doc(edit.id).update({data: personalInfo});
                 }
-                useStorage(file, personalInfo)
+                useStorage(file, personalInfo, "customer")
                 setFile(null)
                 router.push("/customer")
             }
