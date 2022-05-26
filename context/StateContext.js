@@ -22,6 +22,19 @@ export const StateContext = ({ children }) => {
   const [isConfirm, setConfirm] = useState(false)
   const [totalQuantities, setTotalQuantities] = useState(0);
   const [qty, setQty] = useState(1);
+  const [tailorInfo, setTailorInfo] = useState({
+    fullname: "",
+    email: "",
+    phone: "",
+    age: "",
+    gender: "",
+    bio: "",
+    province: "",
+    city: "",
+    zip: "",
+    address: "",
+  })
+
   const [personalInfo, setPersonalInfo] = useState({
     fullname: "",
     email: "",
@@ -254,7 +267,9 @@ export const StateContext = ({ children }) => {
         setProgress,
         useFirestore,
         edit,
-        setEdit
+        setEdit,
+        tailorInfo,
+        setTailorInfo
       }}
     >
       {children}
