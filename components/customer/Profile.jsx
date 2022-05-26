@@ -4,7 +4,7 @@ import { FaEdit } from 'react-icons/fa'
 import { useRouter } from 'next/router'
 
 const profile = () => {
-    const { personalInfo, measureDetails, useFirestore,setEdit } = useStateContext();
+    const { personalInfo, setPersonalInfo, measureDetails, useFirestore,setEdit } = useStateContext();
     const router = useRouter()
     const [isShow, setShow] = useState(false)
     useEffect(() => {
@@ -52,9 +52,10 @@ const profile = () => {
     }
 
     const handleEdit = (id) => {
-        console.log("id ---> ", id)
-        setEdit({ id, isEdit: true});
         router.push("/measurements")
+        console.log("id ---> ", id)
+        setPersonalInfo(personalInfo[0].data)
+        setEdit({ id, isEdit: true});
     }
 
 
@@ -89,7 +90,7 @@ const profile = () => {
                                 </span>
                                 <span class="tracking-wide">About</span>
                             </div>
-                            <FaEdit class="text-xl m-3 hover:cursor-pointer" onClick={handleEdit.bind(null, personalInfo[0]?.id)} />
+                            <FaEdit class="text-xl m-3 hover:cursor-pointer text-red-400" onClick={handleEdit.bind(null, personalInfo[0]?.id)} />
                         </div>
                         <div class="text-gray-700">
                             <div class="grid md:grid-cols-2 text-sm">
