@@ -9,6 +9,7 @@ Project is created with
 * Redux 
 * Tailwind Elements,
 * GraphCMS. 
+* Authentications
 
 ## Setup:
 $ run `npm i && npm run dev || yarn i && yarn run dev` for starting the application.
