@@ -6,7 +6,7 @@ import firebase from '../config/index.js';
 import { useRouter } from 'next/router'
 import { submitAuth } from '../services'
 import { useStateContext } from '../context/StateContext';
-import { projectFirestore} from '../config/index';
+import { projectFirestore } from '../config/index';
 import toast from 'react-hot-toast';
 // // import { authenticate } from '../redux/actions';
 
@@ -19,20 +19,18 @@ const Signin = ({ inType }) => {
     const router = useRouter()
     const { isTailor, setTailor } = useStateContext();
     const googleSuccess = async (res) => {
-        const result = res?.profileObj;
-        const token = res?.tokenId;
+        console.log("res --> ", res)
         try {
-            dispatch({ type: "AUTH", data: { result, token } })
-            if(!isTailor){
+            if (!isTailor) {
                 toast.loading('Redirecting...');
-                if(projectFirestore.collection("tailor")){
+                if (projectFirestore.collection("tailor")) {
                     router.push('/customer')
                 }
-                else{
+                else {
                     router.push('/tailorInfo')
                 }
             }
-            else{
+            else {
                 router.push('/tailor')
             }
         } catch (error) {
@@ -111,16 +109,16 @@ const Signin = ({ inType }) => {
                 submitAuth(obj)
                     .then((res) => {
                         console.log(" res ----> ", res)
-                        if(!isTailor){
+                        if (!isTailor) {
                             toast.loading('Redirecting...');
-                            if(projectFirestore.collection("tailor")){
+                            if (projectFirestore.collection("tailor")) {
                                 router.push('/customer')
                             }
-                            else{
+                            else {
                                 router.push('/tailorInfo')
                             }
                         }
-                        else{
+                        else {
                             router.push('/tailor')
                         }
 
@@ -172,7 +170,7 @@ const Signin = ({ inType }) => {
 
     return (
         <section class="flex flex-col md:flex-row h-screen items-center">
-            {console.log("tailor ---> ",isTailor)}
+            {console.log("tailor ---> ", isTailor)}
             <div class="bg-green-960 hidden lg:block w-full md:w-1/2 xl:w-2/3 h-screen">
                 <img src="https://images.unsplash.com/photo-1609709295948-17d77cb2a69b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8Y2xvdGhzfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60" alt="" class="w-full h-full object-cover" />
             </div>
@@ -187,8 +185,8 @@ flex items-center justify-center">
                         <h1 class="text-xl md:text-2xl font-bold leading-tight mt-12"> {inType ? 'Create a new account' : `Log in as ${isTailor ? "Tailor" : "Customer"}`}</h1>
                         <div class="mb-1 mr-1">
                             <div class="relative inline-block w-10 mr-2 align-middle select-none transition duration-200 ease-in">
-                                <input type="checkbox"  name="toggle" id="toggle" value={isTailor} onChange={() => setTailor(!isTailor)} class={`${isTailor ? "right-0 bg-green-400 border-whitez": ""} absolute block w-6 h-6 rounded-full bg-white border-4 appearance-none cursor-pointer`} />
-                                <label for="toggle" class={`${isTailor ? "bg-green-400": ""} block overflow-hidden h-6 rounded-full bg-gray-300 cursor-pointer`}></label>
+                                <input type="checkbox" name="toggle" id="toggle" value={isTailor} onChange={() => setTailor(!isTailor)} class={`${isTailor ? "right-0 bg-green-400 border-whitez" : ""} absolute block w-6 h-6 rounded-full bg-white border-4 appearance-none cursor-pointer`} />
+                                <label for="toggle" class={`${isTailor ? "bg-green-400" : ""} block overflow-hidden h-6 rounded-full bg-gray-300 cursor-pointer`}></label>
                             </div>
                             <label for="toggle" class="text-xs text-gray-200">Tailor</label>
                         </div>
@@ -252,23 +250,10 @@ flex items-center justify-center">
                                 <GoogleLogin
                                     clientId="89267214240-4l20rsknks29stja007k15smm80ljgea.apps.googleusercontent.com"
                                     render={(renderProps) => (
-                                        // <Button onClick={renderProps.onClick} disabled={renderProps.disabled}>
-                                        //     Google Sign In
-                                        //     <div class="flex items-center justify-center">
-                                        //         {/* <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" class="w-6 h-6" viewBox="0 0 48 48"><defs><path id="a" d="M44.5 20H24v8.5h11.8C34.7 33.9 30.1 37 24 37c-7.2 0-13-5.8-13-13s5.8-13 13-13c3.1 0 5.9 1.1 8.1 2.9l6.4-6.4C34.6 4.1 29.6 2 24 2 11.8 2 2 11.8 2 24s9.8 22 22 22c11 0 21-8 21-22 0-1.3-.2-2.7-.5-4z" /></defs><clipPath id="b"><use xlink:href="#a" overflow="visible" /></clipPath><path clip-path="url(#b)" fill="#FBBC05" d="M0 37V11l17 13z" /><path clip-path="url(#b)" fill="#EA4335" d="M0 11l17 13 7-6.1L48 14V0H0z" /><path clip-path="url(#b)" fill="#34A853" d="M0 37l30-23 7.9 1L48 0v48H0z" /><path clip-path="url(#b)" fill="#4285F4" d="M48 48L17 24l-4-3 35-10z" /></svg> */}
-                                        //         <FaGoogle class="text-green-700" />
-                                        //         <span class="ml-4">
-                                        //         Google Sign In</span>
-                                        //     </div>
-                                        // </Button>
                                         <button type="button" onClick={renderProps.onClick} disabled={renderProps.disabled} class="w-full block bg-white hover:bg-green-200 focus:bg-gray-100 text-gray-900 font-semibold rounded-lg px-4 py-3 border border-gray-300">
                                             <div class="flex items-center justify-center">
-                                                {/* <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" class="w-6 h-6" viewBox="0 0 48 48"><defs><path id="a" d="M44.5 20H24v8.5h11.8C34.7 33.9 30.1 37 24 37c-7.2 0-13-5.8-13-13s5.8-13 13-13c3.1 0 5.9 1.1 8.1 2.9l6.4-6.4C34.6 4.1 29.6 2 24 2 11.8 2 2 11.8 2 24s9.8 22 22 22c11 0 21-8 21-22 0-1.3-.2-2.7-.5-4z" /></defs><clipPath id="b"><use xlink:href="#a" overflow="visible" /></clipPath><path clip-path="url(#b)" fill="#FBBC05" d="M0 37V11l17 13z" /><path clip-path="url(#b)" fill="#EA4335" d="M0 11l17 13 7-6.1L48 14V0H0z" /><path clip-path="url(#b)" fill="#34A853" d="M0 37l30-23 7.9 1L48 0v48H0z" /><path clip-path="url(#b)" fill="#4285F4" d="M48 48L17 24l-4-3 35-10z" /></svg> */}
                                                 <FaGoogle class="text-green-700" />
-                                                <span class="ml-4">
-                                                    Log in
-                                                    with
-                                                    Google</span>
+                                                <span class="ml-4">Log in with Google</span>
                                             </div>
                                         </button>
                                     )}
