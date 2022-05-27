@@ -9,6 +9,7 @@ export default function Home({ products }) {
     <>
       <Head>
         <title>ShopnStitch</title>
+        <meta name="google-site-verification" content="I94h8yYfnMEYEvSeU5lWv35rrC7JFdvd3DvbFbgghSk" />
         <link rel="icon" href="/favicon.ico" />
         <script src="./TW-ELEMENTS-PATH/dist/js/index.min.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/tw-elements/dist/js/index.min.js"></script>
