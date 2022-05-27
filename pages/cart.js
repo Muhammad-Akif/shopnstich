@@ -13,31 +13,30 @@ const cart = () => {
     const [validCode, setValidCode] = useState('')
     const { totalPrice, totalQuantities, cartItems, toggleCartItemQuanitity, onRemove } = useStateContext();
 
-
-    const getAccessToken = () => {
-        if (typeof window !== 'undefined')
-            return localStorage.getItem('user');
-    };
-
     const handleCheckout = async () => {
-        const stripe = await getStripe();
-    
-        const response = await fetch('/api/stripe', {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify(cartItems),
-        });
-    
-        if(response.statusCode === 500) return;
-        
-        const data = await response.json();
-    
-        toast.loading('Redirecting...');
-    
-        stripe.redirectToCheckout({ sessionId: data.id });
-      }
+        if (!localStorage.getItem('user')) {
+            router.push('/login');
+        } else {
+
+            const stripe = await getStripe();
+            const response = await fetch('/api/stripe', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(cartItems),
+            });
+
+            if (response.statusCode === 500) return;
+
+            const data = await response.json();
+
+            toast.loading('Redirecting...');
+
+            stripe.redirectToCheckout({ sessionId: data.id });
+        }
+
+    }
 
 
     return (
@@ -116,7 +115,7 @@ const cart = () => {
                                 <span>Total cost</span>
                                 {
                                     validCode == "bonus2022" ? <span> Rs: {parseInt(totalPrice - totalPrice / 4)}</span> :
-                                    validCode == "sale2022" ? <span> Rs: {parseInt(totalPrice - totalPrice / 8)}</span> :
+                                        validCode == "sale2022" ? <span> Rs: {parseInt(totalPrice - totalPrice / 8)}</span> :
                                             <span>Rs: {totalPrice}</span>}
                             </div>
                             <button onClick={handleCheckout} class="bg-indigo-500 font-semibold hover:bg-indigo-600 py-3 text-sm text-white uppercase w-full">Checkout</button>
@@ -128,7 +127,7 @@ const cart = () => {
         </div>
     )
 }
-{/* <Link href={`${getAccessToken ? '/customer' : '/login'}`}></Link> */}
+{/* <Link href={`${getAccessToken ? '/customer' : '/login'}`}></Link> */ }
 
 export default cart
 
