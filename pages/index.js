@@ -12,7 +12,7 @@ export default function Home({ products }) {
         <link rel="icon" href="/favicon.ico" />
         <script src="https://accounts.google.com/gsi/client" async defer></script>
         <div id="g_id_onload"
-          data-client_id="89267214240-4l20rsknks29stja007k15smm80ljgea.apps.googleusercontent.com"
+          data-client_id="851583521817-5668993p0cmqt1na18v6a5gahnvt5p9j.apps.googleusercontent.com"
           data-callback="handleCredentialResponse">
         </div>
         <div class="g_id_signin" data-type="standard"></div>
