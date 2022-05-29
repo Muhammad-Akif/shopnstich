@@ -248,7 +248,7 @@ flex items-center justify-center">
                             <>
                                 <hr class="my-6 border-gray-300 w-full" />
                                 <GoogleLogin
-                                    clientId="851583521817-5668993p0cmqt1na18v6a5gahnvt5p9j.apps.googleusercontent.com"
+                                    clientId="89267214240-4l20rsknks29stja007k15smm80ljgea.apps.googleusercontent.com"
                                     render={(renderProps) => (
                                         <button type="button" onClick={renderProps.onClick} disabled={renderProps.disabled} class="w-full block bg-white hover:bg-green-200 focus:bg-gray-100 text-gray-900 font-semibold rounded-lg px-4 py-3 border border-gray-300">
                                             <div class="flex items-center justify-center">
