@@ -9,8 +9,13 @@ export default function Home({ products }) {
     <>
       <Head>
         <title>ShopnStitch</title>
-        <meta name="google-site-verification" content="I94h8yYfnMEYEvSeU5lWv35rrC7JFdvd3DvbFbgghSk" />
         <link rel="icon" href="/favicon.ico" />
+        <script src="https://accounts.google.com/gsi/client" async defer></script>
+        <div id="g_id_onload"
+          data-client_id="851583521817-5668993p0cmqt1na18v6a5gahnvt5p9j.apps.googleusercontent.com"
+          data-callback="handleCredentialResponse">
+        </div>
+        <div class="g_id_signin" data-type="standard"></div>
         <script src="./TW-ELEMENTS-PATH/dist/js/index.min.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/tw-elements/dist/js/index.min.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/chart.js@3.6.2/dist/chart.min.js"></script>
