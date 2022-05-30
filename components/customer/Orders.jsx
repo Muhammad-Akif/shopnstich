@@ -28,7 +28,9 @@ const Orders = () => {
   }, [])
 
   const handleTailor = () => {
-    projectFirestore.collection("customer").doc(personalInfo[0]?.id).update({ orders: cartItems });
+    let address = prompt("Enter Delivery Address");
+    projectFirestore.collection("customer").doc(personalInfo[0]?.id).update({ tailorDelivery: {cartItems, address} });
+    alert("Your Order will Delivered to your address with in 5-7 working days");
     router.push("/success")
   }
 
