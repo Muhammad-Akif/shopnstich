@@ -20,22 +20,36 @@ const Signin = ({ inType }) => {
     const { isTailor, setTailor } = useStateContext();
     const googleSuccess = async () => {
         console.log("res1 --> ")
-        // try {
-        //     if (!isTailor) {
-        //         toast.loading('Redirecting...');
-        //         if (projectFirestore.collection("tailor")) {
-        //             router.push('/customer')
-        //         }
-        //         else {
-        //             router.push('/tailorInfo')
-        //         }
-        //     }
-        //     else {
-        //         router.push('/tailor')
-        //     }
-        // } catch (error) {
-        //     console.log(error)
-        // }
+        try {
+            if (isTailor) {
+                toast.loading('Redirecting...');
+                if (projectFirestore.collection("tailor")) {
+                    console.log(" redirecting --> ", projectFirestore.collection("tailor"))
+                    router.push('/tailorInfo')
+                    toast.dismiss();
+                }
+                else {
+                    console.log(" redirecting 2 --> ", projectFirestore.collection("tailor"))
+                    router.push('/tailor')
+                    toast.dismiss();
+                }
+            }
+            if(!isTailor) {
+                toast.loading('Redirecting...');
+                if (projectFirestore.collection("customer")) {
+                    console.log(" redirecting --> ", projectFirestore.collection("customer"))
+                    router.push('/customer')
+                    toast.dismiss();
+                }
+                else {
+                    console.log(" redirecting 2--> ", projectFirestore.collection("customer"))
+                    router.push('/measurements')
+                    toast.dismiss();
+                }
+            }
+        } catch (error) {
+            console.log(error)
+        }
     }
     const googleFailure = () => {
         console.log("Google Login Failure...")
@@ -102,24 +116,34 @@ const Signin = ({ inType }) => {
                     return;
                 }
                 alert("Successfully login");
-                // dispatch(authenticate(data.user.uid, data.user.email));
                 localStorage.setItem('user', data.user.email.toLowerCase());
                 const obj = { email: data.user.email, uid: data.user.uid }
                 console.log("singin obj --> ", obj)
                 submitAuth(obj)
                     .then((res) => {
                         console.log(" res ----> ", res)
-                        if (!isTailor) {
+                        if (isTailor) {
                             toast.loading('Redirecting...');
                             if (projectFirestore.collection("tailor")) {
-                                router.push('/customer')
+                                console.log(" redirecting --> ", projectFirestore.collection("tailor"))
+                                router.push('/tailorInfo')
                             }
                             else {
-                                router.push('/tailorInfo')
+                                console.log(" redirecting 2 --> ", projectFirestore.collection("tailor"))
+
+                                router.push('/tailor')
                             }
                         }
                         else {
-                            router.push('/tailor')
+                            toast.loading('Redirecting...');
+                            if (projectFirestore.collection("customer")) {
+                                console.log(" redirecting --> ", projectFirestore.collection("customerc"))
+                                router.push('/customer')
+                            }
+                            else {
+                                console.log(" redirecting 2--> ", projectFirestore.collection("customer"))
+                                router.push('/measurements')
+                            }
                         }
 
                     }

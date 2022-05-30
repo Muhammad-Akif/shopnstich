@@ -8,7 +8,7 @@ const profile = () => {
     const router = useRouter()
     const [isShow, setShow] = useState(false)
     useEffect(() => {
-        useFirestore('images')
+        useFirestore('customer')
     }, [])
     if (personalInfo[0] == undefined) {
         console.log("waiting")
