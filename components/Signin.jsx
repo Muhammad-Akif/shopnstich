@@ -294,7 +294,7 @@ flex items-center justify-center">
                     </form>
 
 
-                    {/* {
+                    {
                         !inType && (
                             <>
                                 <hr class="my-6 border-gray-300 w-full" />
@@ -313,7 +313,7 @@ flex items-center justify-center">
                                     cookiePolicy="single_host_origin"
                                 />
                             </>)
-                    } */}
+                    }
 
                     {
                         inType ? (<p class="mt-8">Already Have an Account? <Link href="/login"><span class="text-green-500 cursor-pointer hover:text-green-600 font-semibold">Login to account</span></Link></p>)
