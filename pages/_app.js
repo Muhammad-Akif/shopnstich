@@ -4,7 +4,7 @@ import { Toaster } from 'react-hot-toast';
 import Head from 'next/head'
 import { StateContext } from '../context/StateContext';
 import "aos/dist/aos.css";
-import 'tw-elements';
+// import 'tw-elements';
 import '../styles/globals.css'
 
 function MyApp({ Component, pageProps }) {

@@ -6,6 +6,7 @@
     "start": "next start"
   },
   "dependencies": {
+    "@headlessui/react": "^1.6.4",
     "@stripe/stripe-js": "^1.25.0",
     "@trendyol-js/react-carousel": "^2.0.1",
     "aos": "^2.3.4",

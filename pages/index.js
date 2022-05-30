@@ -1,6 +1,7 @@
 import { getAllProducts } from '../services'
 import { Navbar } from '../components'
 import { MainTextnImage, MapnConnect, Trending, ProductCard, Reviews, Footer } from '../components'
+import 'tw-elements';
 
 export default function Home({ products }) {
   return (
