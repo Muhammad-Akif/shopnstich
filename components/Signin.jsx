@@ -42,6 +42,7 @@ const Signin = ({ inType }) => {
                 document.push({ ...doc.data(), id: doc.id });
             });
         });
+        console.log("C - >", document)
         return document;
     }
     const getTailorDetails = async () => {
@@ -51,33 +52,30 @@ const Signin = ({ inType }) => {
                 documents.push({ ...doc.data(), id: doc.id });
             });
         });
+        console.log("T - >", documents)
         return documents;
     }
 
     const googleSuccess = async () => {
         console.log("res1 --> ", customerBool, tailorBool)
-        toast.loading('Redirecting...');
+        // toast.loading('Redirecting...');
         try {
             if (!isTailor) {
-                if (customerBool != 0) {
-                    console.log(" redirecting --> ", projectFirestore.collection("customer").onSnapshot((snap) => snap.length > 0))
+                if (customerBool[0]?.id) {
                     router.push('/customer')
                     toast.dismiss();
                 }
                 else {
-                    console.log(" redirecting 2--> ", projectFirestore.collection("customer").onSnapshot((snap) => console.log("snap -->", snap.length)))
                     router.push('/measurements')
                     toast.dismiss();
                 }
             }
             if (isTailor) {
-                if (tailorBool.length != 0) {
-                    console.log(" redirecting --> ", projectFirestore.collection("tailor").onSnapshot((snap) => console.log("snap -->", snap.length > 0)))
+                if (tailorBool[0]?.id) {
                     router.push('/tailor')
                     toast.dismiss();
                 }
                 else {
-                    console.log(" redirecting 2 --> ", projectFirestore.collection("tailor").onSnapshot((snap) => console.log("snap -->", snap.length)))
                     router.push('/tailorInfo')
                     toast.dismiss();
                 }
@@ -151,27 +149,23 @@ const Signin = ({ inType }) => {
                 submitAuth(obj)
                     .then((res) => {
                         console.log("res2 --> ", customerBool, tailorBool, res)
-                        toast.loading('Redirecting...');
+                        // toast.loading('Redirecting...');
                         if (!isTailor) {
-                            if (customerBool != 0) {
-                                console.log(" redirecting --> ", projectFirestore.collection("customer").onSnapshot((snap) => snap.length > 0))
+                            if (customerBool[0]?.id) {
                                 router.push('/customer')
                                 toast.dismiss();
                             }
                             else {
-                                console.log(" redirecting 2--> ", projectFirestore.collection("customer").onSnapshot((snap) => console.log("snap -->", snap.length)))
                                 router.push('/measurements')
                                 toast.dismiss();
                             }
                         }
                         if (isTailor) {
-                            if (tailorBool.length != 0) {
-                                console.log(" redirecting --> ", projectFirestore.collection("tailor").onSnapshot((snap) => console.log("snap -->", snap.length > 0)))
+                            if (tailorBool[0]?.id) {
                                 router.push('/tailor')
                                 toast.dismiss();
                             }
                             else {
-                                console.log(" redirecting 2 --> ", projectFirestore.collection("tailor").onSnapshot((snap) => console.log("snap -->", snap.length)))
                                 router.push('/tailorInfo')
                                 toast.dismiss();
                             }
