@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Link from 'next/link'
 import { GoogleLogin } from "react-google-login"
 import { FaGoogle } from 'react-icons/fa'
@@ -10,6 +10,8 @@ import { projectFirestore } from '../config/index';
 import toast from 'react-hot-toast';
 // // import { authenticate } from '../redux/actions';
 
+
+
 function validateEmail(email) {
     const re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
     return re.test(String(email).toLowerCase());
@@ -18,32 +20,65 @@ function validateEmail(email) {
 const Signin = ({ inType }) => {
     const router = useRouter()
     const { isTailor, setTailor } = useStateContext();
+    const [email, setemail] = useState(null);
+    const [name, setName] = useState(null);
+    const [isEmailValidate, setIsEmailValidate] = useState(false);
+    const [isPasswordValidate, setIsPasswordValidate] = useState(false);
+    const [showError, setShowError] = useState(false);
+    const [confirmPassword, setConfirmPassword] = useState(null)
+    const [password, setpassword] = useState(null);
+    const [customerBool, setCustomerBool] = useState(null)
+    const [tailorBool, setTailorBool] = useState(null)
+
+    useEffect(() => {
+        getCustomerDetails().then((data) => { setCustomerBool(data) })
+        getTailorDetails().then((dat) => { setTailorBool(dat) })
+    }, [])
+
+    const getCustomerDetails = async () => {
+        let document = [];
+        projectFirestore.collection("customer").onSnapshot(snap => {
+            snap.forEach(doc => {
+                document.push({ ...doc.data(), id: doc.id });
+            });
+        });
+        return document;
+    }
+    const getTailorDetails = async () => {
+        let documents = [];
+        projectFirestore.collection("tailor").onSnapshot(snap => {
+            snap.forEach(doc => {
+                documents.push({ ...doc.data(), id: doc.id });
+            });
+        });
+        return documents;
+    }
+
     const googleSuccess = async () => {
-        console.log("res1 --> ")
+        console.log("res1 --> ", customerBool, tailorBool)
+        toast.loading('Redirecting...');
         try {
-            if (isTailor) {
-                toast.loading('Redirecting...');
-                if (projectFirestore.collection("tailor")) {
-                    console.log(" redirecting --> ", projectFirestore.collection("tailor"))
-                    router.push('/tailorInfo')
-                    toast.dismiss();
-                }
-                else {
-                    console.log(" redirecting 2 --> ", projectFirestore.collection("tailor"))
-                    router.push('/tailor')
-                    toast.dismiss();
-                }
-            }
-            if(!isTailor) {
-                toast.loading('Redirecting...');
-                if (projectFirestore.collection("customer")) {
-                    console.log(" redirecting --> ", projectFirestore.collection("customer"))
+            if (!isTailor) {
+                if (customerBool != 0) {
+                    console.log(" redirecting --> ", projectFirestore.collection("customer").onSnapshot((snap) => snap.length > 0))
                     router.push('/customer')
                     toast.dismiss();
                 }
                 else {
-                    console.log(" redirecting 2--> ", projectFirestore.collection("customer"))
+                    console.log(" redirecting 2--> ", projectFirestore.collection("customer").onSnapshot((snap) => console.log("snap -->", snap.length)))
                     router.push('/measurements')
+                    toast.dismiss();
+                }
+            }
+            if (isTailor) {
+                if (tailorBool.length != 0) {
+                    console.log(" redirecting --> ", projectFirestore.collection("tailor").onSnapshot((snap) => console.log("snap -->", snap.length > 0)))
+                    router.push('/tailor')
+                    toast.dismiss();
+                }
+                else {
+                    console.log(" redirecting 2 --> ", projectFirestore.collection("tailor").onSnapshot((snap) => console.log("snap -->", snap.length)))
+                    router.push('/tailorInfo')
                     toast.dismiss();
                 }
             }
@@ -55,13 +90,7 @@ const Signin = ({ inType }) => {
         console.log("Google Login Failure...")
     }
     // const dispatch = useDispatch();
-    const [email, setemail] = useState(null);
-    const [name, setName] = useState(null);
-    const [isEmailValidate, setIsEmailValidate] = useState(false);
-    const [isPasswordValidate, setIsPasswordValidate] = useState(false);
-    const [showError, setShowError] = useState(false);
-    const [confirmPassword, setConfirmPassword] = useState(null)
-    const [password, setpassword] = useState(null);
+
 
     const signUp = e => {
         e.preventDefault();
@@ -121,28 +150,30 @@ const Signin = ({ inType }) => {
                 console.log("singin obj --> ", obj)
                 submitAuth(obj)
                     .then((res) => {
-                        console.log(" res ----> ", res)
-                        if (isTailor) {
-                            toast.loading('Redirecting...');
-                            if (projectFirestore.collection("tailor")) {
-                                console.log(" redirecting --> ", projectFirestore.collection("tailor"))
-                                router.push('/tailorInfo')
+                        console.log("res2 --> ", customerBool, tailorBool, res)
+                        toast.loading('Redirecting...');
+                        if (!isTailor) {
+                            if (customerBool != 0) {
+                                console.log(" redirecting --> ", projectFirestore.collection("customer").onSnapshot((snap) => snap.length > 0))
+                                router.push('/customer')
+                                toast.dismiss();
                             }
                             else {
-                                console.log(" redirecting 2 --> ", projectFirestore.collection("tailor"))
-
-                                router.push('/tailor')
+                                console.log(" redirecting 2--> ", projectFirestore.collection("customer").onSnapshot((snap) => console.log("snap -->", snap.length)))
+                                router.push('/measurements')
+                                toast.dismiss();
                             }
                         }
-                        else {
-                            toast.loading('Redirecting...');
-                            if (projectFirestore.collection("customer")) {
-                                console.log(" redirecting --> ", projectFirestore.collection("customerc"))
-                                router.push('/customer')
+                        if (isTailor) {
+                            if (tailorBool.length != 0) {
+                                console.log(" redirecting --> ", projectFirestore.collection("tailor").onSnapshot((snap) => console.log("snap -->", snap.length > 0)))
+                                router.push('/tailor')
+                                toast.dismiss();
                             }
                             else {
-                                console.log(" redirecting 2--> ", projectFirestore.collection("customer"))
-                                router.push('/measurements')
+                                console.log(" redirecting 2 --> ", projectFirestore.collection("tailor").onSnapshot((snap) => console.log("snap -->", snap.length)))
+                                router.push('/tailorInfo')
+                                toast.dismiss();
                             }
                         }
 
