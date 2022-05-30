@@ -12,6 +12,8 @@ export const StateContext = ({ children }) => {
   const [size, setSize] = useState("M");
   const [isMeasure, setMeasure] = useState(false)
 
+  const [auth, setAuth] = useState(false)
+
   const [file, setFile] = useState(null);
   const [progress, setProgress] = useState(0);
   const [error, setError] = useState(null);
@@ -269,7 +271,9 @@ export const StateContext = ({ children }) => {
         edit,
         setEdit,
         tailorInfo,
-        setTailorInfo
+        setTailorInfo,
+        auth, 
+        setAuth
       }}
     >
       {children}

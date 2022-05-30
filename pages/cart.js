@@ -4,38 +4,16 @@ import { AiOutlineMinus, AiOutlinePlus } from 'react-icons/ai'
 import { useStateContext } from '../context/StateContext';
 // import Link from 'next/link'
 import { useRouter } from 'next/router'
-import toast from 'react-hot-toast';
-import getStripe from '../lib/getStripe';
 
 const cart = () => {
     const router = useRouter()
     const [promoCode, setPromoCode] = useState('')
     const [validCode, setValidCode] = useState('')
-    const { totalPrice, totalQuantities, cartItems, toggleCartItemQuanitity, onRemove } = useStateContext();
+    const { totalPrice, totalQuantities, cartItems, toggleCartItemQuanitity,auth, onRemove } = useStateContext();
 
-    const handleCheckout = async () => {
-        if (!localStorage.getItem('user')) {
-            router.push('/login');
-        } else {
-
-            const stripe = await getStripe();
-            const response = await fetch('/api/stripe', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify(cartItems),
-            });
-
-            if (response.statusCode === 500) return;
-
-            const data = await response.json();
-
-            toast.loading('Redirecting...');
-
-            stripe.redirectToCheckout({ sessionId: data.id });
-        }
-
+    const handleCheckout = () => {
+       if(auth) router.push("/customer")
+       else router.push("/login")
     }
 
 
@@ -127,7 +105,6 @@ const cart = () => {
         </div>
     )
 }
-{/* <Link href={`${getAccessToken ? '/customer' : '/login'}`}></Link> */ }
 
 export default cart
 

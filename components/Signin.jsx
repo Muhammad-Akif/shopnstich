@@ -19,7 +19,7 @@ function validateEmail(email) {
 
 const Signin = ({ inType }) => {
     const router = useRouter()
-    const { isTailor, setTailor } = useStateContext();
+    const { isTailor, setTailor, setAuth } = useStateContext();
     const [email, setemail] = useState(null);
     const [name, setName] = useState(null);
     const [isEmailValidate, setIsEmailValidate] = useState(false);
@@ -58,6 +58,7 @@ const Signin = ({ inType }) => {
 
     const googleSuccess = async () => {
         console.log("res1 --> ", customerBool, tailorBool)
+        setAuth(true)
         // toast.loading('Redirecting...');
         try {
             if (!isTailor) {
@@ -149,6 +150,7 @@ const Signin = ({ inType }) => {
                 submitAuth(obj)
                     .then((res) => {
                         console.log("res2 --> ", customerBool, tailorBool, res)
+                        setAuth(true)
                         // toast.loading('Redirecting...');
                         if (!isTailor) {
                             if (customerBool[0]?.id) {
@@ -292,7 +294,7 @@ flex items-center justify-center">
                     </form>
 
 
-                    {
+                    {/* {
                         !inType && (
                             <>
                                 <hr class="my-6 border-gray-300 w-full" />
@@ -311,7 +313,7 @@ flex items-center justify-center">
                                     cookiePolicy="single_host_origin"
                                 />
                             </>)
-                    }
+                    } */}
 
                     {
                         inType ? (<p class="mt-8">Already Have an Account? <Link href="/login"><span class="text-green-500 cursor-pointer hover:text-green-600 font-semibold">Login to account</span></Link></p>)

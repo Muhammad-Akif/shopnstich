@@ -60,7 +60,7 @@ const Trending = ({ products }) => {
                                                 </div>
                                                 <div class="mt-4">
                                                     <span class="text-teal-600 text-md font-semibold">{key==0 ? 4.5 : key==1 ? 4.8 : 5}/5 ratings </span>
-                                                    <span class="text-sm text-gray-600">(based on 234 ratings)</span>
+                                                    {/* <span class="text-sm text-gray-600">(based on 234 ratings)</span> */}
                                                 </div>
                                             </div>
                                         </div>

@@ -1,4 +1,4 @@
-import { useState,useEffect } from "react";
+import { useState, useEffect } from "react";
 import Image from 'next/image'
 import control from '../images/customer/control.png'
 import Chart_fill from '../images/customer/Chart_fill.png'
@@ -13,14 +13,14 @@ import { useRouter } from 'next/router'
 const App = () => {
   const router = useRouter()
   const [open, setOpen] = useState(true);
-  
+
   const Menus = [
     { id: 0, title: "Dashboard", tab: Dashboard, src: Chart_fill, gap: true },
-    { id: 1, title: "Profile", tab: Profile, src: User },
-    { id: 2, title: "Dilevered", tab: Inbox, src: Chat, gap: true },
-    { id: 3, title: "Orders ", tab: Orders, src: Folder },
-    // { id: 4, title: "Offer & Deals ", tab:Deals, src: Calendar },
-    { id: 4, title: "Logout", tab: Deals, src: GoSignOut, gap: true },
+    { id: 1, title: "Profile", tab: Profile, src: User, gap: true },
+    { id: 2, title: "Orders ", tab: Orders, src: Folder },
+    { id: 3, title: "Logout", tab: Deals, src: GoSignOut, gap: true },
+    // { id: 3, title: "Dilevered", tab: Inbox, src: Chat },
+    // { id: 5, title: "Offer & Deals ", tab:Deals, src: Calendar },
   ];
   const [Tab, setTab] = useState(Menus[0])
 
@@ -71,7 +71,7 @@ const App = () => {
               ${Menu.gap ? "mt-9" : "mt-2"} ${index === Tab.id && "bg-light-white"
                 } `}
             >
-              {Menu.id == 4 ?
+              {Menu.id == 3 ?
                 <Menu.src class="text-white text-xl ml-1" /> :
                 <Image src={Menu.src} />
               }
