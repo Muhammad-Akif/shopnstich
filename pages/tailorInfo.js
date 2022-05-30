@@ -1,8 +1,10 @@
 import React, { useState } from 'react'
 import { ImManWoman } from 'react-icons/im'
+import { useRouter } from 'next/router'
 import { useStateContext } from '../context/StateContext';
 
 const tailorInfo = () => {
+    const router = useRouter()
     const [error, setError] = useState(null);
     const [isGender, setGender] = useState(false)
     const [isState, setState] = useState(false)
@@ -45,6 +47,7 @@ const tailorInfo = () => {
             setState(false)
             console.log("obj --> ", tailorInfo)
             useStorage(file, tailorInfo, "tailor")
+            router.push("/tailor")
         }
     }
 
