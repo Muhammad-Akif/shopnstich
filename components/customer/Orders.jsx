@@ -55,13 +55,15 @@ const Orders = () => {
   return (
     <div>
       {console.log(cartItems)}
+      {cartItems.length > 0 && (<div className="font-bold font-serif text-xl pb-4">Order Details</div>)}
       {cartItems.length > 0 ? <div className="gap-8 grid sm:grid-cols-2 lg:grid-cols-3">{cartItems.map(RelatedProducts)}</div> : <div class='flex justify-center items-center text-red-500 font-bold text-xl py-5'> No Orders</div>}
       {cartItems.length > 0 && (
-        <div class="flex items-center justify-center">
+        <div class="flex items-center justify-center mt-5">
           <button type="button" onClick={handleTailor} class="inline-block mr-5 px-6 py-2 border-2 border-green-500 text-green-500 font-medium text-xs leading-tight uppercase rounded hover:bg-black hover:bg-opacity-5 focus:outline-none focus:ring-0 transition duration-150 ease-in-out">Deliver to tailor</button>
           <button type="button" onClick={() => setOpen(true)} class="inline-block px-6 py-2 border-2 border-red-600 text-red-600 font-medium text-xs leading-tight uppercase rounded hover:bg-black hover:bg-opacity-5 focus:outline-none focus:ring-0 transition duration-150 ease-in-out">Direct Checkout</button>
         </div>
       )}
+      {cartItems.length > 0 &&(
       <Transition.Root show={open} as={Fragment}>
         <Dialog as="div" className="relative z-10" initialFocus={cancelButtonRef} onClose={setOpen}>
           <Transition.Child
@@ -127,7 +129,7 @@ const Orders = () => {
             </div>
           </div>
         </Dialog>
-      </Transition.Root>
+      </Transition.Root>)}
     </div>
   )
 }
