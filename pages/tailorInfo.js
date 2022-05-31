@@ -2,13 +2,15 @@ import React, { useState } from 'react'
 import { ImManWoman } from 'react-icons/im'
 import { useRouter } from 'next/router'
 import { useStateContext } from '../context/StateContext';
+import { projectFirestore} from '../config/index';
+
 
 const tailorInfo = () => {
     const router = useRouter()
     const [error, setError] = useState(null);
     const [isGender, setGender] = useState(false)
     const [isState, setState] = useState(false)
-    const { file, setFile, tailorInfo, useStorage, setTailorInfo } = useStateContext();
+    const { file, setFile, tailorInfo, useStorage, setTailorInfo, edit } = useStateContext();
 
     const types = ['image/png', 'image/jpeg'];
 
@@ -46,6 +48,9 @@ const tailorInfo = () => {
             setGender(false)
             setState(false)
             console.log("obj --> ", tailorInfo)
+            if (edit.isEdit) {
+                projectFirestore.collection("tailor").doc(edit.id).update({data: tailorInfo});
+            }
             useStorage(file, tailorInfo, "tailor")
             router.push("/tailor")
         }

@@ -1,8 +1,16 @@
-import React, { useState} from 'react'
+import React, { useState } from 'react'
+import firebase from '../../config/index'
 
 const MapnConnect = () => {
     const [email, setEmail] = useState('')
     const [message, setMessage] = useState('')
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        alert('Thanks for Connecting with us!');
+        firebase.database().ref("/connect").push({email,message})
+    }
+
     return (
         <div>
             <section class="text-gray-100 body-font relative">
@@ -13,7 +21,7 @@ const MapnConnect = () => {
                     <div class="lg:w-1/3 md:w-1/2 bg-green-960 opacity-90 rounded-lg p-8 flex flex-col md:ml-auto w-full mt-10 md:mt-0 relative z-10 shadow-md">
                         <h2 class="text-gray-100 text-xl mb-1 font-bold title-font">Stay Connected!</h2>
                         <p class="leading-relaxed mb-2 text-gray-100">In touch with us for latest updates & new arrivals!</p>
-                        <form onSubmit={(e) => { e.preventDefault(); alert('Thanks for Connecting with us!');}}>
+                        <form onSubmit={handleSubmit}>
                             <div class="relative mb-4">
                                 <label for="email" class="leading-7 text-sm text-gray-100">Email</label>
                                 <input type="email" required id="email" value={email} onChange={(e) => setEmail(e.target.value)} name="email" class="w-full bg-gray-300 rounded border border-gray-300 focus:border-green-950 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-green-960 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out" />

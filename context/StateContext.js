@@ -192,6 +192,7 @@ export const StateContext = ({ children }) => {
         snap.forEach(doc => {
           documents.push({ ...doc.data(), id: doc.id });
         });
+        setTailorInfo(documents);
         setPersonalInfo(documents);
       });
 
@@ -272,7 +273,7 @@ export const StateContext = ({ children }) => {
         setEdit,
         tailorInfo,
         setTailorInfo,
-        auth, 
+        auth,
         setAuth
       }}
     >
