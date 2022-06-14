@@ -3,7 +3,7 @@
 [![shopnstitch.png](https://i.postimg.cc/sxf6qMHH/shopnstitch.png)](https://postimg.cc/346FDxT2)
 
 # Introduction
-  An e-commrece app to buy stitched and un-stitched cloths ...
+  An e-commrece app to buy stitched and un-stitched cloths, inscluding 2 portals, Customer & Tailor Dashboards ...
 
 ## Technologies
 Project is created with 
