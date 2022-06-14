@@ -11,6 +11,7 @@ Project is created with
 * Redux 
 * Tailwind Elements,
 * GraphCMS. 
+* Firebase (Storage, Firestore)
 * Authentications
 
 ## Setup:
