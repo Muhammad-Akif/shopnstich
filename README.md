@@ -1,5 +1,7 @@
 # ShopnStitch (E-commrece App)
 
+[![shopnstitch.png](https://i.postimg.cc/sxf6qMHH/shopnstitch.png)](https://postimg.cc/346FDxT2)
+
 # Introduction
   An e-commrece app to buy stitched and un-stitched cloths ...
 
