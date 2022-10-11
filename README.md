@@ -3,8 +3,8 @@
 [![shopnstitch.png](https://i.postimg.cc/sxf6qMHH/shopnstitch.png)](https://postimg.cc/346FDxT2)
 
 # Introduction
-  An e-commrece app to buy stitched and un-stitched cloths, including 2 portals, Customer & Tailor Dashboards with Order management, Product Reviews,Profile mangement, customer measurements details and more ...
-
+  An e-commerce app to buy stitched and un-stitched clothes, including 2 portals, Customer & Tailor Dashboards with Order management, Product Reviews, Profile management, customer measurement details, and more ...
+  
 ## Technologies
 Project is created with 
 * Next.js, React, Hooks
