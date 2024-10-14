@@ -17,5 +17,3 @@ Project is created with
 
 ## Setup:
 $ run `npm i && npm run dev || yarn i && yarn run dev` for starting the application.
-
-https://we.tl/t-9HeKJH96iD
